@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700|Sniglet:400,800');
+
+body {
+    background-image: url(../images/lavender-background.jpg);
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#main {
+    flex: 1;
+}
+
+/*-- Navbar Styles --*/
+
+#brand,
+.nav-link {
+    font-family: 'Sniglet', cursive;
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+/*-- Navbar Styles ends --*/
+
+/*-- Game Board --*/
+
+.red {
+ background-color: red;
+ height: 10rem;
+ width: 8rem;
+ border: .4rem solid black;
+ border-radius: 10rem 0 0 0;
+}
+
+.blue {
+ background-color: blue;
+ height: 10rem;
+ width: 8rem;
+ border-top: .4rem solid black;
+ border-bottom: .4rem solid black;
+ border-right: .4rem solid black;
+ border-radius: 0 0 10rem 0;
+}
+
+.green {
+ background-color: green;
+ height: 10rem;
+ width: 8rem;
+ border-top: .4rem solid black;
+ border-bottom: .4rem solid black;
+ border-right: .4rem solid black;
+ border-radius: 0 10rem 0 0;
+}
+
+.yellow {
+ background-color: yellow;
+ height: 10rem;
+ width: 8rem;
+ border: .4rem solid black;
+ border-radius: 0 0 0 10rem;
+}
+
+#controls {
+ background-color: gray;
+ height: 6rem;
+ width: 10rem;
+ border-right: .4rem solid black;
+ border-left: .4rem solid black;
+}
+
+#count {
+ position: absolute;
+ background: #330000;
+ color: red;
+ font-family: courier;
+ font-size: 2rem;
+ height: 3rem;
+ width: 4rem;
+ text-align: center;
+ vertical-align: middle;
+ line-height: 3rem;
+}
+
+/*-- Game Board ends --*/
+
+/*-- High Score --*/
+
+#high-score {
+ position: absolute;
+ background: #330000;
+ color: red;
+ font-family: courier;
+ font-size: 2rem;
+ height: 4rem;
+ width: 6rem;
+ text-align: center;
+ vertical-align: middle;
+ line-height: 4rem;
+}
+
+/*-- High Score ends --*/
+
+/*-- Footer --*/
+
+
+
+/*-- Footer ends --*/
+
+/*-- Media Queries --*/
+
+@media only screen 
+    and (min-width: 768px) {
+        #controls {
+            height: 8rem;
+            width: 16rem;
+        }
+}
+
+/* -- iPad Pro (Portrait and Landscape) -- */
+
+/*@media only screen */
+/*  and (min-width: 1024px) */
+/*  and (max-height: 1366px) */
+/*  and (-webkit-min-device-pixel-ratio: 1.5) {*/
+/*      nav {*/
+/*        margin-bottom: 10rem !important;  */
+/*      }*/
+/*}*/
+
+/*-- Desktop --*/
+@media only screen
+    and (min-width: 1244px) {
+        
+}
+/*-- Desktop ends --*/
+
+/*-- Media Queries ends --*/
