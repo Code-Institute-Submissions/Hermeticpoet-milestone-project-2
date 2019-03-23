@@ -27,60 +27,75 @@ body {
 /*-- Game Board --*/
 
 .red {
- background-color: red;
- height: 10rem;
- width: 8rem;
- border: .4rem solid black;
- border-radius: 10rem 0 0 0;
+    background-color: red;
+    background-image: linear-gradient(red, pink);
+    height: 10rem;
+    width: 8rem;
+    border: .4rem solid black;
+    border-radius: 10rem 0 0 0;
+    cursor: pointer;
+    transition: all .2s ease 0s;
 }
 
 .blue {
- background-color: blue;
- height: 10rem;
- width: 8rem;
- border-top: .4rem solid black;
- border-bottom: .4rem solid black;
- border-right: .4rem solid black;
- border-radius: 0 0 10rem 0;
+    background-color: blue;
+    background-image: linear-gradient(blue, lightblue);
+    height: 10rem;
+    width: 8rem;
+    border-top: .4rem solid black;
+    border-bottom: .4rem solid black;
+    border-right: .4rem solid black;
+    border-radius: 0 0 10rem 0;
+    cursor: pointer;
+    transition: all .2s ease 0s;
 }
 
 .green {
- background-color: green;
- height: 10rem;
- width: 8rem;
- border-top: .4rem solid black;
- border-bottom: .4rem solid black;
- border-right: .4rem solid black;
- border-radius: 0 10rem 0 0;
+    background-color: green;
+    background-image: linear-gradient(green, lightgreen);
+    height: 10rem;
+    width: 8rem;
+    border-top: .4rem solid black;
+    border-bottom: .4rem solid black;
+    border-right: .4rem solid black;
+    border-radius: 0 10rem 0 0;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    -webkit-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+    box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
 .yellow {
- background-color: yellow;
- height: 10rem;
- width: 8rem;
- border: .4rem solid black;
- border-radius: 0 0 0 10rem;
+    background-color: yellow;
+    background-image: linear-gradient(yellow, lightyellow);
+    height: 10rem;
+    width: 8rem;
+    border: .4rem solid black;
+    border-radius: 0 0 0 10rem;
+    cursor: pointer;
+    transition: all .2s ease 0s;
 }
 
 #controls {
- background-color: gray;
- height: 6rem;
- width: 10rem;
- border-right: .4rem solid black;
- border-left: .4rem solid black;
+    background-color: gray;
+    height: 6rem;
+    width: 10rem;
+    border-right: .4rem solid black;
+    border-left: .4rem solid black;
 }
 
 #count {
- position: absolute;
- background: #330000;
- color: red;
- font-family: courier;
- font-size: 2rem;
- height: 3rem;
- width: 4rem;
- text-align: center;
- vertical-align: middle;
- line-height: 3rem;
+    position: absolute;
+    background: #330000;
+    color: red;
+    font-family: courier;
+    font-size: 2rem;
+    height: 3rem;
+    width: 4rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3rem;
 }
 
 /*-- Game Board ends --*/
@@ -88,16 +103,16 @@ body {
 /*-- High Score --*/
 
 #high-score {
- position: absolute;
- background: #330000;
- color: red;
- font-family: courier;
- font-size: 2rem;
- height: 4rem;
- width: 6rem;
- text-align: center;
- vertical-align: middle;
- line-height: 4rem;
+    position: absolute;
+    background: #330000;
+    color: red;
+    font-family: courier;
+    font-size: 2rem;
+    height: 4rem;
+    width: 6rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 4rem;
 }
 
 /*-- High Score ends --*/
