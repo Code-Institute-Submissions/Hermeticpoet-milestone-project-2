@@ -24,41 +24,43 @@ body {
 }
 /*-- Navbar Styles ends --*/
 
-/*-- Game Board --*/
+/*--******** Game Board ********--*/
 
-.red {
-    background-color: red;
-    background-image: linear-gradient(red, pink);
-    height: 10rem;
+.colorBtn {
+    height: 6rem;
     width: 8rem;
-    border: .4rem solid black;
+}
+
+#topRow {
+    margin-bottom: -2.5rem;
+}
+
+#bottomRow {
+    margin-top: -2.5rem;
+}
+
+#red {
+    background-color: red;
+    /*background-image: linear-gradient(red, pink);*/
+    border-top: .1rem solid #333;
+    border-left: .04rem solid #333;
+    border-bottom: .04rem solid #333;
     border-radius: 10rem 0 0 0;
     cursor: pointer;
     transition: all .2s ease 0s;
+    -webkit-box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+    box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-.blue {
+#blue {
     background-color: blue;
-    background-image: linear-gradient(blue, lightblue);
-    height: 10rem;
-    width: 8rem;
-    border-top: .4rem solid black;
-    border-bottom: .4rem solid black;
-    border-right: .4rem solid black;
+    /*background-image: linear-gradient(lightblue, blue);*/
+    border-top: .04rem solid #333;
+    border-bottom: .1rem solid #333;
+    border-right: .04rem solid #333;
+    border-left: .1rem solid #333;
     border-radius: 0 0 10rem 0;
-    cursor: pointer;
-    transition: all .2s ease 0s;
-}
-
-.green {
-    background-color: green;
-    background-image: linear-gradient(green, lightgreen);
-    height: 10rem;
-    width: 8rem;
-    border-top: .4rem solid black;
-    border-bottom: .4rem solid black;
-    border-right: .4rem solid black;
-    border-radius: 0 10rem 0 0;
     cursor: pointer;
     transition: all .2s ease 0s;
     -webkit-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
@@ -66,23 +68,44 @@ body {
     box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-.yellow {
+#green {
+    background-color: green;
+    /*background-image: linear-gradient(green, lightgreen);*/
+    border-top: .1rem solid #333;
+    border-right: .04rem solid #333;
+    border-bottom: .04rem solid #333;
+    border-left: .1rem solid #333;
+    border-radius: 0 10rem 0 0;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    -webkit-box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+    box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+}
+
+#yellow {
     background-color: yellow;
-    background-image: linear-gradient(yellow, lightyellow);
-    height: 10rem;
-    width: 8rem;
-    border: .4rem solid black;
+    /*background-image: linear-gradient(lightyellow, yellow);*/
+    border-left: .04rem solid #333; 
+    border-bottom: .1rem solid #333;
+    border-top: .04rem solid #333;
     border-radius: 0 0 0 10rem;
     cursor: pointer;
     transition: all .2s ease 0s;
+    -webkit-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+    box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
 }
+
+/*-- Controls --*/
 
 #controls {
     background-color: gray;
     height: 6rem;
-    width: 10rem;
-    border-right: .4rem solid black;
-    border-left: .4rem solid black;
+    width: 8rem;
+    border: .04rem solid #333;
+    border-radius: 1rem;
+    z-index: 2;
 }
 
 #count {
@@ -91,28 +114,57 @@ body {
     color: red;
     font-family: courier;
     font-size: 2rem;
-    height: 3rem;
-    width: 4rem;
+    height: 2rem;
+    margin-top: .5rem;
+    border-radius: .3rem;
+    width: 2.5rem;
     text-align: center;
     vertical-align: middle;
-    line-height: 3rem;
+    line-height: 2rem;
 }
 
-/*-- Game Board ends --*/
+#count-heading {
+    margin-top: .7rem;
+    font-size: 1.2rem;
+}
+
+#power,
+#strict {
+    font-size:.8rem;
+    margin: .3rem 0 .1rem 0;
+}
+
+.custom-control-label {
+    cursor: pointer;
+}
+
+/*-- End of Controls --*/
+
+/*--******* Game Board ends *******--*/
 
 /*-- High Score --*/
 
-#high-score {
+.topScore {
+    margin-bottom: 4rem;
+}
+
+#topScoreHeading {
+    font-size: 1.5rem;
+}
+
+#topScoreCount {
     position: absolute;
     background: #330000;
     color: red;
     font-family: courier;
-    font-size: 2rem;
-    height: 4rem;
-    width: 6rem;
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 5rem;
+    margin-top: 2.5rem;
     text-align: center;
     vertical-align: middle;
-    line-height: 4rem;
+    line-height: 3rem;
+    border-radius: .5rem;
 }
 
 /*-- High Score ends --*/
@@ -123,32 +175,104 @@ body {
 
 /*-- Footer ends --*/
 
-/*-- Media Queries --*/
+/*--******* Media Queries *******--*/
+
+/* -- iPad & Pro  -- */
 
 @media only screen 
-    and (min-width: 768px) {
-        #controls {
-            height: 8rem;
-            width: 16rem;
+  and (min-width: 768px) {
+      .colorBtn {
+          height: 10rem;
+          width: 8rem;
+      }
+      
+       #controls {
+           height: 8rem;
+           width: 16rem;
+       }
+       
+       #count-heading {
+           margin: 1rem 0 0 1rem;
+           font-size: 1.75rem;
+       }
+       
+       #count {
+           position: absolute;
+           background: #330000;
+           color: red;
+           font-family: courier;
+           font-size: 2rem;
+           height: 3rem;
+           width: 4rem;
+           text-align: center;
+           vertical-align: middle;
+           line-height: 3rem;
+           margin: .5rem 0 0 1rem;
+           border-radius: .5rem;
+       }
+       
+       .controlSwitches {
+            margin-top: 1rem;
+       }
+       
+       #power,
+       #strict {
+           font-size: 1.2rem;
+       }
+       
+       #topScoreHeading {
+           font-size: 2.5rem;
+       }
+       
+       #topScoreCount {
+           font-size: 2.2rem;
+           height: 4.2rem;
+           width: 6rem;
+           margin-top: 4rem;
+           line-height: 4.2rem;
+           border-radius: .5rem;
         }
 }
 
-/* -- iPad Pro (Portrait and Landscape) -- */
+/*-- End iPad & Pro --*/
 
-/*@media only screen */
-/*  and (min-width: 1024px) */
-/*  and (max-height: 1366px) */
-/*  and (-webkit-min-device-pixel-ratio: 1.5) {*/
-/*      nav {*/
-/*        margin-bottom: 10rem !important;  */
-/*      }*/
-/*}*/
+/*-- Desktop Screens --*/
 
-/*-- Desktop --*/
 @media only screen
     and (min-width: 1244px) {
+        #count-heading {
+           margin: 1rem 2rem 0 2rem;
+           font-size: 2.2rem;
+       }
+       
+       #count {
+           font-size: 3rem;
+           height: 3.5rem;
+           width: 4rem;
+           line-height: 3.5rem;
+           margin-left: 1.5rem;
+           border-radius: .5rem;
+       }
         
+        #topScoreHeading {
+           font-size: 3rem;
+       }
+       
+       #topScoreCount {
+           font-size: 3.5rem;
+           height: 4.5rem;
+           width: 7rem;
+           line-height: 4.5rem;
+           border-radius: .5rem;
+           margin-bottom: 5rem;
+        }
+        
+        .controlSwitches {
+            margin-bottom: 1.5rem;
+       }
 }
-/*-- Desktop ends --*/
 
-/*-- Media Queries ends --*/
+/*-- End Desktop Screens --*/
+
+/*--******* End Media Queries *******--*/
+
