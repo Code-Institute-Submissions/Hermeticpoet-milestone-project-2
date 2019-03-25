@@ -169,11 +169,22 @@ body {
 
 /*-- High Score ends --*/
 
-/*-- Footer --*/
+/*-- Modal --*/
 
+.modal-content {
+    background-color: #dcbcf9;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #333;
+}
 
+.modal-header,
+.modal-footer {
+    background-color: #426a95;
+}
 
-/*-- Footer ends --*/
+/*-- End of Modal --*/
 
 /*--******* Media Queries *******--*/
 
