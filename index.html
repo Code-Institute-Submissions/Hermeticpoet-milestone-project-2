@@ -22,20 +22,16 @@
 </head>
 
 <body id="main">
+ <div class="opaque_overlay1">&nbsp;</div>
  
 <!-- Navbar -->
  
- <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 p-2">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
   <div class="container">
    <a id="brand" class="navbar-brand ml-3" href="#"><span class="mr-2">Simon</span><i class="far fa-comment"></i></a>
    <ul class="navbar-nav ml-auto mr-2">
     <li class="nav-item">
      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#rules" type="button">Rules</button>
-     <!--<div class="collapse" id="rules">-->
-     <!-- <div class="card card-body">-->
-     <!--  This Game is blah blah blah-->
-     <!-- </div>-->
-     <!--</div>-->
     </li>
    </ul>
   </div>
@@ -44,6 +40,13 @@
 <!-- Navbar Ends-->
 
  <section id="main">
+  <div class="row">
+   <div class="container">
+    <div class="col-6 col-lg-4 mx-auto mb-3">
+     <button type="button" class="btn btn-primary btn-lg btn-block startBtn">Start</button>
+    </div>
+   </div>
+  </div>
   
 <!-- Game Board -->
 
@@ -60,7 +63,7 @@
        <h3 id="count-heading">Count</h3>
       </div>
       <div class="col-6">
-       <div id="count"></div>
+       <div id="count">11</div>
       </div>
      </div>
      <div class="row justify-content-center text-center">
@@ -100,7 +103,7 @@
 
 <!-- High Score Counter -->
  <div class="row topScore">
-  <div class="d-flex flex-column align-items-center col-md-4 mx-auto mt-4">
+  <div class="d-flex flex-column align-items-center col-md-4 mx-auto mt-3">
    <h2 class="display-5 text-center mb-3" id="topScoreHeading">High Score</h2>
    <div id="topScoreCount">WIN</div>
   </div>
@@ -113,20 +116,29 @@
  
  <div class="modal fade show" id="rules" tabindex="-1" role="dialog" aria-labelledby="rules" aria-modal="true" aria-hidden="true">
   <div class="modal-dialog" role="document">
+     <div class="opaque_overlay2">&nbsp;</div>
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header d-flex justify-content-center">
         <h5 class="modal-title">Rules</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span class="closeModalX" aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>The Game consists of four colored buttons, each producing a particular tone when it is activated by the A.I. or a user.
-        A round in the game consists of the device lighting up one or more buttons in a random order, after which the player must 
-        reproduce that order by pressing the same buttons sequence. As the game progresses, the number of buttons to be pressed increases.</p>
+        <p>The objective of this game is to memorize the sequence in which the coloured buttons light up and then repeat that sequence by clicking on the required buttons. 
+        At each new level, another button is selected and added to the sequence so as to increase the difficulty.<br><br> 
+        The game begins when a user clicks the start button (after first turning the game on by way of the power switch). The game will then start and the user will 
+        hear a note, while seeing one of the coloured buttons flash. When a sequence has been correctly repeated by the user, a high-pitched sound will notify them 
+        before the next level begins. If the user chooses the wrong button, then they will hear a low-pitched error tone. The game will continue to play until the user 
+        eventually gets the correct complete sequence, that is set to TWENTY. <br><br>
+        However, if the user wishes to make the game more difficult, they can switch on ‘strict’ mode. In strict mode, ONE wrong answer will end the game! At any point, 
+        the user can click the ‘start’ button and restart their game anew. There is a High Score counter that will notify the user of the highest scored sequenced achieved 
+        to date. <br><br>
+        So, what are you waiting for? Press START and jump right in – Good Luck!
+        </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-block modalCloseBtn" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

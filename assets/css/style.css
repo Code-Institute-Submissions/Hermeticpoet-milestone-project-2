@@ -14,15 +14,35 @@ body {
     flex: 1;
 }
 
+.opaque_overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
 /*-- Navbar Styles --*/
 
 #brand,
 .nav-link {
     font-family: 'Sniglet', cursive;
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
 }
 /*-- Navbar Styles ends --*/
+
+/*-- Start Button --*/
+
+.startBtn {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Sniglet', cursive;
+    padding: 0;
+}
+
+/*-- End of Start Button --*/
 
 /*--******** Game Board ********--*/
 
@@ -172,16 +192,46 @@ body {
 /*-- Modal --*/
 
 .modal-content {
-    background-color: #dcbcf9;
+    background: url('../images/OriginalSimon.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     font-size: 1rem;
-    color: #333;
+    color: #fff;
+    text-align: center;
 }
 
-.modal-header,
-.modal-footer {
-    background-color: #426a95;
+.opaque_overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.8rem;
+    color: #fff;
+}
+
+.closeModalX {
+    color: #fff;
+}
+
+.modalCloseBtn {
+    background-color: transparent;
+    border: 2px solid #fff;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.modalCloseBtn:hover {
+    color: #fff;
 }
 
 /*-- End of Modal --*/
@@ -192,6 +242,10 @@ body {
 
 @media only screen 
   and (min-width: 768px) {
+      .startBtn {
+          font-size: 1.5rem;
+      }
+      
       .colorBtn {
           height: 10rem;
           width: 8rem;
@@ -251,6 +305,15 @@ body {
 
 @media only screen
     and (min-width: 1244px) {
+        #brand {
+            font-size: 2.5rem;
+            padding: 0;
+        }
+        
+        .startBtn {
+          font-size: 1.8rem;
+        }
+        
         #count-heading {
            margin: 1rem 2rem 0 2rem;
            font-size: 2.2rem;
@@ -261,8 +324,12 @@ body {
            height: 3.5rem;
            width: 4rem;
            line-height: 3.5rem;
-           margin-left: 1.5rem;
+           margin-left: 2.7rem;
            border-radius: .5rem;
+       }
+       
+       .topScore {
+           margin-bottom: 6rem !important;
        }
         
         #topScoreHeading {
@@ -275,7 +342,7 @@ body {
            width: 7rem;
            line-height: 4.5rem;
            border-radius: .5rem;
-           margin-bottom: 5rem;
+           /*margin-bottom: 5rem;*/
         }
         
         .controlSwitches {
