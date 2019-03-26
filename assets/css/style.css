@@ -60,8 +60,7 @@ body {
 }
 
 #red {
-    background-color: red;
-    /*background-image: linear-gradient(red, pink);*/
+    background-color: #b80000;  /*-- red --*/
     border-top: .1rem solid #333;
     border-left: .04rem solid #333;
     border-bottom: .04rem solid #333;
@@ -74,8 +73,7 @@ body {
 }
 
 #blue {
-    background-color: blue;
-    /*background-image: linear-gradient(lightblue, blue);*/
+    background-color: #070cb6; /*-- blue --*/
     border-top: .04rem solid #333;
     border-bottom: .1rem solid #333;
     border-right: .04rem solid #333;
@@ -89,8 +87,7 @@ body {
 }
 
 #green {
-    background-color: green;
-    /*background-image: linear-gradient(green, lightgreen);*/
+    background-color: #227727; /*-- green --*/
     border-top: .1rem solid #333;
     border-right: .04rem solid #333;
     border-bottom: .04rem solid #333;
@@ -104,8 +101,7 @@ body {
 }
 
 #yellow {
-    background-color: yellow;
-    /*background-image: linear-gradient(lightyellow, yellow);*/
+    background-color: #d1d100; /*-- yellow --*/
     border-left: .04rem solid #333; 
     border-bottom: .1rem solid #333;
     border-top: .04rem solid #333;
@@ -133,7 +129,7 @@ body {
     background: #330000;
     color: red;
     font-family: courier;
-    font-size: 2rem;
+    font-size: 1.8rem;
     height: 2rem;
     margin-top: .5rem;
     border-radius: .3rem;
