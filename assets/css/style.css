@@ -59,7 +59,7 @@ body {
     margin-top: -2.5rem;
 }
 
-.redBtn {
+.red {
     background-color: #b80000;  /*-- red --*/
     border-top: .1rem solid #333;
     border-left: .04rem solid #333;
@@ -72,11 +72,11 @@ body {
     box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-.litRed {
-    background-color: #ff5c5c; /*-- class to add light red --*/
+.red-light {
+    background-color: #ff5c5c !important; /*-- class to add light red --*/
 }
 
-.greenBtn {
+.green {
     background-color: #227727; /*-- green --*/
     border-top: .1rem solid #333;
     border-right: .04rem solid #333;
@@ -90,11 +90,11 @@ body {
     box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-.litGreen {
-    background-color: #6dee73; /*-- class to add light green --*/
+.green-light {
+    background-color: #6dee73 !important; /*-- class to add light green --*/
 }
 
-.yellowBtn {
+.yellow {
     background-color: #d1d100; /*-- yellow --*/
     border-left: .04rem solid #333; 
     border-bottom: .1rem solid #333;
@@ -107,11 +107,11 @@ body {
     box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-.litYellow {
-    background-color: #fff875; /*-- class to add light yellow --*/
+.yellow-light {
+    background-color: #fff875 !important; /*-- class to add light yellow --*/
 }
 
-.blueBtn {
+.blue {
     background-color: #070cb6; /*-- blue --*/
     border-top: .04rem solid #333;
     border-bottom: .1rem solid #333;
@@ -125,8 +125,8 @@ body {
     box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-.litBlue {
-    background-color: #4d52f5; /*-- class to add light blue --*/
+.blue-light {
+    background-color: #4d52f5 !important; /*-- class to add light blue --*/
 }
 
 /*-- Controls --*/

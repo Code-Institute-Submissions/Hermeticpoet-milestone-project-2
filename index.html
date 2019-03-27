@@ -18,7 +18,7 @@
  <audio id="errSound">
   <source src="assets/sounds/errSound.mp3"></source>
  </audio>
- <audio id="correctSound">
+ <audio id="powerOnSound">
   <source src="assets/sounds/correctSound.mp3"></source>
  </audio>
  <audio id="gameWinSound">
@@ -61,8 +61,8 @@
  <div class="row" id="game-board">
   <div class="col-10 col-md-8 col-lg-6 col-xl- 4 mx-auto mt-4 mb-4">
    <div class="row justify-content-center" id="topRow">
-    <div class="col-md-6 colorBtn redBtn" id="1"></div>
-    <div class="col-md-6 colorBtn greenBtn" id="2"></div>
+    <div class="col-md-6 colorBtn red" id="1"></div>
+    <div class="col-md-6 colorBtn green" id="2"></div>
    </div>
    <div class="row justify-content-center">
     <div class="col-xs-4 col-md-6" id="controls">
@@ -80,7 +80,7 @@
        <div id="customSwitch1">
         <div class="form-group">
          <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="powerOn" checked="">
+          <input type="checkbox" class="custom-control-input" id="powerOn">
           <label class="custom-control-label" for="powerOn"></label>
          </div>
         </div>
@@ -91,7 +91,7 @@
        <div id="customSwitch2">
         <div class="form-group">
          <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="strictOn" checked="">
+          <input type="checkbox" class="custom-control-input" id="strictOn">
           <label class="custom-control-label" for="strictOn"></label>
          </div>
         </div>
@@ -101,8 +101,8 @@
     </div>
    </div>
    <div class="row justify-content-center" id="bottomRow">
-    <div class="col-md-6 colorBtn yellowBtn" id="3"></div>
-    <div class="col-md-6 colorBtn blueBtn" id="4"></div>
+    <div class="col-md-6 colorBtn yellow" id="3"></div>
+    <div class="col-md-6 colorBtn blue" id="4"></div>
    </div>
   </div>
  </div>
