@@ -59,7 +59,7 @@ body {
     margin-top: -2.5rem;
 }
 
-#red {
+.redBtn {
     background-color: #b80000;  /*-- red --*/
     border-top: .1rem solid #333;
     border-left: .04rem solid #333;
@@ -72,21 +72,11 @@ body {
     box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-#blue {
-    background-color: #070cb6; /*-- blue --*/
-    border-top: .04rem solid #333;
-    border-bottom: .1rem solid #333;
-    border-right: .04rem solid #333;
-    border-left: .1rem solid #333;
-    border-radius: 0 0 10rem 0;
-    cursor: pointer;
-    transition: all .2s ease 0s;
-    -webkit-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
-    box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+.litRed {
+    background-color: #ff5c5c; /*-- class to add light red --*/
 }
 
-#green {
+.greenBtn {
     background-color: #227727; /*-- green --*/
     border-top: .1rem solid #333;
     border-right: .04rem solid #333;
@@ -100,7 +90,11 @@ body {
     box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
-#yellow {
+.litGreen {
+    background-color: #6dee73; /*-- class to add light green --*/
+}
+
+.yellowBtn {
     background-color: #d1d100; /*-- yellow --*/
     border-left: .04rem solid #333; 
     border-bottom: .1rem solid #333;
@@ -111,6 +105,28 @@ body {
     -webkit-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
     -moz-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
     box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+}
+
+.litYellow {
+    background-color: #fff875; /*-- class to add light yellow --*/
+}
+
+.blueBtn {
+    background-color: #070cb6; /*-- blue --*/
+    border-top: .04rem solid #333;
+    border-bottom: .1rem solid #333;
+    border-right: .04rem solid #333;
+    border-left: .1rem solid #333;
+    border-radius: 0 0 10rem 0;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    -webkit-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+    box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+}
+
+.litBlue {
+    background-color: #4d52f5; /*-- class to add light blue --*/
 }
 
 /*-- Controls --*/
