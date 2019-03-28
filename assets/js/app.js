@@ -59,6 +59,19 @@ $(document).ready(function() {
 });
 
 
+/*--  Check Player Sequence against Simon to be Correct & Loop
+      Thru index of playerSeq and test against same index of simonSeq --*/
+
+function playerSeqCorrect() {
+    for (i = 0; i < playerSeq.length; i++) {
+        if (playerSeq[i] != simonSeq[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
 // Create Power On Sound Function 
 
 function playPowerOnSound() {
