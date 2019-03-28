@@ -117,6 +117,31 @@ function displayError() {
 }
 
 
+// Add Temp colorClass & Play Sound 
+
+function addClassSound(id, color) {
+    $("#"+id).addClass(color + "-light");       // add light class to change color
+    playBtnSound();         // play button sound at same time
+    setTimeout(function() {
+        $("#"+id).removeClass(color + "-light");
+    }, 500);        // remove light class again after 1/2 second 
+}
+
+
+// Create Function for Play Button Sound 
+
+function playBtnSound() {
+    btnSound = document.querySelector("#btnSound");
+    btnSound.play();
+}
+
+// Create Error Sound Function 
+
+function playErrorSound() {
+    errSound = document.querySelector("#errSound");
+    errSound.play();
+}
+
 // Create Power On Sound Function 
 
 function playPowerOnSound() {
