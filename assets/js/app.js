@@ -1,68 +1,41 @@
 // Variables
-
-let sequence = [];
 let playerSeq = [];
-let flash;
-let count;
-let correctSeq;
-let compTurn;
-let strict = false;
-let sound = true;
-let on = false;
-let win;
+let simonSeq = [1, 3, 2, 4]; // For Initial Test purposes ONLY!**!
+let id, color, level = 0;
+// let on = false;
+let win = false;
 
-// Element Referencing Variables
-
-const turnCount = document.querySelector("#count"); // Score Counter
-const topLeft = document.querySelector("#red"); //redBtn
-const topRight = document.querySelector("#green"); // greenBtn
-const bottomLeft = document.querySelector("#yellow"); // yellowBtn
-const bottomRight = document.querySelector("#blue"); // blueBtn
-const strictBtn = document.querySelector("#strictOn");
 const onBtn = document.querySelector("#powerOn");
-const startBtn = document.querySelector("#startBtn");
+const levelNum = 4;
 
-// ***** EVENT LISTENERS *****
+// Page Loads & then Power Game Board Up
 
-// Switch Power to Game on
-
-$("#powerOn").click(function() {
-    if (onBtn.checked == true) {
-        on = true;
-        turnCount.textContent = "HI";
-        setTimeout(clearTurnCount, 1500);
-    } else {
-        on = false;
-        turnCount.textContent = "";
-        clearColor();
-    }
+$(document).ready(function() {
+    $("#powerOn").click(function() {
+        if (onBtn.checked == true) {
+            playPowerOnSound();
+            $("#count").text("HI");
+            setTimeout(clearTurnCount, 1000); // Clear HI text & change to --
+        } else {
+            $("#count").text(" "); // Blank display if power turned off
+        }
+    });
 });
 
-// Switch Strict Mode on
 
-$("#strictOn").click(function() {
-    if (strictBtn.checked == true) {
-        strict = true;
-    } else {
-        strict = false;
-    }
-});
+// Create Power On Sound Function 
 
-// Start Button to Initialize the Game
-
-$(".startBtn").click(function() {
-    if (on || win) {
-        play();
-    }
-});
-
-// Reset all variables for New Game
-function play() {
-    
+function playPowerOnSound() {
+    powerOnSound = document.querySelector("#powerOnSound");
+    powerOnSound.play();
 }
 
 
+// Create Function to Clear Display after Power On 
 
+function clearTurnCount() {
+    $("#count").text("--");
+}
 
 
 
