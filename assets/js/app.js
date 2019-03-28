@@ -20,6 +20,42 @@ $(document).ready(function() {
             $("#count").text(" "); // Blank display if power turned off
         }
     });
+    
+    // Press the Start Button to Begin Game
+    
+    $(".startBtn").click(function() {
+        level++; 
+        play();
+    });
+    
+    // Add Listener to colorBtns 
+    
+    $(".colorBtn").click(function() {
+        id = $(this).attr("id");
+        color = $(this).attr("class").split(" ")[2];
+        playerSeq.push(id); // add to user's array for matching with simonSeq
+        console.log(id +" "+ color);
+        addClassSound(id, color);
+        
+        
+        // Check User Sequence is correct match to Simon, if not display error
+        
+        if (!playerSeqCorrect()) {
+            playErrorSound();
+            displayError();
+            playerSeq = [];
+        }
+        
+        
+        // If User guess matches length of simon sequence then up level and 
+        // reset player's sequence array & call play function again
+        
+        if (playerSeq.length == simonSeq.length) {
+            level++;
+            playerSeq = []; 
+            play();
+        }
+    });
 });
 
 
