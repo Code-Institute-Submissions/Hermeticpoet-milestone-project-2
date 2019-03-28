@@ -2,22 +2,25 @@
 let playerSeq = [];
 let simonSeq = [1, 3, 2, 4]; // For Initial Test purposes ONLY!**!
 let id, color, level = 0;
-// let on = false;
+let on = false;
 let win = false;
 
+const strictBtn = document.querySelector("#strictOn");
 const onBtn = document.querySelector("#powerOn");
-const levelNum = 4;
+const levelNum = 2;
+
 
 // Page Loads & then Power Game Board Up
 
 $(document).ready(function() {
+    
     $("#powerOn").click(function() {
         if (onBtn.checked == true) {
             playPowerOnSound();
             $("#count").text("HI");
-            setTimeout(clearTurnCount, 1000); // Clear HI text & change to --
+            setTimeout(clearTurnCount, 1000);       // Clear HI text & change to --
         } else {
-            $("#count").text(" "); // Blank display if power turned off
+            $("#count").text(" ");      // Blank display if power turned off
         }
     });
     
@@ -47,13 +50,20 @@ $(document).ready(function() {
         }
         
         
-        // If User guess matches length of simon sequence then up level and 
-        // reset player's sequence array & call play function again
+        // If User guess matches length of simon sequence but not win, then
+        // up level and reset player's sequence array & call play function again
         
-        if (playerSeq.length == simonSeq.length) {
+        if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
             level++;
             playerSeq = []; 
             play();
+        }
+        
+         
+        // Check if User has Won Game
+        
+        if (playerSeq.length == levelNum) {
+            $("#count").text("WIN");
         }
     });
 });
