@@ -59,6 +59,33 @@ $(document).ready(function() {
 });
 
 
+// Create Play Function for Simon Sequence 
+
+function play() {
+    $("#count").text(level); 
+    // getRandomNum();      // generate random number for simonSeq ***** uncomment!
+    let i = 0;
+        // set an interval of time between each pad lighting up
+    let gameInterval = setInterval(function() {
+        id = simonSeq[i];       // grab id match of the random generated Num
+        color = $("#"+id).attr("class").split(" ")[2];      // grab its 3rd class
+        addClassSound(id, color);       // call function to add color class & btnSound
+        i++;
+        if (i == simonSeq.length) {
+        clearInterval(gameInterval);        // clear the interval
+        }
+    }, 1200);
+}
+
+
+
+// Generate Random Number Sequence 
+function getRandomNum() {
+    let random = Math.floor((Math.random() * 4) + 1);
+    simonSeq.push(random);
+}
+
+
 /*--  Check Player Sequence against Simon to be Correct & Loop
       Thru index of playerSeq and test against same index of simonSeq --*/
 
