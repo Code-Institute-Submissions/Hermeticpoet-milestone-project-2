@@ -72,6 +72,24 @@ function playerSeqCorrect() {
 }
 
 
+// Display Error Function
+
+function displayError() {
+    console.log("error");
+    let counter = 0;
+    let playerError = setInterval(function() {
+        $("#count").text("NO");
+        counter++;
+        if (counter == 4) {
+            $("#count").text(level);
+            clearInterval(playerError);
+            playerSeq = [];
+            counter = 0;
+        }
+    }, 500);
+}
+
+
 // Create Power On Sound Function 
 
 function playPowerOnSound() {
