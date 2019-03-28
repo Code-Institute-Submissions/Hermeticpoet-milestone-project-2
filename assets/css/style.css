@@ -95,7 +95,7 @@ body {
 }
 
 .yellow {
-    background-color: #d1d100; /*-- yellow --*/
+    background-color: #cca707; /*-- yellow --*/
     border-left: .04rem solid #333; 
     border-bottom: .1rem solid #333;
     border-top: .04rem solid #333;
@@ -108,7 +108,7 @@ body {
 }
 
 .yellow-light {
-    background-color: #fff875 !important; /*-- class to add light yellow --*/
+    background-color: #ffe54c !important; /*-- class to add light yellow --*/
 }
 
 .blue {
@@ -126,7 +126,7 @@ body {
 }
 
 .blue-light {
-    background-color: #4d52f5 !important; /*-- class to add light blue --*/
+    background-color: #3288ff !important; /*-- class to add light blue --*/
 }
 
 /*-- Controls --*/
