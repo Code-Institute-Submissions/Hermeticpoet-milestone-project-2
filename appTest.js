@@ -1,83 +1,104 @@
+
 // Variables
 let playerSeq = [];
 let simonSeq = []; 
-let id, color, level = 0;
-let on = false;
-let win = false;
+let level = 0;
 let playerFlag = false;
+let strictFlag = false;
+let id;
+let color;
 
-
+const levelNum = 3; // Testing with low level Num
 const strictBtn = document.querySelector("#strictOn");
 const onBtn = document.querySelector("#powerOn");
-const levelNum = 3;
 
 
-// Page Loads & then Power Game Board Up
+// User's Turn
 
-$(document).ready(function() {
-    $("#startBtn").off("click");
-    $(".colorBtn").off("click");
-});
-    
-$("#powerOn").click(function() {
-    if (onBtn.checked == true) {
-        playPowerOnSound();
-        $("#count").text("HI");
-        setTimeout(clearTurnCount, 1000);       // Clear HI text & change to --
-    } else {
-        $("#count").text(" ");      // Blank display if power turned off
-    }
-});
-    
-    // Press the Start Button to Begin Game
-    
-    $(".startBtn").click(function() {
-        level++; 
-        play();
-    });
-    
-    // Add Listener to colorBtns 
-    
+function playerTurn() {  
+    playerFlag = true
     $(".colorBtn").click(function() {
         id = $(this).attr("id");
         color = $(this).attr("class").split(" ")[2];
         playerSeq.push(id); // add to user's array for matching with simonSeq
-        console.log(id +" "+ color);
         addClassSound(id, color);
         
-        
-        // Check User Sequence is correct match to Simon, if not display error
+        // Check User Sequence & display error if wrong
         
         if (!playerSeqCorrect()) {
             playErrorSound();
             displayError();
             playerSeq = [];
+            gamePlay();
         }
         
+         // Check User Sequence & up level & reset sequence if not a win 
         
-        // If User guess matches length of simon sequence but not win, then
-        // up level and reset player's sequence array & call play function again
-        
-        if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
-            level++;
-            playerSeq = []; 
-            play();
+        if (playerSeqCorrect()) {
+            if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
+                level++;
+                playerSeq = [];
+                gamePlay();
+                playerTurn();
+            }
         }
         
-         
         // Check if User has Won Game
         
-        if (playerSeq.length == levelNum) {
-            $("#count").text("WIN");
+        if (playerSeqCorrect) {
+            if (playerSeq.length == levelNum) {
+                $("#count").text("WIN");
+            }
         }
     });
+}
+
+
+// Computor's Turn
+
+function compTurn() {  
+    playerFlag = false;
+    $(".colorBtn").off("click");
+}
 
 
 
-// Create Play Function for Simon Sequence 
+// Power Game Board On / Off
 
-function play() {
-    $("#count").text(level); 
+$("#powerOn").click(function() {
+    if (onBtn.checked == true) {
+        playPowerOnSound();
+        $("#count").text("HI");
+        setTimeout(clearTurnCount, 1000);
+    
+        // Press Start Button to Begin Game
+    
+        $(".startBtn").click(function() {
+            if (onBtn) {
+                level = 0;
+                level++;
+                gamePlay();
+                playerTurn();
+            }
+        });
+        
+    } else {
+        $("#count").text(" ");
+        $(".colorBtn").off("click");
+        $(".startBtn").off("click");
+        strictFlag = false;
+        level = 0;
+        playerSeq = [];
+        simonSeq = [];
+    }
+});
+
+
+// Create Play Function
+
+function gamePlay() {
+    compTurn();
+    $("#count").text(level);
     getRandomNum();
     let i = 0;
         // set an interval of time between each pad lighting up
@@ -93,16 +114,15 @@ function play() {
 }
 
 
-
 // Generate Random Number Sequence 
+
 function getRandomNum() {
     let random = Math.floor((Math.random() * 4) + 1);
     simonSeq.push(random);
 }
 
 
-/*--  Check Player Sequence against Simon to be Correct & Loop
-      Thru index of playerSeq and test against same index of simonSeq --*/
+// Check Player Sequence Against Simon Sequence
 
 function playerSeqCorrect() {
     for (i = 0; i < playerSeq.length; i++) {
@@ -117,22 +137,22 @@ function playerSeqCorrect() {
 // Display Error Function
 
 function displayError() {
-    console.log("error");
+    compTurn();
     let counter = 0;
     let playerError = setInterval(function() {
         $("#count").text("NO");
         counter++;
-        if (counter == 4) {
+        if (counter == 3) {
             $("#count").text(level);
             clearInterval(playerError);
             playerSeq = [];
             counter = 0;
         }
-    }, 500);
+    }, 400);
 }
 
 
-// Add Temp colorClass & Play Sound 
+// Create Function to Light Up Color Buttons & Play Sound Effect
 
 function addClassSound(id, color) {
     $("#"+id).addClass(color + "-light");       // add light class to change color
@@ -150,12 +170,14 @@ function playBtnSound() {
     btnSound.play();
 }
 
+
 // Create Error Sound Function 
 
 function playErrorSound() {
     errSound = document.querySelector("#errSound");
     errSound.play();
 }
+
 
 // Create Power On Sound Function 
 
@@ -170,7 +192,4 @@ function playPowerOnSound() {
 function clearTurnCount() {
     $("#count").text("--");
 }
-
-
-
 

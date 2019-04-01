@@ -37,7 +37,7 @@ body {
 
 /*-- Activate colorBtn Presses --*/
 
-.colorBtn.active {
+.btnActive {
  cursor: pointer;
 }
 
@@ -184,9 +184,9 @@ body {
  margin: .3rem 0 .1rem 0;
 }
 
-.custom-control-label {
- cursor: pointer;
-}
+/*.custom-control-label {*/
+/* cursor: pointer;*/
+/*}*/
 
 /*-- End of Controls --*/
 
