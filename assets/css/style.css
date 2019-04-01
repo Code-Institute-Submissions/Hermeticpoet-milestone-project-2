@@ -1,45 +1,55 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700|Sniglet:400,800');
 
+
 body {
-    background-image: url(../images/lavender-background.jpg);
-    font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    font-size: 1.75rem;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+ background-image: url(../images/lavender-background.jpg);
+ font-family: 'Rubik', sans-serif;
+ font-weight: 500;
+ font-size: 1.75rem;
+ display: flex;
+ min-height: 100vh;
+ flex-direction: column;
 }
 
 #main {
-    flex: 1;
+ flex: 1;
 }
 
 .opaque_overlay1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.08);
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: rgba(0, 0, 0, 0.08);
 }
 
 /*-- Navbar Styles --*/
 
 #brand,
 .nav-link {
-    font-family: 'Sniglet', cursive;
-    font-weight: 400;
-    font-size: 1.75rem;
+ font-family: 'Sniglet', cursive;
+ font-weight: 400;
+ font-size: 1.75rem;
 }
+
 /*-- Navbar Styles ends --*/
+
+/*-- Activate colorBtn Presses --*/
+
+.colorBtn.active {
+ cursor: pointer;
+}
+
+/*-- End of colorBtn Presses --*/
 
 /*-- Start Button --*/
 
 .startBtn {
-    font-size: 1.2rem;
-    font-weight: 500;
-    font-family: 'Sniglet', cursive;
-    padding: 0;
+ font-size: 1.2rem;
+ font-weight: 500;
+ font-family: 'Sniglet', cursive;
+ padding: 0;
 }
 
 /*-- End of Start Button --*/
@@ -47,127 +57,135 @@ body {
 /*--******** Game Board ********--*/
 
 .colorBtn {
-    height: 6rem;
-    width: 8rem;
+ height: 6rem;
+ width: 8rem;
 }
 
 #topRow {
-    margin-bottom: -2.5rem;
+ margin-bottom: -2.5rem;
 }
 
 #bottomRow {
-    margin-top: -2.5rem;
+ margin-top: -2.5rem;
 }
 
 .red {
-    background-color: #b80000;  /*-- red --*/
-    border-top: .1rem solid #333;
-    border-left: .04rem solid #333;
-    border-bottom: .04rem solid #333;
-    border-radius: 10rem 0 0 0;
-    cursor: pointer;
-    transition: all .2s ease 0s;
-    -webkit-box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
-    box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+ background-color: #b80000;
+ /*-- red --*/
+ border-top: .1rem solid #333;
+ border-left: .04rem solid #333;
+ border-bottom: .04rem solid #333;
+ border-radius: 10rem 0 0 0;
+ cursor: pointer;
+ transition: all .2s ease 0s;
+ -webkit-box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+ -moz-box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+ box-shadow: -10px -10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
 .red-light {
-    background-color: #ff5c5c !important; /*-- class to add light red --*/
+ background-color: #ff5c5c !important;
+ /*-- class to add light red --*/
 }
 
 .green {
-    background-color: #227727; /*-- green --*/
-    border-top: .1rem solid #333;
-    border-right: .04rem solid #333;
-    border-bottom: .04rem solid #333;
-    border-left: .1rem solid #333;
-    border-radius: 0 10rem 0 0;
-    cursor: pointer;
-    transition: all .2s ease 0s;
-    -webkit-box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
-    box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+ background-color: #227727;
+ /*-- green --*/
+ border-top: .1rem solid #333;
+ border-right: .04rem solid #333;
+ border-bottom: .04rem solid #333;
+ border-left: .1rem solid #333;
+ border-radius: 0 10rem 0 0;
+ cursor: pointer;
+ transition: all .2s ease 0s;
+ -webkit-box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+ -moz-box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
+ box-shadow: 10px -10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
 .green-light {
-    background-color: #6dee73 !important; /*-- class to add light green --*/
+ background-color: #6dee73 !important;
+ /*-- class to add light green --*/
 }
 
 .yellow {
-    background-color: #cca707; /*-- yellow --*/
-    border-left: .04rem solid #333; 
-    border-bottom: .1rem solid #333;
-    border-top: .04rem solid #333;
-    border-radius: 0 0 0 10rem;
-    cursor: pointer;
-    transition: all .2s ease 0s;
-    -webkit-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
-    box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+ background-color: #cca707;
+ /*-- yellow --*/
+ border-left: .04rem solid #333;
+ border-bottom: .1rem solid #333;
+ border-top: .04rem solid #333;
+ border-radius: 0 0 0 10rem;
+ cursor: pointer;
+ transition: all .2s ease 0s;
+ -webkit-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+ -moz-box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+ box-shadow: -10px 10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
 .yellow-light {
-    background-color: #ffe54c !important; /*-- class to add light yellow --*/
+ background-color: #ffe54c !important;
+ /*-- class to add light yellow --*/
 }
 
 .blue {
-    background-color: #070cb6; /*-- blue --*/
-    border-top: .04rem solid #333;
-    border-bottom: .1rem solid #333;
-    border-right: .04rem solid #333;
-    border-left: .1rem solid #333;
-    border-radius: 0 0 10rem 0;
-    cursor: pointer;
-    transition: all .2s ease 0s;
-    -webkit-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
-    box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+ background-color: #070cb6;
+ /*-- blue --*/
+ border-top: .04rem solid #333;
+ border-bottom: .1rem solid #333;
+ border-right: .04rem solid #333;
+ border-left: .1rem solid #333;
+ border-radius: 0 0 10rem 0;
+ cursor: pointer;
+ transition: all .2s ease 0s;
+ -webkit-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+ -moz-box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
+ box-shadow: 10px 10px 16px 6px rgba(0, 0, 0, 0.13);
 }
 
 .blue-light {
-    background-color: #3288ff !important; /*-- class to add light blue --*/
+ background-color: #3288ff !important;
+ /*-- class to add light blue --*/
 }
 
 /*-- Controls --*/
 
 #controls {
-    background-color: gray;
-    height: 6rem;
-    width: 8rem;
-    border: .04rem solid #333;
-    border-radius: 1rem;
-    z-index: 2;
+ background-color: gray;
+ height: 6rem;
+ width: 8rem;
+ border: .04rem solid #333;
+ border-radius: 1rem;
+ z-index: 2;
 }
 
 #count {
-    position: absolute;
-    background: #330000;
-    color: red;
-    font-family: courier;
-    font-size: 1.2rem;
-    height: 2rem;
-    margin-top: .5rem;
-    border-radius: .3rem;
-    width: 2.5rem;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 2rem;
+ position: absolute;
+ background: #330000;
+ color: red;
+ font-family: courier;
+ font-size: 1.2rem;
+ height: 2rem;
+ margin-top: .5rem;
+ border-radius: .3rem;
+ width: 2.5rem;
+ text-align: center;
+ vertical-align: middle;
+ line-height: 2rem;
 }
 
 #count-heading {
-    margin-top: .7rem;
-    font-size: 1.2rem;
+ margin-top: .7rem;
+ font-size: 1.2rem;
 }
 
 #power,
 #strict {
-    font-size:.8rem;
-    margin: .3rem 0 .1rem 0;
+ font-size: .8rem;
+ margin: .3rem 0 .1rem 0;
 }
 
 .custom-control-label {
-    cursor: pointer;
+ cursor: pointer;
 }
 
 /*-- End of Controls --*/
@@ -177,26 +195,26 @@ body {
 /*-- High Score --*/
 
 .topScore {
-    margin-bottom: 4rem;
+ margin-bottom: 4rem;
 }
 
 #topScoreHeading {
-    font-size: 1.5rem;
+ font-size: 1.5rem;
 }
 
 #topScoreCount {
-    position: absolute;
-    background: #330000;
-    color: red;
-    font-family: courier;
-    font-size: 1.5rem;
-    height: 3rem;
-    width: 5rem;
-    margin-top: 2.5rem;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 3rem;
-    border-radius: .5rem;
+ position: absolute;
+ background: #330000;
+ color: red;
+ font-family: courier;
+ font-size: 1.5rem;
+ height: 3rem;
+ width: 5rem;
+ margin-top: 2.5rem;
+ text-align: center;
+ vertical-align: middle;
+ line-height: 3rem;
+ border-radius: .5rem;
 }
 
 /*-- High Score ends --*/
@@ -204,46 +222,46 @@ body {
 /*-- Modal --*/
 
 .modal-content {
-    background: url('../images/OriginalSimon.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #fff;
-    text-align: center;
+ background: url('../images/OriginalSimon.jpg') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ font-family: 'Rubik', sans-serif;
+ font-weight: 500;
+ font-size: 1rem;
+ color: #fff;
+ text-align: center;
 }
 
 .opaque_overlay2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-title {
-    font-family: 'Rubik', sans-serif;
-    font-size: 2.8rem;
-    color: #fff;
+ font-family: 'Rubik', sans-serif;
+ font-size: 2.8rem;
+ color: #fff;
 }
 
 .closeModalX {
-    color: #fff;
+ color: #fff;
 }
 
 .modalCloseBtn {
-    background-color: transparent;
-    border: 2px solid #fff;
-    font-size: 1.5rem;
-    color: #fff;
+ background-color: transparent;
+ border: 2px solid #fff;
+ font-size: 1.5rem;
+ color: #fff;
 }
 
 .modalCloseBtn:hover {
-    color: #fff;
+ color: #fff;
 }
 
 /*-- End of Modal --*/
@@ -252,117 +270,114 @@ body {
 
 /* -- iPad & Pro  -- */
 
-@media only screen 
-  and (min-width: 768px) {
-      .startBtn {
-          font-size: 1.5rem;
-      }
-      
-      .colorBtn {
-          height: 10rem;
-          width: 8rem;
-      }
-      
-       #controls {
-           height: 8rem;
-           width: 16rem;
-       }
-       
-       #count-heading {
-           margin: 1rem 0 0 1rem;
-           font-size: 1.75rem;
-       }
-       
-       #count {
-           position: absolute;
-           background: #330000;
-           color: red;
-           font-family: courier;
-           font-size: 2rem;
-           height: 3rem;
-           width: 4rem;
-           text-align: center;
-           vertical-align: middle;
-           line-height: 3rem;
-           margin: .5rem 0 0 1rem;
-           border-radius: .5rem;
-       }
-       
-       .controlSwitches {
-            margin-top: 1rem;
-       }
-       
-       #power,
-       #strict {
-           font-size: 1.2rem;
-       }
-       
-       #topScoreHeading {
-           font-size: 2.5rem;
-       }
-       
-       #topScoreCount {
-           font-size: 2.2rem;
-           height: 4.2rem;
-           width: 6rem;
-           margin-top: 4rem;
-           line-height: 4.2rem;
-           border-radius: .5rem;
-        }
+@media only screen and (min-width: 768px) {
+ .startBtn {
+  font-size: 1.5rem;
+ }
+
+ .colorBtn {
+  height: 10rem;
+  width: 8rem;
+ }
+
+ #controls {
+  height: 8rem;
+  width: 16rem;
+ }
+
+ #count-heading {
+  margin: 1rem 0 0 1rem;
+  font-size: 1.75rem;
+ }
+
+ #count {
+  position: absolute;
+  background: #330000;
+  color: red;
+  font-family: courier;
+  font-size: 2rem;
+  height: 3rem;
+  width: 4rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3rem;
+  margin: .5rem 0 0 1rem;
+  border-radius: .5rem;
+ }
+
+ .controlSwitches {
+  margin-top: 1rem;
+ }
+
+ #power,
+ #strict {
+  font-size: 1.2rem;
+ }
+
+ #topScoreHeading {
+  font-size: 2.5rem;
+ }
+
+ #topScoreCount {
+  font-size: 2.2rem;
+  height: 4.2rem;
+  width: 6rem;
+  margin-top: 4rem;
+  line-height: 4.2rem;
+  border-radius: .5rem;
+ }
 }
 
 /*-- End iPad & Pro --*/
 
 /*-- Desktop Screens --*/
 
-@media only screen
-    and (min-width: 1244px) {
-        #brand {
-            font-size: 2.5rem;
-            padding: 0;
-        }
-        
-        .startBtn {
-          font-size: 1.8rem;
-        }
-        
-        #count-heading {
-           margin: 1rem 2rem 0 2rem;
-           font-size: 2.2rem;
-       }
-       
-       #count {
-           font-size: 2.5rem;
-           height: 3.5rem;
-           width: 4.5rem;
-           line-height: 3.5rem;
-           margin-left: 2.7rem;
-           border-radius: .5rem;
-       }
-       
-       .topScore {
-           margin-bottom: 6rem !important;
-       }
-        
-        #topScoreHeading {
-           font-size: 3rem;
-       }
-       
-       #topScoreCount {
-           font-size: 3.5rem;
-           height: 4.5rem;
-           width: 7rem;
-           line-height: 4.5rem;
-           border-radius: .5rem;
-           /*margin-bottom: 5rem;*/
-        }
-        
-        .controlSwitches {
-            margin-bottom: 1.5rem;
-       }
+@media only screen and (min-width: 1244px) {
+ #brand {
+  font-size: 2.5rem;
+  padding: 0;
+ }
+
+ .startBtn {
+  font-size: 1.8rem;
+ }
+
+ #count-heading {
+  margin: 1rem 2rem 0 2rem;
+  font-size: 2.2rem;
+ }
+
+ #count {
+  font-size: 2.5rem;
+  height: 3.5rem;
+  width: 4.5rem;
+  line-height: 3.5rem;
+  margin-left: 2.7rem;
+  border-radius: .5rem;
+ }
+
+ .topScore {
+  margin-bottom: 6rem !important;
+ }
+
+ #topScoreHeading {
+  font-size: 3rem;
+ }
+
+ #topScoreCount {
+  font-size: 3.5rem;
+  height: 4.5rem;
+  width: 7rem;
+  line-height: 4.5rem;
+  border-radius: .5rem;
+  /*margin-bottom: 5rem;*/
+ }
+
+ .controlSwitches {
+  margin-bottom: 1.5rem;
+ }
 }
 
 /*-- End Desktop Screens --*/
 
 /*--******* End Media Queries *******--*/
-
