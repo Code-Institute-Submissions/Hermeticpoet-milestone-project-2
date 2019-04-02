@@ -10,13 +10,27 @@ let color;
 
 const levelNum = 3; // Testing with low level Num
 const strictBtn = document.querySelector("#strictOn");
+const startBtn = document.querySelector(".startBtn");
 const onBtn = document.querySelector("#powerOn");
+const levelDisplay = document.querySelector("#count");
+const topScoreDisplay = document.querySelector("#topScoreCount");
+const colorBtns = document.querySelectorAll(".colorBtn");
+
+
+// No buttons working on page load except power / strict
+
+$(document).ready(function () {
+
+ startBtn.classList.add("disabled");
+ addDisable();
+});
 
 
 // User's Turn
 
 function playerTurn() {  
     playerFlag = true
+    removeDisable();
     $(".colorBtn").click(function() {
         id = $(this).attr("id");
         color = $(this).attr("class").split(" ")[2];
@@ -29,7 +43,7 @@ function playerTurn() {
             playErrorSound();
             displayError();
             playerSeq = [];
-            gamePlay();
+            playerTurn();
         }
         
          // Check User Sequence & up level & reset sequence if not a win 
@@ -37,7 +51,7 @@ function playerTurn() {
         if (playerSeqCorrect()) {
             if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
                 level++;
-                playerSeq = [];
+                playerSeq = []; 
                 gamePlay();
                 playerTurn();
             }
@@ -45,7 +59,7 @@ function playerTurn() {
         
         // Check if User has Won Game
         
-        if (playerSeqCorrect) {
+        else if (playerSeqCorrect) {
             if (playerSeq.length == levelNum) {
                 $("#count").text("WIN");
             }
@@ -58,7 +72,7 @@ function playerTurn() {
 
 function compTurn() {  
     playerFlag = false;
-    $(".colorBtn").off("click");
+    addDisable();
 }
 
 
@@ -69,13 +83,16 @@ $("#powerOn").click(function() {
     if (onBtn.checked == true) {
         playPowerOnSound();
         $("#count").text("HI");
-        setTimeout(clearTurnCount, 1000);
+        setTimeout(clearTurnCount, 1500);
+        startBtn.classList.remove("disabled");
     
         // Press Start Button to Begin Game
     
         $(".startBtn").click(function() {
             if (onBtn) {
                 level = 0;
+                simonSeq = [];
+                playerSeq = [];
                 level++;
                 gamePlay();
                 playerTurn();
@@ -84,8 +101,8 @@ $("#powerOn").click(function() {
         
     } else {
         $("#count").text(" ");
-        $(".colorBtn").off("click");
-        $(".startBtn").off("click");
+        startBtn.classList.add("disabled");
+        addDisable();
         strictFlag = false;
         level = 0;
         playerSeq = [];
@@ -125,7 +142,7 @@ function getRandomNum() {
 // Check Player Sequence Against Simon Sequence
 
 function playerSeqCorrect() {
-    for (i = 0; i < playerSeq.length; i++) {
+    for ( var i = 0; i < playerSeq.length; i++) {
         if (playerSeq[i] != simonSeq[i]) {
             return false;
         }
@@ -142,7 +159,7 @@ function displayError() {
     let playerError = setInterval(function() {
         $("#count").text("NO");
         counter++;
-        if (counter == 3) {
+        if (counter == 4) {
             $("#count").text(level);
             clearInterval(playerError);
             playerSeq = [];
@@ -184,6 +201,26 @@ function playErrorSound() {
 function playPowerOnSound() {
     powerOnSound = document.querySelector("#powerOnSound");
     powerOnSound.play();
+}
+
+
+// Add btn-diasble class to color buttons
+
+function addDisable() {
+ colorBtns.forEach(function (button) {
+  button.classList.add("btn-disabled");
+  // console.log(button.className);
+ });
+}
+
+
+// Remove btn-disabled class from color buttons
+
+function removeDisable() {
+ colorBtns.forEach(function (button) {
+  button.classList.remove("btn-disabled");
+  // console.log(colorBtns);
+ });
 }
 
 

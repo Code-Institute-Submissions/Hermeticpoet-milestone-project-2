@@ -36,8 +36,11 @@ body {
 /*-- Navbar Styles ends --*/
 
 /*-- Activate colorBtn Presses --*/
+.btn-disabled {
+ pointer-events: none;
+}
 
-.btnActive {
+.btn-active {
  cursor: pointer;
 }
 

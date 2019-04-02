@@ -32,7 +32,8 @@ $("#powerOn").click(function() {
     // Press the Start Button to Begin Game
     
     $(".startBtn").click(function() {
-        level++; 
+        level = 0;
+        level++;
         play();
     });
     
