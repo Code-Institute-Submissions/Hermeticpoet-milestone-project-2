@@ -20,7 +20,6 @@ const colorBtns = document.querySelectorAll(".colorBtn");
 // No buttons working on page load except power / strict
 
 $(document).ready(function () {
-
  startBtn.classList.add("disabled");
  addDisable();
 });
@@ -142,7 +141,7 @@ function getRandomNum() {
 // Check Player Sequence Against Simon Sequence
 
 function playerSeqCorrect() {
-    for ( var i = 0; i < playerSeq.length; i++) {
+    for (var i = 0; i < playerSeq.length; i++) {
         if (playerSeq[i] != simonSeq[i]) {
             return false;
         }

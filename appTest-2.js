@@ -12,10 +12,6 @@ const levelNum = 3; // Max Num of levels to complete Game
 const powerBtn = document.querySelector("#powerOn");
 const startBtn = document.querySelector(".startBtn");
 const strictBtn = document.querySelector("#strictOn");
-const redBtn = document.querySelector(".red");
-const greenBtn = document.querySelector(".green");
-const yellowBtn = document.querySelector(".yellow");
-const blueBtn = document.querySelector(".blue");
 const levelDisplay = document.querySelector("#count");
 const topScoreDisplay = document.querySelector("#topScoreCount");
 const colorBtns = document.querySelectorAll(".colorBtn");
@@ -23,88 +19,113 @@ const colorBtns = document.querySelectorAll(".colorBtn");
 
 // No buttons working on page load except power / strict
 
-$(document).ready(function () {
-
- startBtn.classList.add("disabled");
- addDisable();
+$(document).ready(function(e) {
+    startBtn.classList.add("disabled");
+    addDisable();
+    
+    // // Power on Game Board to allow functionality
+    
+    // powerBtn.addEventListener("click", function() {
+    //     if (powerBtn.checked == true) {
+    //         // console.log("true");
+    //         playPowerOnSound();
+    //         levelDisplay.textContent = "HI";
+    //         setTimeout(clearDisplay, 1200);
+    //         startBtn.classList.remove("disabled");
+    //         // console.log(startBtn);
+    
+    //     }
+    //     else if (powerBtn.checked == false) {
+    //         startBtn.classList.add("disabled");
+    //         addDisable();
+    //         levelDisplay.textContent = " ";
+    //         topScoreDisplay.textContent = "BYE";
+    //         // console.log("false");
+    //     }
+    // });
 });
 
 
 // Power on Game Board to allow functionality
+    
+powerBtn.addEventListener("click", function() {
+    if (powerBtn.checked == true) {
+        // console.log("true");
+        playPowerOnSound();
+        levelDisplay.textContent = "HI";
+        setTimeout(clearDisplay, 1200);
+        startBtn.classList.remove("disabled");
+        // console.log(startBtn);
 
-powerBtn.addEventListener("click", function () {
- if (powerBtn.checked == true) {
-  // console.log("true");
-  // playPowerOnSound();
-  levelDisplay.textContent = "HI";
-  setTimeout(clearDisplay, 1200);
-  startBtn.classList.remove("disabled");
-  // console.log(startBtn);
-
-  // // Press Start Button to Begin or Reset the Game
-
-  // startBtn.addEventListener("click", function () {
-  //  level = 0;
-  //  level++;
-  //  playerSeq = [];
-  //  simonSeq = [];
-  //  levelDisplay.textContent = level;
-  //  gamePlay();
-  //  playerTurn();
-  // });
-
- } else if (powerBtn.checked == false) {
-  startBtn.classList.add("disabled");
-  addDisable();
-  levelDisplay.textContent = " ";
-  topScoreDisplay.textContent = "BYE";
-  // console.log("false");
- }
+    }
+    else if (powerBtn.checked == false) {
+        startBtn.classList.add("disabled");
+        addDisable();
+        levelDisplay.textContent = " ";
+        topScoreDisplay.textContent = "BYE";
+        // console.log("false");
+    }
 });
 
 
-// // Press Start Button to Begin or Reset the Game *** keeps starting even when off - in & out of above block ***
+// Press Start Button to Begin or Reset the Game
 
+startBtn.addEventListener("click", function() {
+    level = 0;
+    level++;
+    playerSeq = [];
+    simonSeq = [];
+    levelDisplay.textContent = level;
+    gamePlay();
+    playerFlag = true;
+    playerTurn();
+});
 
 
 // Player's Attempt to Repeat Sequence
 
 function playerTurn() {
- if (playerFlag == true) {
-  // console.log("play away!");
-  removeDisable();
-  $(".colorBtn").click(function () {
-   id = $(this).attr("id");
-   color = $(this).attr("class").split(" ")[2];
-   playerSeq.push(id); // add to user's array for matching with simonSeq
-   console.log(id + " " + color);
-   addClassSound(id, color);
-  });
- }
-}
+    if (playerFlag == true) {
+        // console.log("play away!");
+        removeDisable();
+        $(".colorBtn").click(function() {
+            id = $(this).attr("id");
+            color = $(this).attr("class").split(" ")[2];
+            playerSeq.push(id); // add to user's array for matching with simonSeq
+            console.log(id + " " + color);
+            addClassSound(id, color);
 
-//If player makes an INCORRECT move:
-if (!compareSeq()) {
- playerSeq = [];
- error = true;
- console.log("Incorrect move. Game ended.");
- // playErrorSound();
- setTimeout(displayError, 400);
- simonSeq = [];
-}
+            // If player makes a wrong move
 
-//If player makes a CORRECT move:
-else if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
- level++;
- playerSeq = [];
- error = false;
- setTimeout(gamePlay, 1500);
-}
+            if (!compareSeq()) {
+                playerSeq = [];
+                error = true;
+                console.log("Wrong, sorry");
+                playErrorSound();
+                setTimeout(displayError, 400);
+                simonSeq = [];
+            }
 
-//Game Completion:
-if (playerSeq.length == levelNum) {
- win();
- console.log("You've Won!!!");
+
+            // If player makes correct move
+
+            if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
+                level++;
+                playerSeq = [];
+                error = false;
+                gamePlay();
+                playerTurn();
+            }
+
+
+            // Game Win
+
+            else if (playerSeq.length == levelNum) {
+                win();
+                console.log("You've Won!!!");
+            }
+        });
+    }
 }
 
 
@@ -123,7 +144,6 @@ function gamePlay() {
    clearInterval(gameInterval); // clear the interval
   }
  }, 1400);
- playerFlag = true;
 }
 
 
@@ -145,10 +165,10 @@ function displayError() {
  console.log("error");
  let counter = 0;
  let playerError = setInterval(function () {
-  displayLevel.textContent("NO");
+  $("#count").text("NO");
   counter++;
   if (counter == 4) {
-   displayLevel.textContent(level);
+   $("#count").text(level);
    clearInterval(playerError);
    playerSeq = [];
    counter = 0;
@@ -187,7 +207,7 @@ function playerSeqCorrect() {
 
 function addClassSound(id, color) {
  $("#" + id).addClass(color + "-light"); // add light class to change color
- // playBtnSound(); // play button sound at same time
+ playBtnSound(); // play button sound at same time
  setTimeout(function () {
   $("#" + id).removeClass(color + "-light");
  }, 500); // remove light class again after 1/2 second 
