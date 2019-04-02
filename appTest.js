@@ -27,43 +27,81 @@ $(document).ready(function () {
 
 // User's Turn
 
+$(".colorBtn").click(function() {
+    id = $(this).attr("id");
+    color = $(this).attr("class").split(" ")[2];
+    playerSeq.push(parseInt(id)); // add to user's array for matching with simonSeq
+    addClassSound(id, color);
+    
+    console.log('Player: ', playerSeq);
+    console.log('Simon: ', simonSeq);
+    // Check User Sequence & display error if wrong
+    
+    // if (!playerSeqCorrect()) {
+    //     playErrorSound();
+    //     displayError();
+    //     playerSeq = [];
+    //     // playerTurn();
+    // } else if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
+    //     level++;
+    //     playerSeq = []; 
+    //     gamePlay();
+    //     playerTurn();
+    // }
+    
+    
+    if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
+        
+        console.log('Arrays are the same length!');
+        
+        let correct = true;
+        
+        for(let i =0; i < simonSeq.length; i++) {
+            if(simonSeq[i] != playerSeq[i]) {
+                correct = false;
+            }
+        }
+        if(correct) {
+            console.log('Arrays match!')
+            level++;
+            playerSeq = []; 
+            gamePlay();
+        }
+        
+    } else {
+        console.log('Arrays have different lengths!')
+        
+        // first click the playerSeq will be 1 item long
+        // second click it will be 2, etc...
+        // since they're different lengths, we just need to know if
+        // playerSeq == simonSeq[0:playerSeq.length] (look up the .slice() function)
+    }
+    
+    console.log('playerSeq Now: ', playerSeq);
+    
+     // Check User Sequence & up level & reset sequence if not a win 
+    
+    // if (playerSeqCorrect()) {
+    //     if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
+    //         level++;
+    //         playerSeq = []; 
+    //         gamePlay();
+    //         playerTurn();
+    //     }
+    // }
+    
+    // // Check if User has Won Game
+    
+    // else if (playerSeqCorrect) {
+    //     if (playerSeq.length == levelNum) {
+    //         $("#count").text("WIN");
+    //     }
+    // }
+});
+
 function playerTurn() {  
     playerFlag = true
     removeDisable();
-    $(".colorBtn").click(function() {
-        id = $(this).attr("id");
-        color = $(this).attr("class").split(" ")[2];
-        playerSeq.push(id); // add to user's array for matching with simonSeq
-        addClassSound(id, color);
-        
-        // Check User Sequence & display error if wrong
-        
-        if (!playerSeqCorrect()) {
-            playErrorSound();
-            displayError();
-            playerSeq = [];
-            playerTurn();
-        }
-        
-         // Check User Sequence & up level & reset sequence if not a win 
-        
-        if (playerSeqCorrect()) {
-            if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
-                level++;
-                playerSeq = []; 
-                gamePlay();
-                playerTurn();
-            }
-        }
-        
-        // Check if User has Won Game
-        
-        else if (playerSeqCorrect) {
-            if (playerSeq.length == levelNum) {
-                $("#count").text("WIN");
-            }
-        }
-    });
 }
 
 
@@ -73,7 +111,6 @@ function compTurn() {
     playerFlag = false;
     addDisable();
 }
-
 
 
 // Power Game Board On / Off
@@ -87,7 +124,7 @@ $("#powerOn").click(function() {
     
         // Press Start Button to Begin Game
     
-        $(".startBtn").click(function() {
+        /*$(".startBtn").click(function() {
             if (onBtn) {
                 level = 0;
                 simonSeq = [];
@@ -96,7 +133,7 @@ $("#powerOn").click(function() {
                 gamePlay();
                 playerTurn();
             }
-        });
+        });*/
         
     } else {
         $("#count").text(" ");
@@ -106,6 +143,18 @@ $("#powerOn").click(function() {
         level = 0;
         playerSeq = [];
         simonSeq = [];
+    }
+});
+
+// Press Start Button to Begin Game
+    
+$(".startBtn").click(function() {
+    if (onBtn.checked) {
+        level = 0;
+        simonSeq = [];
+        playerSeq = [];
+        level++;
+        gamePlay();
     }
 });
 
@@ -127,6 +176,7 @@ function gamePlay() {
         clearInterval(gameInterval);        // clear the interval
         }
     }, 1200);
+    playerTurn();
 }
 
 
@@ -141,7 +191,7 @@ function getRandomNum() {
 // Check Player Sequence Against Simon Sequence
 
 function playerSeqCorrect() {
-    for (var i = 0; i < playerSeq.length; i++) {
+    for (let i = 0; i < playerSeq.length; i++) {
         if (playerSeq[i] != simonSeq[i]) {
             return false;
         }
