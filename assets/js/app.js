@@ -42,6 +42,7 @@ $(document).ready(function () {
         addDisable();
         console.log(colorBtns); // remove
     }
+ });
 });
  
 

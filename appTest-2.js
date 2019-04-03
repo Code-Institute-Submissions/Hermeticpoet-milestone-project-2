@@ -41,8 +41,8 @@ $(document).ready(function () {
         addDisable();
         console.log(colorBtns); // remove
     }
+ });
 });
- 
 
 // Press Start to Begin the Game
 
@@ -50,6 +50,7 @@ $(".startBtn").click(function() {
  resetGame();
  level++;
  genSimonSeq();
+ removeDisable();
 
  console.log("strict is ", strict);
  console.log("error is ", error);
@@ -104,22 +105,24 @@ function genSimonSeq() {
 
 function genUserSeq() {
  userSeq.push(id);
- console.log(id + " " + color);
+ console.log(id + " " + color); // remove
  addClassSound(id, color);
+ 
+ // addDisable();
  
  //check user sequence
  if (!checkUserSeq()) {
   //if playing strict mode reset everything lol
   if (strict) {
-   console.log("strict");
+   console.log("strict"); // remove
    // simonSeq = [];
    // level = 1;
   }
-  // displayError();
-  // userSeq = [];
+  displayError();
   error = true;
-  console.log("User Error");
-  // simonSequence();
+  console.log("User Error"); // remove
+  // genSimonSeq();
+  console.log(simonSeq); // remove
  }
  //checking end of sequence
  else if (userSeq.length == simonSeq.length && userSeq.length < NUM_OF_LEVELS) {
@@ -146,6 +149,24 @@ function checkUserSeq() {
   }
  }
  return true;
+}
+
+
+// Display Error Function
+
+function displayError() {
+ playErrorSound();
+ let counter = 0;
+ let myError = setInterval(function () {
+  $("#count").text("NO");
+  counter++;
+  if (counter == 3) {
+   $("#count").text(level);
+   clearInterval(myError);
+   userSeq = [];
+   counter = 0;
+  }
+ }, 300);
 }
 
 

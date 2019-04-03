@@ -15,63 +15,99 @@ let topScoreDisplay = document.querySelector("#topScoreCount");
 
 
 const colorBtns = document.querySelectorAll(".colorBtn");
-const levelNum = 3; // Testing with low level Num
+const levelNum = 5; // Testing with low level Num
 
 
 // No buttons working on page load except power / strict
 
 $(document).ready(function () {
  $('.startBtn').attr('disabled','disabled');
- console.log(".startBtn");
+ console.log(startBtn);
  addDisable();
 });
 
 
-// User's Turn
+// Power Game Board On / Off
+
+$("#powerOn").click(function() {
+    if (onBtn.checked == true) {
+        console.log(onBtn);
+        playPowerOnSound();
+        $("#count").text("HI");
+        setTimeout(clearTurnCount, 1500);
+        $('.startBtn').removeAttr('disabled');
+        console.log(startBtn);
+        
+    } else {
+        $("#count").text(" ");
+        $(".startBtn").attr("disabled", "disabled");
+        console.log(startBtn);
+        console.log(onBtn);
+        addDisable();
+        strictFlag = false;
+        level = 0;
+        playerSeq = [];
+        simonSeq = [];
+    }
+});
+
+
+// Press Start Button to Begin Game
+    
+$(".startBtn").click(function() {
+    if (onBtn.checked) {
+        console.log("Its On!");
+        level = 0;
+        simonSeq = [];
+        playerSeq = [];
+        level++;
+        gamePlay();
+    }
+});
+
+
+// Player's Turn to Match the simonSeq
 
 $(".colorBtn").click(function() {
     id = $(this).attr("id");
     color = $(this).attr("class").split(" ")[2];
-    playerSeq.push(parseInt(id)); // add to user's array for matching with simonSeq
+    
+    // add to user's array for matching with simonSeq
+    playerSeq.push(parseInt(id)); 
     addClassSound(id, color);
     
     console.log('Player: ', playerSeq);
     console.log('Simon: ', simonSeq);
+    
     // Check User Sequence & display error if wrong
-    
-    // if (!playerSeqCorrect()) {
-    //     playErrorSound();
-    //     displayError();
-    //     playerSeq = [];
-    //     // playerTurn();
-    // } else if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
-    //     level++;
-    //     playerSeq = []; 
-    //     gamePlay();
-    //     playerTurn();
-    // }
-    
-    
     if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
         
         console.log('Arrays are the same length!');
         
         let correct = true;
         
-        for(let i = 0; i < simonSeq.length; i++) {
+        for (let i = 0; i < simonSeq.length; i++) {
             if (simonSeq[i] != playerSeq[i]) {
                 correct = false;
             }
         }
+        
         if (correct) {
-            console.log('Arrays match!')
+            console.log('Arrays match!');
             level++;
             playerSeq = []; 
             gamePlay();
         }
         
     } else {
-        console.log('Arrays have different lengths!')
+        console.log('Arrays have different lengths!');
+        // playErrorSound();
+        // displayError();
+        // playerSeq = [];
+        // level--;
+        // gamePlay();
+        
+        // console.log(simonSeq);
         
         // first click the playerSeq will be 1 item long
         // second click it will be 2, etc...
@@ -101,6 +137,7 @@ $(".colorBtn").click(function() {
     // }
 });
 
+
 function playerTurn() {  
     playerFlag = true
     removeDisable();
@@ -115,53 +152,6 @@ function compTurn() {
 }
 
 
-// Power Game Board On / Off
-
-$("#powerOn").click(function() {
-    if (onBtn.checked == true) {
-        playPowerOnSound();
-        $("#count").text("HI");
-        setTimeout(clearTurnCount, 1500);
-        $('.startBtn').removeAttr('disabled');
-        console.log(".startBtn");
-    
-        // Press Start Button to Begin Game
-    
-        /*$(".startBtn").click(function() {
-            if (onBtn) {
-                level = 0;
-                simonSeq = [];
-                playerSeq = [];
-                level++;
-                gamePlay();
-                playerTurn();
-            }
-        });*/
-        
-    } else {
-        $("#count").text(" ");
-        $(".startBtn").attr("disabled", "disabled");
-        addDisable();
-        strictFlag = false;
-        level = 0;
-        playerSeq = [];
-        simonSeq = [];
-    }
-});
-
-// Press Start Button to Begin Game
-    
-$(".startBtn").click(function() {
-    if (onBtn.checked) {
-        level = 0;
-        simonSeq = [];
-        playerSeq = [];
-        level++;
-        gamePlay();
-    }
-});
-
-
 // Create Play Function
 
 function gamePlay() {
@@ -169,16 +159,33 @@ function gamePlay() {
     $("#count").text(level);
     getRandomNum();
     let i = 0;
+    
         // set an interval of time between each pad lighting up
+        
     let gameInterval = setInterval(function() {
-        id = simonSeq[i];       // grab id match of the random generated Num
-        color = $("#"+id).attr("class").split(" ")[2];      // grab its 3rd class
-        addClassSound(id, color);       // call function to add color class & btnSound
+        
+        // grab id match of the random generated Num
+        
+        id = simonSeq[i];     
+        
+        // grab its 3rd class
+        
+        color = $("#"+id).attr("class").split(" ")[2];  
+        
+        // call function to add color class & btnSound
+        
+        addClassSound(id, color);       
         i++;
         if (i == simonSeq.length) {
-        clearInterval(gameInterval);        // clear the interval
+            
+        // clear the interval
+        
+        clearInterval(gameInterval);        
         }
-    }, 1200);
+    }, 1000);
+    
+    // call the playerTurn function 
+    
     playerTurn();
 }
 
