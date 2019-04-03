@@ -50,7 +50,7 @@ $(".startBtn").click(function() {
  resetGame();
  level++;
  genSimonSeq();
- removeDisable();
+ setTimeout(removeDisable, 1500);
 
  console.log("strict is ", strict);
  console.log("error is ", error);
@@ -84,6 +84,7 @@ $(".strict").click(function () {
 // Generate Simon Sequence 
 
 function genSimonSeq() {
+ addDisable();
  $("#count").text(level);
  if (!error) {
   getRandomNum();
@@ -98,6 +99,7 @@ function genSimonSeq() {
    clearInterval(myInterval);
   }
  }, 1000);
+ setTimeout(removeDisable, 2000);
 }
 
 
@@ -121,7 +123,7 @@ function genUserSeq() {
   displayError();
   error = true;
   console.log("User Error"); // remove
-  // genSimonSeq();
+  genSimonSeq();
   console.log(simonSeq); // remove
  }
  //checking end of sequence
@@ -130,7 +132,7 @@ function genUserSeq() {
   userSeq = [];
   error = false;
   console.log("start simon");
-  // simonSequence();
+  genSimonSeq();
  }
  //checking for winners
  // if (userSeq.length == NUM_OF_LEVELS) {
