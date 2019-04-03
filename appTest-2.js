@@ -68,9 +68,11 @@ $(".colorBtn").click(function() {
 });
 
 
-// Strict Mode Listener
+// Strict Button Listener
 
-$(".strict").click(function () {
+$("#strictOn").click(function () {
+ strictBtn.checked;
+ console.log("Strict is On Now!");
  level = 0;
  level++;
  simonSeq = [];
@@ -89,8 +91,8 @@ function genSimonSeq() {
  if (!error) {
   getRandomNum();
  }
- var i = 0;
- var myInterval = setInterval(function () {
+ let i = 0;
+ let myInterval = setInterval(function () {
   id = simonSeq[i];
   color = $("#"+id).attr("class").split(" ")[2]; 
   addClassSound(id, color);
@@ -113,10 +115,11 @@ function genUserSeq() {
  // Check user sequence
  if (!checkUserSeq()) {
   // if playing strict mode reset everything lol
-  if (strict) {
+  if (strictBtn.checked == true) {
    console.log("strict"); // remove
-   // simonSeq = [];
-   // level = 1;
+   strictMessage();
+   playErrorSound();
+   resetGame();
   }
   displayError();
   error = true;
@@ -186,6 +189,21 @@ function displayWin() {
    count = 0;
   }
  }, 500);
+}
+
+
+// Strict Message Function
+function strictMessage() {
+ let count = 0;
+ let strictInterval = setInterval(function() {
+  count++;
+  $("#topScoreCount").text("😖");
+  if (count == 8) {
+   clearInterval(strictInterval);
+   $("#topScoreCount").text(" ");
+   count = 0;
+  }
+ }, 2000);
 }
 
 
