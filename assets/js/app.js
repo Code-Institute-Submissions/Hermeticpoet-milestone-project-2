@@ -1,167 +1,227 @@
-// Variables
-let playerSeq = [];
-let simonSeq = []; 
+
+//variables
+let userSeq = [];
+let simonSeq = [];
 let id, color, level = 0;
-let on = false;
-let win = false;
-let playerFlag = false;
+let strict = false;
+let error = false;
 
+let startBtn = document.querySelector(".startBtn");
+let onBtn = document.querySelector("#powerOn");
+let strictBtn = document.querySelector("#strictOn");
 
-const strictBtn = document.querySelector("#strictOn");
-const onBtn = document.querySelector("#powerOn");
-const levelNum = 3;
+const colorBtns = document.querySelectorAll(".colorBtn");
+const NUM_OF_LEVELS = 5;
 
+// Load Page with Buttons Disabled
 
-// Page Loads & then Power Game Board Up
-
-$(document).ready(function() {
-    $("#startBtn").off("click");
-    $(".colorBtn").off("click");
-});
-    
-$("#powerOn").click(function() {
+$(document).ready(function () {
+ $('.startBtn').attr('disabled','disabled');
+ addDisable();
+ console.log(startBtn);
+ console.log(colorBtns);
+ 
+ // Power Game Board On / Off
+ 
+ $("#powerOn").click(function() {
     if (onBtn.checked == true) {
+        console.log("game is on!"); // remove
         playPowerOnSound();
         $("#count").text("HI");
-        setTimeout(clearTurnCount, 1000);       // Clear HI text & change to --
+        setTimeout(clearTurnCount, 1200);
+        $('.startBtn').removeAttr('disabled');
+        console.log(startBtn); // remove
+        
     } else {
-        $("#count").text(" ");      // Blank display if power turned off
+        resetGame();
+        console.log(userSeq); // remove
+        console.log(simonSeq); // remove
+        $(".startBtn").attr("disabled", "disabled");
+        console.log(startBtn); // remove
+        console.log("game is off"); // remove
+        addDisable();
+        console.log(colorBtns); // remove
     }
 });
-    
-    // Press the Start Button to Begin Game
-    
-    $(".startBtn").click(function() {
-        level = 0;
-        level++;
-        play();
-    });
-    
-    // Add Listener to colorBtns 
-    
-    $(".colorBtn").click(function() {
-        id = $(this).attr("id");
-        color = $(this).attr("class").split(" ")[2];
-        playerSeq.push(id); // add to user's array for matching with simonSeq
-        console.log(id +" "+ color);
-        addClassSound(id, color);
-        
-        
-        // Check User Sequence is correct match to Simon, if not display error
-        
-        if (!playerSeqCorrect()) {
-            playErrorSound();
-            displayError();
-            playerSeq = [];
-        }
-        
-        
-        // If User guess matches length of simon sequence but not win, then
-        // up level and reset player's sequence array & call play function again
-        
-        if (playerSeq.length == simonSeq.length && playerSeq.length < levelNum) {
-            level++;
-            playerSeq = []; 
-            play();
-        }
-        
-         
-        // Check if User has Won Game
-        
-        if (playerSeq.length == levelNum) {
-            $("#count").text("WIN");
-        }
-    });
+ 
+
+// Press Start to Begin the Game
+
+$(".startBtn").click(function() {
+ resetGame();
+ level++;
+ genSimonSeq();
+
+ console.log("strict is ", strict);
+ console.log("error is ", error);
+ console.log("userSeq is ", userSeq);
+ console.log("simonSeq is ", simonSeq);
+ console.log("level is ", level);
+});
+
+// Color Button Listener
+
+$(".colorBtn").click(function() {
+ id = $(this).attr("id");
+ color = $(this).attr("class").split(" ")[2];
+ genUserSeq();
+});
+
+
+// Strict Mode Listener
+
+$(".strict").click(function () {
+ level = 0;
+ level++;
+ simonSeq = [];
+ userSeq = [];
+ strict = true;
+ genSimonSeq();
+});
 
 
 
-// Create Play Function for Simon Sequence 
+// simon sequence 
 
-function play() {
-    $("#count").text(level); 
-    getRandomNum();
-    let i = 0;
-        // set an interval of time between each pad lighting up
-    let gameInterval = setInterval(function() {
-        id = simonSeq[i];       // grab id match of the random generated Num
-        color = $("#"+id).attr("class").split(" ")[2];      // grab its 3rd class
-        addClassSound(id, color);       // call function to add color class & btnSound
-        i++;
-        if (i == simonSeq.length) {
-        clearInterval(gameInterval);        // clear the interval
-        }
-    }, 1200);
+function genSimonSeq() {
+ $("#count").text(level);
+ if (!error) {
+  getRandomNum();
+ }
+ var i = 0;
+ var myInterval = setInterval(function () {
+  id = simonSeq[i];
+  color = $("#"+id).attr("class").split(" ")[2]; 
+  addClassSound(id, color);
+  i++;
+  if (i == simonSeq.length) {
+   clearInterval(myInterval);
+  }
+ }, 1000);
 }
 
 
+// Player Sequence
 
-// Generate Random Number Sequence 
+function genUserSeq() {
+ userSeq.push(id);
+ console.log(id + " " + color);
+ addClassSound(id, color);
+ 
+ //check user sequence
+ if (!checkUserSeq()) {
+  //if playing strict mode reset everything lol
+  if (strict) {
+   console.log("strict");
+   // simonSeq = [];
+   // level = 1;
+  }
+  // displayError();
+  // userSeq = [];
+  error = true;
+  console.log("User Error");
+  // simonSequence();
+ }
+ //checking end of sequence
+ else if (userSeq.length == simonSeq.length && userSeq.length < NUM_OF_LEVELS) {
+  level++;
+  userSeq = [];
+  error = false;
+  console.log("start simon");
+  // simonSequence();
+ }
+ //checking for winners
+ // if (userSeq.length == NUM_OF_LEVELS) {
+ //  displayWinner();
+ //  resetGame();
+ // }
+}
+
+
+// Check User Seq with Simon Seq
+
+function checkUserSeq() {
+ for (var i = 0; i < userSeq.length; i++) {
+  if (userSeq[i] != simonSeq[i]) {
+   return false;
+  }
+ }
+ return true;
+}
+
+
+// generate random number
+
 function getRandomNum() {
-    let random = Math.floor((Math.random() * 4) + 1);
-    simonSeq.push(random);
+ let random = Math.floor((Math.random() * 4) + 1);
+ simonSeq.push(random);
+ console.log('Simon: ', simonSeq); // remove
 }
 
 
-/*--  Check Player Sequence against Simon to be Correct & Loop
-      Thru index of playerSeq and test against same index of simonSeq --*/
-
-function playerSeqCorrect() {
-    for (i = 0; i < playerSeq.length; i++) {
-        if (playerSeq[i] != simonSeq[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-
-// Display Error Function
-
-function displayError() {
-    console.log("error");
-    let counter = 0;
-    let playerError = setInterval(function() {
-        $("#count").text("NO");
-        counter++;
-        if (counter == 4) {
-            $("#count").text(level);
-            clearInterval(playerError);
-            playerSeq = [];
-            counter = 0;
-        }
-    }, 500);
-}
-
-
-// Add Temp colorClass & Play Sound 
+// Create Function to Light Up Color Buttons & Play Sound Effect
 
 function addClassSound(id, color) {
-    $("#"+id).addClass(color + "-light");       // add light class to change color
-    playBtnSound();         // play button sound at same time
+    $("#"+id).addClass(color + "-light");       
+    playBtnSound();         
     setTimeout(function() {
         $("#"+id).removeClass(color + "-light");
-    }, 500);        // remove light class again after 1/2 second 
+    }, 500);        
+    console.log("id & color are ", id, color);
+}
+
+
+// Add btn-diasble class to color buttons
+
+function addDisable() {
+ colorBtns.forEach(function (button) {
+  button.classList.add("btn-disabled");
+  // console.log(button.className);
+ });
+}
+
+
+// Remove btn-disabled class from color buttons
+
+function removeDisable() {
+ colorBtns.forEach(function (button) {
+  button.classList.remove("btn-disabled");
+  // console.log(colorBtns);
+ });
+}
+
+
+/* reset game */
+function resetGame() {
+ userSeq = [];
+ simonSeq = [];
+ level = 0;
+ strict = false;
+ error = false;
+ $("#count").text(" ");
 }
 
 
 // Create Function for Play Button Sound 
 
 function playBtnSound() {
-    btnSound = document.querySelector("#btnSound");
+    let btnSound = document.querySelector("#btnSound");
     btnSound.play();
 }
+
 
 // Create Error Sound Function 
 
 function playErrorSound() {
-    errSound = document.querySelector("#errSound");
+    let errSound = document.querySelector("#errSound");
     errSound.play();
 }
+
 
 // Create Power On Sound Function 
 
 function playPowerOnSound() {
-    powerOnSound = document.querySelector("#powerOnSound");
+    let powerOnSound = document.querySelector("#powerOnSound");
     powerOnSound.play();
 }
 
@@ -171,6 +231,7 @@ function playPowerOnSound() {
 function clearTurnCount() {
     $("#count").text("--");
 }
+
 
 
 
