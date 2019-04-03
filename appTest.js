@@ -7,20 +7,22 @@ let playerFlag = false;
 let strictFlag = false;
 let id;
 let color;
+let strictBtn = document.querySelector("#strictOn");
+let startBtn = document.querySelector(".startBtn");
+let onBtn = document.querySelector("#powerOn");
+let levelDisplay = document.querySelector("#count");
+let topScoreDisplay = document.querySelector("#topScoreCount");
 
-const levelNum = 3; // Testing with low level Num
-const strictBtn = document.querySelector("#strictOn");
-const startBtn = document.querySelector(".startBtn");
-const onBtn = document.querySelector("#powerOn");
-const levelDisplay = document.querySelector("#count");
-const topScoreDisplay = document.querySelector("#topScoreCount");
+
 const colorBtns = document.querySelectorAll(".colorBtn");
+const levelNum = 3; // Testing with low level Num
 
 
 // No buttons working on page load except power / strict
 
 $(document).ready(function () {
- startBtn.classList.add("disabled");
+ $('.startBtn').attr('disabled','disabled');
+ console.log(".startBtn");
  addDisable();
 });
 
@@ -56,12 +58,12 @@ $(".colorBtn").click(function() {
         
         let correct = true;
         
-        for(let i =0; i < simonSeq.length; i++) {
-            if(simonSeq[i] != playerSeq[i]) {
+        for(let i = 0; i < simonSeq.length; i++) {
+            if (simonSeq[i] != playerSeq[i]) {
                 correct = false;
             }
         }
-        if(correct) {
+        if (correct) {
             console.log('Arrays match!')
             level++;
             playerSeq = []; 
@@ -120,7 +122,8 @@ $("#powerOn").click(function() {
         playPowerOnSound();
         $("#count").text("HI");
         setTimeout(clearTurnCount, 1500);
-        startBtn.classList.remove("disabled");
+        $('.startBtn').removeAttr('disabled');
+        console.log(".startBtn");
     
         // Press Start Button to Begin Game
     
@@ -137,7 +140,7 @@ $("#powerOn").click(function() {
         
     } else {
         $("#count").text(" ");
-        startBtn.classList.add("disabled");
+        $(".startBtn").attr("disabled", "disabled");
         addDisable();
         strictFlag = false;
         level = 0;
@@ -232,7 +235,7 @@ function addClassSound(id, color) {
 // Create Function for Play Button Sound 
 
 function playBtnSound() {
-    btnSound = document.querySelector("#btnSound");
+    let btnSound = document.querySelector("#btnSound");
     btnSound.play();
 }
 
@@ -240,7 +243,7 @@ function playBtnSound() {
 // Create Error Sound Function 
 
 function playErrorSound() {
-    errSound = document.querySelector("#errSound");
+    let errSound = document.querySelector("#errSound");
     errSound.play();
 }
 
@@ -248,7 +251,7 @@ function playErrorSound() {
 // Create Power On Sound Function 
 
 function playPowerOnSound() {
-    powerOnSound = document.querySelector("#powerOnSound");
+    let powerOnSound = document.querySelector("#powerOnSound");
     powerOnSound.play();
 }
 
