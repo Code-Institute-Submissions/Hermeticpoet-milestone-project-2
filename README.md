@@ -109,6 +109,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Content
 The sound clips were taken from [Soundjay.com](https://www.soundjay.com/button-sounds-1.html "Game Sounds"). A free to use site of various sound files.
+The Trophy emoji was taken from [emojipedia.org](https://emojipedia.org/trophy/ "Emoji Trophy Image"). These are also free to use.
 ### Media
 The photos used in this site were obtained from ...
 ### Acknowledgements

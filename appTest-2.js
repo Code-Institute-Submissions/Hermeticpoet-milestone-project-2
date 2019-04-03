@@ -10,7 +10,7 @@ let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
 
 const colorBtns = document.querySelectorAll(".colorBtn");
-const NUM_OF_LEVELS = 5;
+const total_GAME_LEVELS = 4;
 
 // Load Page with Buttons Disabled
 
@@ -110,11 +110,9 @@ function genUserSeq() {
  console.log(id + " " + color); // remove
  addClassSound(id, color);
  
- // addDisable();
- 
- //check user sequence
+ // Check user sequence
  if (!checkUserSeq()) {
-  //if playing strict mode reset everything lol
+  // if playing strict mode reset everything lol
   if (strict) {
    console.log("strict"); // remove
    // simonSeq = [];
@@ -126,19 +124,20 @@ function genUserSeq() {
   genSimonSeq();
   console.log(simonSeq); // remove
  }
- //checking end of sequence
- else if (userSeq.length == simonSeq.length && userSeq.length < NUM_OF_LEVELS) {
+ // Checking end of sequence
+ else if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
   level++;
   userSeq = [];
   error = false;
   console.log("start simon");
   genSimonSeq();
  }
- //checking for winners
- // if (userSeq.length == NUM_OF_LEVELS) {
- //  displayWinner();
- //  resetGame();
- // }
+ // Check if User Wins
+ if (userSeq.length == total_GAME_LEVELS) {
+  console.log("YOU WON!!!");
+  displayWin();
+  resetGame();
+ }
 }
 
 
@@ -169,6 +168,24 @@ function displayError() {
    counter = 0;
   }
  }, 300);
+}
+
+
+// Display Win Function
+
+function displayWin() {
+ let count = 0;
+ let winInterval = setInterval(function () {
+  count++;
+  $("#count").text("WIN");
+  $("#topScoreCount").text("🏆");
+  if (count == 8) {
+   clearInterval(winInterval);
+   $("#count").text("--");
+   $("#topScoreCount").text("20"); 
+   count = 0;
+  }
+ }, 500);
 }
 
 
