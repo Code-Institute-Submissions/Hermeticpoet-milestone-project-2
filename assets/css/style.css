@@ -91,6 +91,10 @@ body {
  /*-- class to add light red --*/
 }
 
+.winnerLightRed {
+ background-color: #FF0000 !important;
+}
+
 .green {
  background-color: #227727;
  /*-- green --*/
@@ -109,6 +113,10 @@ body {
 .green-light {
  background-color: #6dee73 !important;
  /*-- class to add light green --*/
+}
+
+.winnerLightGreen {
+ background-color: #00ff04 !important;
 }
 
 .yellow {
@@ -130,6 +138,10 @@ body {
  /*-- class to add light yellow --*/
 }
 
+.winnerLightYellow {
+ background-color: #FFFF00 !important;
+}
+
 .blue {
  background-color: #070cb6;
  /*-- blue --*/
@@ -148,6 +160,10 @@ body {
 .blue-light {
  background-color: #3288ff !important;
  /*-- class to add light blue --*/
+}
+
+.winnerLightBlue {
+ background-color: #74a8ff !important;
 }
 
 /*-- Controls --*/

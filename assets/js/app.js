@@ -1,4 +1,5 @@
-//variables
+// Global Variables
+
 let userSeq = [];
 let simonSeq = [];
 let id, color, level = 0;
@@ -9,16 +10,21 @@ let startBtn = document.querySelector(".startBtn");
 let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
 
+const redBtn = document.querySelector(".red");
+const greenBtn = document.querySelector(".green");
+const yellowBtn = document.querySelector(".yellow");
+const blueBtn = document.querySelector(".blue");
 const colorBtns = document.querySelectorAll(".colorBtn");
-const total_GAME_LEVELS = 4;
+const total_GAME_LEVELS = 2;
 
 // Load Page with Buttons Disabled
 
 $(document).ready(function () {
  $('.startBtn').attr('disabled','disabled');
  addDisable();
- console.log(startBtn);
- console.log(colorBtns);
+ console.log(startBtn); // remove
+ // console.log(redBtn); // remove
+ // console.log(greenBtn); // remove
  
  // Power Game Board On / Off
  
@@ -47,16 +53,16 @@ $(document).ready(function () {
 // Press Start to Begin the Game
 
 $(".startBtn").click(function() {
- resetGame();
- level++;
- genSimonSeq();
- setTimeout(removeDisable, 1500);
+   resetGame();
+   level++;
+   genSimonSeq();
+   setTimeout(removeDisable, 1500);
 
- console.log("strict is ", strict);
- console.log("error is ", error);
- console.log("userSeq is ", userSeq);
- console.log("simonSeq is ", simonSeq);
- console.log("level is ", level);
+   console.log("strict is ", strict);
+   console.log("error is ", error);
+   console.log("userSeq is ", userSeq);
+   console.log("simonSeq is ", simonSeq);
+   console.log("level is ", level);
 });
 
 // Color Button Listener
@@ -71,14 +77,12 @@ $(".colorBtn").click(function() {
 // Strict Button Listener
 
 $("#strictOn").click(function () {
- strictBtn.checked;
- console.log("Strict is On Now!");
- level = 0;
- level++;
- simonSeq = [];
- userSeq = [];
- strict = true;
- genSimonSeq();
+ if (strictBtn.checked == true) {
+   console.log("Strict is On Now!");
+   strict = true;
+ } else {
+  strict = false;
+ }
 });
 
 
@@ -112,10 +116,11 @@ function genUserSeq() {
  console.log(id + " " + color); // remove
  addClassSound(id, color);
  
- // Check user sequence
+ // Check Player Sequence
+ 
  if (!checkUserSeq()) {
   // if playing strict mode reset everything lol
-  if (strictBtn.checked == true) {
+  if (strict) {
    console.log("strict"); // remove
    strictMessage();
    playErrorSound();
@@ -127,7 +132,9 @@ function genUserSeq() {
   genSimonSeq();
   console.log(simonSeq); // remove
  }
- // Checking end of sequence
+ 
+ // Checking If Player Game Continues After Correct Sequence
+ 
  else if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
   level++;
   userSeq = [];
@@ -135,10 +142,14 @@ function genUserSeq() {
   console.log("start simon");
   genSimonSeq();
  }
+ 
  // Check if User Wins
+ 
  if (userSeq.length == total_GAME_LEVELS) {
   console.log("YOU WON!!!");
+  playGameWinSound();
   displayWin();
+  lightUpBoard();
   resetGame();
  }
 }
@@ -185,14 +196,39 @@ function displayWin() {
   if (count == 8) {
    clearInterval(winInterval);
    $("#count").text("--");
-   $("#topScoreCount").text("20"); 
+   $("#topScoreCount").text(level); 
    count = 0;
   }
  }, 500);
 }
 
 
+// Light Up All Buttons for Win
+
+function lightUpBoard() {
+ $(".red").addClass("winnerLightRed");
+ setTimeout(function() {
+  $(".red").removeClass("winnerLightRed");
+ }, 500);
+ $(".green").addClass("winnerLightGreen");
+ setTimeout(function() {
+  $(".green").removeClass("winnerLightGreen");
+ }, 500);
+ $(".yellow").addClass("winnerLightYellow");
+ setTimeout(function() {
+  $(".yellow").removeClass("winnerLightYellow");
+ }, 500);
+ $(".blue").addClass("winnerLightBlue");
+ setTimeout(function() {
+  $(".blue").removeClass("winnerLightBlue");
+ }, 500);
+ 
+ console.log(colorBtns);
+}
+
+
 // Strict Message Function
+
 function strictMessage() {
  let count = 0;
  let strictInterval = setInterval(function() {
@@ -257,6 +293,7 @@ function resetGame() {
  strict = false;
  error = false;
  $("#count").text(" ");
+ $("#topScoreCount").text(total_GAME_LEVELS); 
 }
 
 
@@ -281,6 +318,13 @@ function playErrorSound() {
 function playPowerOnSound() {
     let powerOnSound = document.querySelector("#powerOnSound");
     powerOnSound.play();
+}
+
+
+// Create Game Win Sound Function
+function playGameWinSound() {
+ let gameWinSound = document.querySelector("#gameWinSound");
+ gameWinSound.play();
 }
 
 
