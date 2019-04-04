@@ -10,10 +10,10 @@ let startBtn = document.querySelector(".startBtn");
 let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
 
-const redBtn = document.querySelector(".red");
-const greenBtn = document.querySelector(".green");
-const yellowBtn = document.querySelector(".yellow");
-const blueBtn = document.querySelector(".blue");
+// const redBtn = document.querySelector(".red");
+// const greenBtn = document.querySelector(".green");
+// const yellowBtn = document.querySelector(".yellow");
+// const blueBtn = document.querySelector(".blue");
 const colorBtns = document.querySelectorAll(".colorBtn");
 const total_GAME_LEVELS = 2;
 
@@ -206,23 +206,47 @@ function displayWin() {
 // Light Up All Buttons for Win
 
 function lightUpBoard() {
- $(".red").addClass("winnerLightRed");
- $(".green").addClass("winnerLightGreen");
- $(".yellow").addClass("winnerLightYellow");
- $(".blue").addClass("winnerLightBlue");
- setTimeout(function() {
-  $(".red").removeClass("winnerLightRed");
- }, 1000);
- setTimeout(function() {
-  $(".green").removeClass("winnerLightGreen");
- }, 1500);
- setTimeout(function() {
-  $(".blue").removeClass("winnerLightBlue");
- }, 2000);
- setTimeout(function() {
-  $(".yellow").removeClass("winnerLightYellow");
- }, 2500);
+ setTimeout(redBtn, 1000);
+ // setTimeout(redBtnRemove, 1000);
+ setTimeout(greenBtn, 1500);
+ // setTimeout(greenBtnRemove, 1500);
+ setTimeout(blueBtn, 2000);
+ // setTimeout(blueBtnRemove, 2000);
+ setTimeout(yellowBtn, 2500);
+ // setTimeout(yellowBtnRemove, 2500);
 }
+
+function redBtn() {
+ $(".red").addClass("red-light");
+}
+
+/*function redBtnRemove() {
+ $(".red").removeClass("red-light");
+}*/
+
+function greenBtn() {
+ $(".green").addClass("green-light");
+}
+
+/*function greenBtnRemove() {
+ $(".green").removeClass("green-light");
+}*/
+
+function blueBtn() {
+ $(".blue").addClass("blue-light");
+}
+
+/*function blueBtnRemove() {
+ $(".blue").removeClass("blue-light");
+}*/
+
+function yellowBtn() {
+ $(".yellow").addClass("yellow-light");
+}
+
+/*function yellowBtnRemove() {
+ $(".yellow").removeClass("yellow-light");
+}*/
 
 
 // Strict Message Function
