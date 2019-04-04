@@ -1,4 +1,3 @@
-
 //variables
 let userSeq = [];
 let simonSeq = [];
@@ -11,7 +10,7 @@ let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
 
 const colorBtns = document.querySelectorAll(".colorBtn");
-const NUM_OF_LEVELS = 5;
+const total_GAME_LEVELS = 4;
 
 // Load Page with Buttons Disabled
 
@@ -44,7 +43,6 @@ $(document).ready(function () {
     }
  });
 });
- 
 
 // Press Start to Begin the Game
 
@@ -52,6 +50,7 @@ $(".startBtn").click(function() {
  resetGame();
  level++;
  genSimonSeq();
+ setTimeout(removeDisable, 1500);
 
  console.log("strict is ", strict);
  console.log("error is ", error);
@@ -69,9 +68,11 @@ $(".colorBtn").click(function() {
 });
 
 
-// Strict Mode Listener
+// Strict Button Listener
 
-$(".strict").click(function () {
+$("#strictOn").click(function () {
+ strictBtn.checked;
+ console.log("Strict is On Now!");
  level = 0;
  level++;
  simonSeq = [];
@@ -82,15 +83,16 @@ $(".strict").click(function () {
 
 
 
-// simon sequence 
+// Generate Simon Sequence 
 
 function genSimonSeq() {
+ addDisable();
  $("#count").text(level);
  if (!error) {
   getRandomNum();
  }
- var i = 0;
- var myInterval = setInterval(function () {
+ let i = 0;
+ let myInterval = setInterval(function () {
   id = simonSeq[i];
   color = $("#"+id).attr("class").split(" ")[2]; 
   addClassSound(id, color);
@@ -99,43 +101,46 @@ function genSimonSeq() {
    clearInterval(myInterval);
   }
  }, 1000);
+ setTimeout(removeDisable, 2000);
 }
 
 
-// Player Sequence
+// Create Player Sequence Array
 
 function genUserSeq() {
  userSeq.push(id);
- console.log(id + " " + color);
+ console.log(id + " " + color); // remove
  addClassSound(id, color);
  
- //check user sequence
+ // Check user sequence
  if (!checkUserSeq()) {
-  //if playing strict mode reset everything lol
-  if (strict) {
-   console.log("strict");
-   // simonSeq = [];
-   // level = 1;
+  // if playing strict mode reset everything lol
+  if (strictBtn.checked == true) {
+   console.log("strict"); // remove
+   strictMessage();
+   playErrorSound();
+   resetGame();
   }
-  // displayError();
-  // userSeq = [];
+  displayError();
   error = true;
-  console.log("User Error");
-  // simonSequence();
+  console.log("User Error"); // remove
+  genSimonSeq();
+  console.log(simonSeq); // remove
  }
- //checking end of sequence
- else if (userSeq.length == simonSeq.length && userSeq.length < NUM_OF_LEVELS) {
+ // Checking end of sequence
+ else if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
   level++;
   userSeq = [];
   error = false;
   console.log("start simon");
-  // simonSequence();
+  genSimonSeq();
  }
- //checking for winners
- // if (userSeq.length == NUM_OF_LEVELS) {
- //  displayWinner();
- //  resetGame();
- // }
+ // Check if User Wins
+ if (userSeq.length == total_GAME_LEVELS) {
+  console.log("YOU WON!!!");
+  displayWin();
+  resetGame();
+ }
 }
 
 
@@ -151,7 +156,58 @@ function checkUserSeq() {
 }
 
 
-// generate random number
+// Display Error Function
+
+function displayError() {
+ playErrorSound();
+ let counter = 0;
+ let myError = setInterval(function () {
+  $("#count").text("NO");
+  counter++;
+  if (counter == 3) {
+   $("#count").text(level);
+   clearInterval(myError);
+   userSeq = [];
+   counter = 0;
+  }
+ }, 300);
+}
+
+
+// Display Win Function
+
+function displayWin() {
+ let count = 0;
+ let winInterval = setInterval(function () {
+  count++;
+  $("#count").text("WIN");
+  $("#topScoreCount").text("🏆");
+  if (count == 8) {
+   clearInterval(winInterval);
+   $("#count").text("--");
+   $("#topScoreCount").text("20"); 
+   count = 0;
+  }
+ }, 500);
+}
+
+
+// Strict Message Function
+function strictMessage() {
+ let count = 0;
+ let strictInterval = setInterval(function() {
+  count++;
+  $("#topScoreCount").text("😖");
+  if (count == 8) {
+   clearInterval(strictInterval);
+   $("#topScoreCount").text(" ");
+   count = 0;
+  }
+ }, 2000);
+}
+
+
+// Generate Random Number
 
 function getRandomNum() {
  let random = Math.floor((Math.random() * 4) + 1);
@@ -192,7 +248,8 @@ function removeDisable() {
 }
 
 
-/* reset game */
+// Reset the Game 
+
 function resetGame() {
  userSeq = [];
  simonSeq = [];
@@ -232,8 +289,5 @@ function playPowerOnSound() {
 function clearTurnCount() {
     $("#count").text("--");
 }
-
-
-
 
 
