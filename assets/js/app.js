@@ -207,23 +207,21 @@ function displayWin() {
 
 function lightUpBoard() {
  $(".red").addClass("winnerLightRed");
- setTimeout(function() {
-  $(".red").removeClass("winnerLightRed");
- }, 500);
  $(".green").addClass("winnerLightGreen");
- setTimeout(function() {
-  $(".green").removeClass("winnerLightGreen");
- }, 500);
  $(".yellow").addClass("winnerLightYellow");
- setTimeout(function() {
-  $(".yellow").removeClass("winnerLightYellow");
- }, 500);
  $(".blue").addClass("winnerLightBlue");
  setTimeout(function() {
+  $(".red").removeClass("winnerLightRed");
+ }, 1000);
+ setTimeout(function() {
+  $(".green").removeClass("winnerLightGreen");
+ }, 1500);
+ setTimeout(function() {
   $(".blue").removeClass("winnerLightBlue");
- }, 500);
- 
- console.log(colorBtns);
+ }, 2000);
+ setTimeout(function() {
+  $(".yellow").removeClass("winnerLightYellow");
+ }, 2500);
 }
 
 
