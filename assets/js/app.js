@@ -150,6 +150,7 @@ function genUserSeq() {
   playGameWinSound();
   displayWin();
   lightUpBoard();
+  removeBtnLights();
   resetGame();
  }
 }
@@ -199,7 +200,7 @@ function displayWin() {
    $("#topScoreCount").text(level); 
    count = 0;
   }
- }, 500);
+ }, 700);
 }
 
 
@@ -210,43 +211,50 @@ function lightUpBoard() {
  setTimeout(greenBtn, 1500);
  setTimeout(blueBtn, 2000);
  setTimeout(yellowBtn, 2500);
-/* setTimeout(redBtnRemove, 3000);
+}
+
+
+// Remove All Button Lights After Win
+
+function removeBtnLights() {
+ setTimeout(redBtnRemove, 3000);
  setTimeout(greenBtnRemove, 3500);
  setTimeout(blueBtnRemove, 4000);
- setTimeout(yellowBtnRemove, 4500);*/
+ setTimeout(yellowBtnRemove, 4500);
 }
+
 
 function redBtn() {
  $(".red").addClass("red-light");
 }
 
-/*function redBtnRemove() {
+function redBtnRemove() {
  $(".red").removeClass("red-light");
-}*/
+}
 
 function greenBtn() {
  $(".green").addClass("green-light");
 }
 
-/*function greenBtnRemove() {
+function greenBtnRemove() {
  $(".green").removeClass("green-light");
-}*/
+}
 
 function blueBtn() {
  $(".blue").addClass("blue-light");
 }
 
-/*function blueBtnRemove() {
+function blueBtnRemove() {
  $(".blue").removeClass("blue-light");
-}*/
+}
 
 function yellowBtn() {
  $(".yellow").addClass("yellow-light");
 }
 
-/*function yellowBtnRemove() {
+function yellowBtnRemove() {
  $(".yellow").removeClass("yellow-light");
-}*/
+}
 
 
 // Strict Message Function
