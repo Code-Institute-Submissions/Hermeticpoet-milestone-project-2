@@ -39,7 +39,29 @@
    <a id="brand" class="navbar-brand ml-3" href="#"><span class="mr-2">Simon</span><i class="far fa-comment"></i></a>
    <ul class="navbar-nav ml-auto mr-2">
     <li class="nav-item">
-     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#rules" type="button">Rules</button>
+     <div id="accordion" class="d-block d-md-none">
+      <div class="card">
+       <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+         <button class="btn btn-primary btn-block text-white" data-toggle="collapse" data-target="#accordian-rules" aria-expanded="false" aria-controls="accordian-rules">
+              Rules
+             </button>
+        </h5>
+       </div>
+       <div id="accordian-rules" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+         <p>The objective of this game is to memorize the sequence in which the coloured buttons light up and then repeat that sequence by clicking on the required buttons. At each new level, another button is selected and added to the sequence so as to increase
+          the difficulty.
+          <br><br> The game begins when a user clicks the start button (after first turning the game on by way of the power switch). The game will then start and the user will hear a note, while seeing one of the coloured buttons flash. When a sequence has
+          been correctly repeated by the user, a high-pitched sound will notify them before the next level begins. If the user chooses the wrong button, then they will hear a low-pitched error tone. The game will continue to play until the user eventually
+          gets the correct complete sequence, that is set to TWENTY. <br><br> However, if the user wishes to make the game more difficult, they can switch on ‘strict’ mode. In strict mode, ONE wrong answer will end the game! At any point, the user can click
+          the ‘start’ button and restart their game anew. There is a High Score counter that will notify the user of the highest scored sequenced achieved to date. <br><br> So, what are you waiting for? Press START and jump right in – Good Luck!
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <button class="d-none d-md-block btn btn-primary btn-lg" data-toggle="modal" data-target="#rules" type="button">Rules</button>
     </li>
    </ul>
   </div>

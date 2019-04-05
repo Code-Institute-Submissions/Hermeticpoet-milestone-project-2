@@ -33,6 +33,35 @@ body {
  font-size: 1.75rem;
 }
 
+.card {
+ background-color: #436d99;
+ border: 0;
+}
+
+.card-header {
+ padding: 0;
+ margin-bottom: 0;
+ background-color: #436d99;
+ border-bottom: 0;
+ font-family: 'Rubik', sans-serif;
+ font-size: 2rem;
+ color: #fff;
+}
+
+.card-body {
+ background: url('../images/OriginalSimon.jpg') no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ font-family: 'Rubik',
+  sans-serif;
+ font-weight: 500;
+ font-size: 1rem;
+ color: #fff;
+ text-align: center;
+}
+
 /*-- Navbar Styles ends --*/
 
 /*-- Activate colorBtn Presses --*/

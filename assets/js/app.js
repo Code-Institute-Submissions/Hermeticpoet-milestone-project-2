@@ -207,13 +207,13 @@ function displayWin() {
 
 function lightUpBoard() {
  setTimeout(redBtn, 1000);
- // setTimeout(redBtnRemove, 1000);
  setTimeout(greenBtn, 1500);
- // setTimeout(greenBtnRemove, 1500);
  setTimeout(blueBtn, 2000);
- // setTimeout(blueBtnRemove, 2000);
  setTimeout(yellowBtn, 2500);
- // setTimeout(yellowBtnRemove, 2500);
+/* setTimeout(redBtnRemove, 3000);
+ setTimeout(greenBtnRemove, 3500);
+ setTimeout(blueBtnRemove, 4000);
+ setTimeout(yellowBtnRemove, 4500);*/
 }
 
 function redBtn() {
