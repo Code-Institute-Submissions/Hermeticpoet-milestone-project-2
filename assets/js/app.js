@@ -14,7 +14,7 @@ const colorBtns = document.querySelectorAll(".colorBtn");
 const total_GAME_LEVELS = 20;
 const topScoreDisplay = document.querySelector("#topScoreCount");
 let topScore = topScoreDisplay.value;
-// let topScore = localStorage.setItem("Top Score", "9");
+
 
 // Load Page with Buttons Disabled
 
@@ -35,7 +35,7 @@ $(document).ready(function () {
         $("#count").text("HI");
         setTimeout(clearTurnCount, 1200);
         $('.startBtn').removeAttr('disabled');
-        getTopScoreFromLocalStorage(); // ***???***
+        // getTopScoreFromLocalStorage(); ***
     } else {
         resetGame();
         // console.log(userSeq); // remove
@@ -211,15 +211,14 @@ function displayWin() {
 function setTopScore() {
  checkTopScore();
  $("#topScoreCount").text(level);
- console.log("setTopScore function works!"); // remove
- // localStorage.setItem("Top Score", topScore);
+ setTopScoreToLocalStorage();
 }
 
 
 // Check Top Score Against User Level
 
 function checkTopScore() {
- console.log("checkTopScore function works!"); // remove
+ // console.log("checkTopScore function works!"); // remove
  if (level > topScore) {
   topScore = level;
  }
@@ -229,26 +228,22 @@ function checkTopScore() {
 // Save Top Score to Local Storage
 
 function setTopScoreToLocalStorage() {
- console.log("Set to LS...");
+ let newTopScore;
+ if (newTopScore > topScore) {
+  localStorage.setItem("Top Score", newTopScore);
+ }
+ console.log(newTopScore);
 }
-
-/*localStorage.setItem("Top Score", topScore);
-if (powerOn.checked || startBtn.checked){
-    if(vscore > highscore) {
-      // For future games.
-      localStorage.setItem("highscore", vscore);
-    }
-}*/
 
 
 // Get Top Score from Local Storage
 
 function getTopScoreFromLocalStorage() {
- console.log("Get from LS...");
+ // console.log("Get from LS..."); // remove
  
  let topScoreFromLS;
  if (localStorage.getItem("Top Score") === null) {
-  topScoreFromLS = "9";
+  topScoreFromLS = "00";
  } else {
   topScoreFromLS = localStorage.getItem("Top Score");
  }
