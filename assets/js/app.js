@@ -145,7 +145,7 @@ function genUserSeq() {
    // console.log("Wrong but keep going"); // remove
    displayError();
    error = true;
-   genSimonSeq();
+   setTimeout(genSimonSeq, 1000);
   }
  }
 }
