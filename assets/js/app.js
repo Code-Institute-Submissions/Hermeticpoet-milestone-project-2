@@ -12,7 +12,7 @@ let strictBtn = document.querySelector("#strictOn");
 let topScore = document.querySelector("#topScoreCount").value;
 
 const colorBtns = document.querySelectorAll(".colorBtn");
-const total_GAME_LEVELS = 5;
+const total_GAME_LEVELS = 4;
 
 // Load Page with Buttons Disabled
 
@@ -76,7 +76,7 @@ $(".colorBtn").click(function() {
 
 $("#strictOn").click(function () {
  if (strictBtn.checked == true) {
-   // console.log("Strict is On Now!"); // remove
+   console.log("Strict is On Now!"); // remove
    strict = true;
  } else {
   strict = false;
@@ -116,41 +116,37 @@ function genUserSeq() {
  
  // Check Player Sequence
  
- if (!checkUserSeq()) {
-  // if playing strict mode reset everything lol
-  if (strict) {
-   // console.log("strict"); // remove
+ if (checkUserSeq()) {
+  if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
+   // console.log("correct but keep going"); // remove
+   level++;
+   userSeq = [];
+   error = false;
+   genSimonSeq();
+  }
+  else if (userSeq.length == simonSeq.length && userSeq.length == total_GAME_LEVELS) {
+   // console.log("You Win Game"); // remove
+   playGameWinSound();
+   displayWin();
+   lightUpBoard();
+   removeBtnLights();
+   resetGame();
+  }
+ }
+
+ else if (!checkUserSeq()) {
+  if (strictBtn.checked == true) {
+   // console.log("You Lose with Only One Wrong Answer"); // remove
    strictMessage();
    playErrorSound();
    resetGame();
   }
-  displayError();
-  error = true;
-  // console.log("User Error"); // remove
-  genSimonSeq();
-  // console.log(simonSeq); // remove
- }
- 
- // Checking If Player Game Continues After Correct Sequence
- 
- else if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
-  level++;
-  userSeq = [];
-  error = false;
-  // console.log("start simon"); // remove
-  genSimonSeq();
- }
- 
- // Check if User Wins
- 
- if (userSeq.length == total_GAME_LEVELS) {
-  // console.log("YOU WON!!!"); // remove
-  playGameWinSound();
-  displayWin();
-  lightUpBoard();
-  removeBtnLights();
-  resetGame();
-  // $("topScoreCount").text(topScore); // remove?
+  else {
+   // console.log("Wrong but keep going"); // remove
+   displayError();
+   error = true;
+   genSimonSeq();
+  }
  }
 }
 
@@ -262,13 +258,14 @@ function strictMessage() {
  let count = 0;
  let strictInterval = setInterval(function() {
   count++;
+  $("#count").text("NO");
   $("#topScoreCount").text("😖");
-  if (count == 7) {
+  if (count == 4) {
    clearInterval(strictInterval);
    $("#topScoreCount").text(topScore);
    count = 0;
   }
- }, 1500);
+ }, 500);
 }
 
 
@@ -362,5 +359,7 @@ function playGameWinSound() {
 function clearTurnCount() {
     $("#count").text("--");
 }
+
+
 
 
