@@ -9,16 +9,19 @@ let error = false;
 let startBtn = document.querySelector(".startBtn");
 let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
-let topScore = document.querySelector("#topScoreCount").value;
 
 const colorBtns = document.querySelectorAll(".colorBtn");
-const total_GAME_LEVELS = 4;
+const total_GAME_LEVELS = 20;
+const topScoreDisplay = document.querySelector("#topScoreCount");
+let topScore = topScoreDisplay.value;
+// let topScore = localStorage.setItem("Top Score", "9");
 
 // Load Page with Buttons Disabled
 
 $(document).ready(function () {
  $('.startBtn').attr('disabled','disabled');
  addDisable();
+
  // console.log(startBtn); // remove
  // console.log(redBtn); // remove
  // console.log(greenBtn); // remove
@@ -32,8 +35,7 @@ $(document).ready(function () {
         $("#count").text("HI");
         setTimeout(clearTurnCount, 1200);
         $('.startBtn').removeAttr('disabled');
-        // console.log(startBtn); // remove
-        
+        getTopScoreFromLocalStorage(); // ***???***
     } else {
         resetGame();
         // console.log(userSeq); // remove
@@ -43,7 +45,7 @@ $(document).ready(function () {
         // console.log("game is off"); // remove
         addDisable();
         // console.log(colorBtns); // remove
-    }
+      }
  });
 });
 
@@ -54,13 +56,16 @@ $(".startBtn").click(function() {
    level++;
    genSimonSeq();
    setTimeout(removeDisable, 1500);
+   
+   // check the top score
+   // topScoreLocalStorage();
 
    /*console.log("strict is ", strict);
    console.log("error is ", error);
    console.log("userSeq is ", userSeq);
    console.log("simonSeq is ", simonSeq);
-   console.log("level is ", level);*/
-   console.log(topScore);
+   console.log("level is ", level);
+   console.log(topScore);*/ // remove all of above
 });
 
 // Color Button Listener
@@ -122,6 +127,7 @@ function genUserSeq() {
    level++;
    userSeq = [];
    error = false;
+   setTopScore();
    genSimonSeq();
   }
   else if (userSeq.length == simonSeq.length && userSeq.length == total_GAME_LEVELS) {
@@ -130,6 +136,7 @@ function genUserSeq() {
    displayWin();
    lightUpBoard();
    removeBtnLights();
+   // checkTopScore();
    resetGame();
   }
  }
@@ -196,6 +203,56 @@ function displayWin() {
    count = 0;
   }
  }, 700);
+}
+
+
+// Set the Level to Top Score Display
+
+function setTopScore() {
+ checkTopScore();
+ $("#topScoreCount").text(level);
+ console.log("setTopScore function works!"); // remove
+ // localStorage.setItem("Top Score", topScore);
+}
+
+
+// Check Top Score Against User Level
+
+function checkTopScore() {
+ console.log("checkTopScore function works!"); // remove
+ if (level > topScore) {
+  topScore = level;
+ }
+}
+
+
+// Save Top Score to Local Storage
+
+function setTopScoreToLocalStorage() {
+ console.log("Set to LS...");
+}
+
+/*localStorage.setItem("Top Score", topScore);
+if (powerOn.checked || startBtn.checked){
+    if(vscore > highscore) {
+      // For future games.
+      localStorage.setItem("highscore", vscore);
+    }
+}*/
+
+
+// Get Top Score from Local Storage
+
+function getTopScoreFromLocalStorage() {
+ console.log("Get from LS...");
+ 
+ let topScoreFromLS;
+ if (localStorage.getItem("Top Score") === null) {
+  topScoreFromLS = "9";
+ } else {
+  topScoreFromLS = localStorage.getItem("Top Score");
+ }
+ $("#topScoreCount").text(topScoreFromLS);
 }
 
 
