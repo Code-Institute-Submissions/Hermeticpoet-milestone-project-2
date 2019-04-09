@@ -1,4 +1,4 @@
-// Global Variables
+// Global Variables ************************************************************
 
 let userSeq = [];
 let simonSeq = [];
@@ -16,7 +16,7 @@ const colorBtns = document.querySelectorAll(".colorBtn");
 const total_GAME_LEVELS = 20;
 
 
-// Load Page with Buttons Disabled
+// Load Page with Buttons Disabled *********************************************
 
 $(document).ready(function () {
  $('.startBtn').attr('disabled','disabled');
@@ -50,7 +50,7 @@ $(document).ready(function () {
  });
 });
 
-// Press Start to Begin the Game
+// Press Start to Begin the Game ***********************************************
 
 $(".startBtn").click(function() {
    resetGame();
@@ -69,7 +69,7 @@ $(".startBtn").click(function() {
    console.log(topScore);*/ // remove all of above
 });
 
-// Color Button Listener
+// Color Button Listener *******************************************************
 
 $(".colorBtn").click(function() {
  id = $(this).attr("id");
@@ -91,7 +91,7 @@ $("#strictOn").click(function () {
 
 
 
-// Generate Simon Sequence 
+// Generate Simon Sequence *****************************************************
 
 function genSimonSeq() {
  addDisable();
@@ -113,7 +113,7 @@ function genSimonSeq() {
 }
 
 
-// Create Player Sequence Array
+// Create Player Sequence Array ************************************************
 
 function genUserSeq() {
  userSeq.push(id);
@@ -161,7 +161,7 @@ function genUserSeq() {
 }
 
 
-// Check User Seq with Simon Seq
+// Check User Seq with Simon Seq ***********************************************
 
 function checkUserSeq() {
  for (var i = 0; i < userSeq.length; i++) {
@@ -173,7 +173,7 @@ function checkUserSeq() {
 }
 
 
-// Display Error Function
+// Display Error Function ******************************************************
 
 function displayError() {
  playErrorSound();
@@ -191,7 +191,7 @@ function displayError() {
 }
 
 
-// Display Win Function
+// Display Win Function ********************************************************
 
 function displayWin() {
  let count = 0;
@@ -209,7 +209,7 @@ function displayWin() {
 }
 
 
-// Set the Level to Top Score Display
+// Set the Level to Top Score Display ******************************************
 
 function setTopScore() {
  checkTopScore();
@@ -218,7 +218,7 @@ function setTopScore() {
 }
 
 
-// Check Top Score Against User Level
+// Check Top Score Against User Level ******************************************
 
 function checkTopScore() {
  // console.log("checkTopScore function works!"); // remove
@@ -229,7 +229,7 @@ function checkTopScore() {
 }
 
 
-// Save Top Score to Local Storage
+// Save Top Score to Local Storage *********************************************
 
 function setTopScoreToLocalStorage() {
  // console.log("We are here!"); // remove
@@ -241,7 +241,7 @@ function setTopScoreToLocalStorage() {
 }
 
 
-// Get Top Score from Local Storage
+// Get Top Score from Local Storage ********************************************
 
 function getTopScoreFromLocalStorage() {
  let topScoreFromLS = localStorage.getItem("Top Score");
@@ -253,7 +253,7 @@ function getTopScoreFromLocalStorage() {
 }
 
 
-// Light Up All Buttons for Win
+// Light Up All Buttons for Win ************************************************
 
 function lightUpBoard() {
  setTimeout(redBtn, 1000);
@@ -263,7 +263,7 @@ function lightUpBoard() {
 }
 
 
-// Remove All Button Lights After Win
+// Remove All Button Lights After Win ******************************************
 
 function removeBtnLights() {
  setTimeout(redBtnRemove, 3000);
@@ -306,7 +306,7 @@ function yellowBtnRemove() {
 }
 
 
-// Strict Message Function
+// Strict Message Function *****************************************************
 
 function strictMessage() {
  let count = 0;
@@ -323,7 +323,7 @@ function strictMessage() {
 }
 
 
-// Generate Random Number
+// Generate Random Number ******************************************************
 
 function getRandomNum() {
  let random = Math.floor((Math.random() * 4) + 1);
@@ -332,7 +332,7 @@ function getRandomNum() {
 }
 
 
-// Create Function to Light Up Color Buttons & Play Sound Effect
+// Create Function to Light Up Color Buttons & Play Sound Effect ***************
 
 function addClassSound(id, color) {
     $("#"+id).addClass(color + "-light");       
@@ -344,7 +344,7 @@ function addClassSound(id, color) {
 }
 
 
-// Add btn-diasble class to color buttons
+// Add btn-diasble class to color buttons **************************************
 
 function addDisable() {
  colorBtns.forEach(function (button) {
@@ -354,7 +354,7 @@ function addDisable() {
 }
 
 
-// Remove btn-disabled class from color buttons
+// Remove btn-disabled class from color buttons ********************************
 
 function removeDisable() {
  colorBtns.forEach(function (button) {
@@ -364,7 +364,7 @@ function removeDisable() {
 }
 
 
-// Reset the Game 
+// Reset the Game **************************************************************
 
 function resetGame() {
  userSeq = [];
@@ -381,7 +381,7 @@ function resetGame() {
 }
 
 
-// Create Function for Play Button Sound 
+// Create Function for Play Button Sound ***************************************
 
 function playBtnSound() {
     let btnSound = document.querySelector("#btnSound");
@@ -389,7 +389,7 @@ function playBtnSound() {
 }
 
 
-// Create Error Sound Function 
+// Create Error Sound Function *************************************************
 
 function playErrorSound() {
     let errSound = document.querySelector("#errSound");
@@ -397,7 +397,7 @@ function playErrorSound() {
 }
 
 
-// Create Power On Sound Function 
+// Create Power On Sound Function **********************************************
 
 function playPowerOnSound() {
     let powerOnSound = document.querySelector("#powerOnSound");
@@ -405,14 +405,14 @@ function playPowerOnSound() {
 }
 
 
-// Create Game Win Sound Function
+// Create Game Win Sound Function **********************************************
 function playGameWinSound() {
  let gameWinSound = document.querySelector("#gameWinSound");
  gameWinSound.play();
 }
 
 
-// Create Function to Clear Display after Power On 
+// Create Function to Clear Display after Power On *****************************
 
 function clearTurnCount() {
     $("#count").text("--");

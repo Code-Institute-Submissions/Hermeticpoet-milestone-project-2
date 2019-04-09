@@ -1,9 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700|Sniglet:400,800');
 
+:root {
+ --red: #b80000;
+ --green: #227727;
+ --yellow: #cca707;
+ --blue: #070cb6;
+ --lightRed: #FF0000;
+ --lightGreen: #00ff04;
+ --lightYellow: #FFFF00;
+ --lightBlue: #74a8ff;
+ --card-background: #436d99;
+ --control-background: gray;
+ --display-backgrounds: #330000;
+ --display-font: courier;
+ --font-family-primary: 'Rubik', sans-serif;
+ --font-family-secondary: 'Sniglet', cursive;
+}
+
 
 body {
  background-image: url(../images/lavender-background.jpg);
- font-family: 'Rubik', sans-serif;
+ font-family: var(--font-family-primary);
  font-weight: 500;
  font-size: 1.75rem;
  display: flex;
@@ -15,33 +32,25 @@ body {
  flex: 1;
 }
 
-.opaque_overlay1 {
- position: absolute;
- top: 0;
- left: 0;
- height: 100%;
- width: 100%;
- background-color: rgba(0, 0, 0, 0.08);
-}
 
 /*-- Navbar Styles --*/
 
 #brand,
 .nav-link {
- font-family: 'Sniglet', cursive;
+ font-family: var(--font-family-secondary);
  font-weight: 400;
  font-size: 1.75rem;
 }
 
 .card {
- background-color: #436d99;
+ background-color: var(--card-background);
  border: 0;
 }
 
 .card-header {
  padding: 0;
  margin-bottom: 0;
- background-color: #436d99;
+ background-color: var(--card-background);
  border-bottom: 0;
  font-family: 'Rubik', sans-serif;
  font-size: 2rem;
@@ -54,7 +63,7 @@ body {
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
- font-family: 'Rubik', sans-serif;
+ font-family: var(--font-family-primary);
  font-weight: 500;
  font-size: 1rem;
  color: #fff;
@@ -79,7 +88,7 @@ body {
 .startBtn {
  font-size: 1.2rem;
  font-weight: 500;
- font-family: 'Sniglet', cursive;
+ font-family: var(--font-family-primary);
  padding: 0;
 }
 
@@ -101,8 +110,7 @@ body {
 }
 
 .red {
- background-color: #b80000;
- /*-- red --*/
+ background-color: var(--red);
  border-top: .1rem solid #333;
  border-left: .04rem solid #333;
  border-bottom: .04rem solid #333;
@@ -115,17 +123,15 @@ body {
 }
 
 .red-light {
- background-color: #ff5c5c !important;
- /*-- class to add light red --*/
+ background-color: var(--lightRed) !important;
 }
 
 .winnerLightRed {
- background-color: #FF0000 !important;
+ background-color: var(--lightRed) !important;
 }
 
 .green {
- background-color: #227727;
- /*-- green --*/
+ background-color: var(--green);
  border-top: .1rem solid #333;
  border-right: .04rem solid #333;
  border-bottom: .04rem solid #333;
@@ -139,17 +145,15 @@ body {
 }
 
 .green-light {
- background-color: #6dee73 !important;
- /*-- class to add light green --*/
+ background-color: var(--lightGreen) !important;
 }
 
 .winnerLightGreen {
- background-color: #00ff04 !important;
+ background-color: var(--lightGreen) !important;
 }
 
 .yellow {
- background-color: #cca707;
- /*-- yellow --*/
+ background-color: var(--yellow);
  border-left: .04rem solid #333;
  border-bottom: .1rem solid #333;
  border-top: .04rem solid #333;
@@ -162,17 +166,15 @@ body {
 }
 
 .yellow-light {
- background-color: #ffe54c !important;
- /*-- class to add light yellow --*/
+ background-color: var(--lightYellow) !important;
 }
 
 .winnerLightYellow {
- background-color: #FFFF00 !important;
+ background-color: var(--lightYellow) !important;
 }
 
 .blue {
- background-color: #070cb6;
- /*-- blue --*/
+ background-color: var(--blue);
  border-top: .04rem solid #333;
  border-bottom: .1rem solid #333;
  border-right: .04rem solid #333;
@@ -186,18 +188,17 @@ body {
 }
 
 .blue-light {
- background-color: #3288ff !important;
- /*-- class to add light blue --*/
+ background-color: var(--lightBlue) !important;
 }
 
 .winnerLightBlue {
- background-color: #74a8ff !important;
+ background-color: var(--lightBlue) !important;
 }
 
 /*-- Controls --*/
 
 #controls {
- background-color: gray;
+ background-color: var(--control-background);
  height: 6rem;
  width: 8rem;
  border: .04rem solid #333;
@@ -207,9 +208,9 @@ body {
 
 #count {
  position: absolute;
- background: #330000;
- color: red;
- font-family: courier;
+ background: var(--display-backgrounds);
+ color: var(--red);
+ font-family: var(--display-font);
  font-size: 1.2rem;
  height: 2rem;
  margin-top: .5rem;
@@ -248,9 +249,9 @@ body {
 
 #topScoreCount {
  position: absolute;
- background: #330000;
+ background: var(--display-backgrounds);
  color: red;
- font-family: courier;
+ font-family: var(--display-font);
  font-size: 2rem;
  height: 3rem;
  width: 5rem;
@@ -271,7 +272,7 @@ body {
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
- font-family: 'Rubik', sans-serif;
+ font-family: var(--font-family-primary);
  font-weight: 500;
  font-size: 1rem;
  color: #fff;
@@ -288,7 +289,7 @@ body {
 }
 
 .modal-title {
- font-family: 'Rubik', sans-serif;
+ font-family: var(--font-family-primary);
  font-size: 2.8rem;
  color: #fff;
 }
@@ -336,9 +337,9 @@ body {
 
  #count {
   position: absolute;
-  background: #330000;
+  background: var(--display-backgrounds);
   color: red;
-  font-family: courier;
+  font-family: var(--display-font);
   font-size: 2rem;
   height: 3rem;
   width: 4rem;
@@ -363,6 +364,7 @@ body {
  }
 
  #topScoreCount {
+  font-family: var(--display-font);
   font-size: 2.2rem;
   height: 4.2rem;
   width: 6rem;
@@ -414,7 +416,6 @@ body {
   width: 7rem;
   line-height: 4.5rem;
   border-radius: .5rem;
-  /*margin-bottom: 5rem;*/
  }
 
  .controlSwitches {
