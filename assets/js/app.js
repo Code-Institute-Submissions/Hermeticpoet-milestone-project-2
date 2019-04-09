@@ -61,7 +61,6 @@ $(".colorBtn").click(function() {
 
 $("#strictOn").click(function () {
  if (strictBtn.checked == true) {
-   console.log("Strict is On Now!"); // remove
    strict = true;
  } else {
   strict = false;
