@@ -8,7 +8,6 @@ let error = false;
 let topScore;
 
 let topScoreDisplay = document.querySelector("#topScoreCount").value;
-// let startBtn = document.querySelector(".startBtn");
 let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
 
@@ -22,15 +21,10 @@ $(document).ready(function () {
  $('.startBtn').attr('disabled','disabled');
  addDisable();
 
- // console.log(startBtn); // remove
- // console.log(redBtn); // remove
- // console.log(greenBtn); // remove
- 
  // Power Game Board On / Off
  
  $("#powerOn").click(function() {
     if (onBtn.checked == true) {
-        // console.log("game is on!"); // remove
         playPowerOnSound();
         $("#count").text("HI");
         setTimeout(clearTurnCount, 1200);
@@ -39,13 +33,8 @@ $(document).ready(function () {
         $("#topScoreCount").text(topScoreDisplay);
     } else {
         resetGame();
-        // console.log(userSeq); // remove
-        // console.log(simonSeq); // remove
         $(".startBtn").attr("disabled", "disabled");
-        // console.log(startBtn); // remove
-        // console.log("game is off"); // remove
         addDisable();
-        // console.log(colorBtns); // remove
       }
  });
 });
@@ -57,16 +46,6 @@ $(".startBtn").click(function() {
    level++;
    genSimonSeq();
    setTimeout(removeDisable, 1500);
-   
-   // check the top score
-   // topScoreLocalStorage();
-
-   /*console.log("strict is ", strict);
-   console.log("error is ", error);
-   console.log("userSeq is ", userSeq);
-   console.log("simonSeq is ", simonSeq);
-   console.log("level is ", level);
-   console.log(topScore);*/ // remove all of above
 });
 
 // Color Button Listener *******************************************************
@@ -117,23 +96,19 @@ function genSimonSeq() {
 
 function genUserSeq() {
  userSeq.push(id);
- // console.log(id + " " + color); // remove
  addClassSound(id, color);
  
  // Check Player Sequence
  
  if (checkUserSeq()) {
   if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
-   // console.log("correct but keep going"); // remove
    level++;
    userSeq = [];
    error = false;
-   console.log(level);
    setTopScore();
    genSimonSeq();
   }
   else if (userSeq.length == simonSeq.length && userSeq.length == total_GAME_LEVELS) {
-   // console.log("You Win Game"); // remove
    playGameWinSound();
    displayWin();
    lightUpBoard();
@@ -141,18 +116,15 @@ function genUserSeq() {
    setTopScore();
    resetGame();
   }
-  // setTopScore();
  }
 
  else if (!checkUserSeq()) {
   if (strictBtn.checked == true) {
-   // console.log("You Lose with Only One Wrong Answer"); // remove
    strictMessage();
    playErrorSound();
    resetGame();
   }
   else {
-   // console.log("Wrong but keep going"); // remove
    displayError();
    error = true;
    setTimeout(genSimonSeq, 1000);
@@ -213,7 +185,7 @@ function displayWin() {
 
 function setTopScore() {
  checkTopScore();
- $("#topScoreCount").text(level);
+ $("#topScoreCount").text(topScoreDisplay);
  setTopScoreToLocalStorage();
 }
 
@@ -221,23 +193,16 @@ function setTopScore() {
 // Check Top Score Against User Level ******************************************
 
 function checkTopScore() {
- // console.log("checkTopScore function works!"); // remove
  if (level > topScoreDisplay) {
-  // console.log(topScoreDisplay); // remove
   topScoreDisplay = level;
- }
+ } 
 }
 
 
 // Save Top Score to Local Storage *********************************************
 
 function setTopScoreToLocalStorage() {
- // console.log("We are here!"); // remove
- // console.log("level: " + level); // remove
- // console.log("Top Score: " + topScore); // remove
- // console.log("Top Score Display: " + topScoreDisplay); // remove
  localStorage.setItem("Top Score", topScoreDisplay);
- // console.log(localStorage); // remove
 }
 
 
@@ -246,8 +211,7 @@ function setTopScoreToLocalStorage() {
 function getTopScoreFromLocalStorage() {
  let topScoreFromLS = localStorage.getItem("Top Score");
  if (topScoreFromLS === null || topScoreFromLS === undefined) {
-  topScoreFromLS = "1";
-  // console.log("top score:" + topScoreFromLS);
+  topScoreFromLS = "00";
  }
  return topScoreFromLS;
 }
@@ -328,7 +292,6 @@ function strictMessage() {
 function getRandomNum() {
  let random = Math.floor((Math.random() * 4) + 1);
  simonSeq.push(random);
- console.log('Simon: ', simonSeq); // remove
 }
 
 
@@ -340,7 +303,6 @@ function addClassSound(id, color) {
     setTimeout(function() {
         $("#"+id).removeClass(color + "-light");
     }, 500);        
-    console.log("id & color are ", id, color);
 }
 
 
@@ -349,7 +311,6 @@ function addClassSound(id, color) {
 function addDisable() {
  colorBtns.forEach(function (button) {
   button.classList.add("btn-disabled");
-  // console.log(button.className);
  });
 }
 
@@ -359,7 +320,6 @@ function addDisable() {
 function removeDisable() {
  colorBtns.forEach(function (button) {
   button.classList.remove("btn-disabled");
-  // console.log(colorBtns);
  });
 }
 

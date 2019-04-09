@@ -126,9 +126,6 @@ body {
  background-color: var(--lightRed) !important;
 }
 
-.winnerLightRed {
- background-color: var(--lightRed) !important;
-}
 
 .green {
  background-color: var(--green);
@@ -148,9 +145,6 @@ body {
  background-color: var(--lightGreen) !important;
 }
 
-.winnerLightGreen {
- background-color: var(--lightGreen) !important;
-}
 
 .yellow {
  background-color: var(--yellow);
@@ -169,9 +163,6 @@ body {
  background-color: var(--lightYellow) !important;
 }
 
-.winnerLightYellow {
- background-color: var(--lightYellow) !important;
-}
 
 .blue {
  background-color: var(--blue);
@@ -191,9 +182,6 @@ body {
  background-color: var(--lightBlue) !important;
 }
 
-.winnerLightBlue {
- background-color: var(--lightBlue) !important;
-}
 
 /*-- Controls --*/
 
