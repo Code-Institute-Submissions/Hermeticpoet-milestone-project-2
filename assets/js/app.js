@@ -13,11 +13,7 @@ let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
 
 const colorBtns = document.querySelectorAll(".colorBtn");
-const total_GAME_LEVELS = 3;
-
-
-// localStorage.removeItem("Top Score");
-// localStorage.removeItem("highest score");
+const total_GAME_LEVELS = 20;
 
 
 // Load Page with Buttons Disabled
@@ -377,7 +373,11 @@ function resetGame() {
  strict = false;
  error = false;
  $("#count").text(" ");
- $("#topScoreCount").text(topScore); 
+ if (powerOn.checked == true) {
+   $("#topScoreCount").text(topScoreDisplay);
+ } else {
+   $("#topScoreCount").text(" ");
+ }
 }
 
 
