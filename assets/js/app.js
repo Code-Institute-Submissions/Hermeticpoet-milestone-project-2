@@ -5,15 +5,19 @@ let simonSeq = [];
 let id, color, level = 0;
 let strict = false;
 let error = false;
+let topScore;
 
-let startBtn = document.querySelector(".startBtn");
+let topScoreDisplay = document.querySelector("#topScoreCount").value;
+// let startBtn = document.querySelector(".startBtn");
 let onBtn = document.querySelector("#powerOn");
 let strictBtn = document.querySelector("#strictOn");
 
 const colorBtns = document.querySelectorAll(".colorBtn");
-const total_GAME_LEVELS = 20;
-const topScoreDisplay = document.querySelector("#topScoreCount");
-let topScore = topScoreDisplay.value;
+const total_GAME_LEVELS = 3;
+
+
+// localStorage.removeItem("Top Score");
+// localStorage.removeItem("highest score");
 
 
 // Load Page with Buttons Disabled
@@ -35,7 +39,8 @@ $(document).ready(function () {
         $("#count").text("HI");
         setTimeout(clearTurnCount, 1200);
         $('.startBtn').removeAttr('disabled');
-        // getTopScoreFromLocalStorage(); ***
+        topScoreDisplay = getTopScoreFromLocalStorage();
+        $("#topScoreCount").text(topScoreDisplay);
     } else {
         resetGame();
         // console.log(userSeq); // remove
@@ -127,6 +132,7 @@ function genUserSeq() {
    level++;
    userSeq = [];
    error = false;
+   console.log(level);
    setTopScore();
    genSimonSeq();
   }
@@ -136,9 +142,10 @@ function genUserSeq() {
    displayWin();
    lightUpBoard();
    removeBtnLights();
-   // checkTopScore();
+   setTopScore();
    resetGame();
   }
+  // setTopScore();
  }
 
  else if (!checkUserSeq()) {
@@ -199,7 +206,7 @@ function displayWin() {
   if (count == 8) {
    clearInterval(winInterval);
    $("#count").text("--");
-   $("#topScoreCount").text(topScore); 
+   $("#topScoreCount").text("20"); 
    count = 0;
   }
  }, 700);
@@ -219,8 +226,9 @@ function setTopScore() {
 
 function checkTopScore() {
  // console.log("checkTopScore function works!"); // remove
- if (level > topScore) {
-  topScore = level;
+ if (level > topScoreDisplay) {
+  // console.log(topScoreDisplay); // remove
+  topScoreDisplay = level;
  }
 }
 
@@ -228,26 +236,24 @@ function checkTopScore() {
 // Save Top Score to Local Storage
 
 function setTopScoreToLocalStorage() {
- let newTopScore;
- if (newTopScore > topScore) {
-  localStorage.setItem("Top Score", newTopScore);
- }
- console.log(newTopScore);
+ // console.log("We are here!"); // remove
+ // console.log("level: " + level); // remove
+ // console.log("Top Score: " + topScore); // remove
+ // console.log("Top Score Display: " + topScoreDisplay); // remove
+ localStorage.setItem("Top Score", topScoreDisplay);
+ // console.log(localStorage); // remove
 }
 
 
 // Get Top Score from Local Storage
 
 function getTopScoreFromLocalStorage() {
- // console.log("Get from LS..."); // remove
- 
- let topScoreFromLS;
- if (localStorage.getItem("Top Score") === null) {
-  topScoreFromLS = "00";
- } else {
-  topScoreFromLS = localStorage.getItem("Top Score");
+ let topScoreFromLS = localStorage.getItem("Top Score");
+ if (topScoreFromLS === null || topScoreFromLS === undefined) {
+  topScoreFromLS = "1";
+  // console.log("top score:" + topScoreFromLS);
  }
- $("#topScoreCount").text(topScoreFromLS);
+ return topScoreFromLS;
 }
 
 
