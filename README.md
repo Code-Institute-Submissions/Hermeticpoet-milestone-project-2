@@ -2,8 +2,15 @@
 
 ## The Brief
 > CREATE A MEMORY GAME
-Build a simple single-player memory game inspired by Simon. Check out this short [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4) and [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game))
-entry to understand the rules of the game. Provide details in your README.md of the logic you have used to build your game as well as an explanation of how you tested your logic
+Build a simple single-player memory game inspired by Simon. Check out this short [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4) 
+and [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)) entry to understand the rules of the game. Provide details in your README.md 
+of the logic you have used to build your game as well as an explanation of how you tested your logic.
+>
+
+###                                            Simon Game
+![alt text][game-pic]
+
+[game-pic]: Testing/screenshots/Game-Opera.png "Game Rendered in Opera Browser"
 
 ## UX
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
