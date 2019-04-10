@@ -332,7 +332,7 @@ function resetGame() {
  strict = false;
  error = false;
  $("#count").text(" ");
- if (powerOn.checked == true) {
+ if (onBtn.checked == true) {
    $("#topScoreCount").text(topScoreDisplay);
  } else {
    $("#topScoreCount").text(" ");
