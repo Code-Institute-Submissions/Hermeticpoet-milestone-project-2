@@ -2,17 +2,19 @@
 
 ## The Brief
 > CREATE A MEMORY GAME
-Build a simple single-player memory game inspired by Simon. Check out this short [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4) 
+
+
+> Build a simple single-player memory game inspired by Simon. Check out this short [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4) 
 and [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)) entry to understand the rules of the game. Provide details in your README.md 
 of the logic you have used to build your game as well as an explanation of how you tested your logic.
 >
 
 <p align="center">
-### Game As Rendered In Opera
+    Game As Rendered In Opera<br /><br />
 <!--![alt text][game-pic]-->
 
 <!--[game-pic]: Testing/screenshots/Game-Opera.png "Game Rendered in Opera Browser"-->
-  <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser">
+  <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser" width="800" height="800">
 </p>
                                            
 
