@@ -1,6 +1,6 @@
 <p align="center">
-    <h1>MileStone Project 2 - Interactive Front-End Development</h1><br /><br />
-    Check Out the Game Here: <a href="https://github.com/Hermeticpoet/milestone-project-2">Simon_Game</a>
+    <h1>MileStone Project 2 - Interactive Front-End Development</h1><br />
+    <strong>Check Out the Game Here: <a href="https://github.com/Hermeticpoet/milestone-project-2">Simon Game</a></strong>
 </p>
 
 # Simon Game
@@ -15,7 +15,7 @@ of the logic you have used to build your game as well as an explanation of how y
 
 <p align="center">
     Game As Rendered In Opera<br /><br />
-    <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser" width="700" height="500">
+    <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser" width="650" height="400">
 </p>
                                            
 
@@ -38,6 +38,15 @@ buttons will still be disabled until after the javascript engine has generated t
 up and plays a sound to notify the player of the first sequence. This too will prevent players from pressing buttons before the game begins and
 causing possible errors.
 
+#### Modal & Accordian
+According to [uxmag](https://uxmag.com/articles/modals-on-mobile-how-to-use-them-wisely "Modals") and [uxmovement](https://uxmovement.com/mobile/why-you-should-avoid-using-modal-windows-on-mobile/ "Mobile Modals"), modals are best
+used on screens of tablet size and bigger. Therefore, I have chosen to include an accordian for the __Rules__ on mobile devices, while keeping the
+more standard modal pop-up on the larger device screens.
+
+#### Conceptual Design
+During the Scope Plane phase of my design, I used Balsamiq to create my [wireframes](https://github.com/Hermeticpoet/milestone-project-2/tree/master/assets/wireframes).
+These have been added to the file tree and pushed to my [GitHub](https://github.com/Hermeticpoet/milestone-project-2) repo for viewing.
+
 #### Colours
 The colour choices used for the layout of the page were taken as part of the [Bootswatch Spacelab](https://bootswatch.com/spacelab/) theme. I wanted 
 my game to mirror that of the original in essence so I chose to go with the four standard colours of Red, Green, Blue and Yellow. The background colour
@@ -49,69 +58,21 @@ The primary font Rubik was selected for its soft, playful aesthetic. Likewise, t
 slightly harder, straighter lined edge to make the button text clear to the users. The displays use the more traditional Courier font as it provided
 the most clear and plain format within the display box with its seeming led glowing appearance.
 
-The [wireframes](https://github.com/Hermeticpoet/milestone-project-2/tree/master/assets/wireframes) were created using Balsamiq during the Scope Plane 
-part of the design and planning process for this project.
-
 ### User Stories
+As a player, I want: 
+1. To find and understand the rules of the game easily. 
+2. To intuitively grasps where everything on the page and around the game board.
+3. Audio and visual feedback when I play the game so that I know when I have clicked or not clicked something.
+4. The capability to increase the difficulty of the game when I choose.
+5. Visual feedback as to what level of the game I am on and what the current best score for the game has been.
+6. To be given some form of alerted recognition when / if I complete the game.
 
-Disney and Pixar characters were chosen for this game because they are recognised and loved by children. Cars characters were specifically chosen because it is extremely popular with boys, the Frozen characters because they are very popular with girls, and the Toy Story Characters because they appeal to both girls and boys.
-Audio files
-
-To continue the feeling of a game made for children, clicking button sounds were added that are similar to the sounds a child might hear when operating a physical toy with buttons.
-The card flipping sounds and "bing" on a correct match were added to give positive feedback on use of the game.
-The sound of applauding children played on completing the game was chosen because it appeals most to children, and again fits within the theme of PicFlip!
-Wireframes
-
-
-User info modal
-Game page
-Win pop-up
-
-<!--More often than not, modal overlays just don’t work well on tablets and mobile devices. They take some work to get right, and it takes time to address the different phone operating systems and resolve any glitches. They also have to be maintained to relate to the parent page. In many applications, they aren’t scaled properly to be optimized for mobile, or the window stutters as it starts up, which can throw off the position of the close button.-->
-<!--Have a Modal Exit Strategy-->
-
-<!--When it comes to exit strategy and placement, mobile modals defy logic and contradict everything we know about how people consume content. Based on human observation and analysis from some pretty smart people (like Luke Wroblewski) people generally hold their phone one-handed, using their thumb as the primary navigation tool. The design of most phones and apps actually emphasizes right-hand thumb usage.-->
-
-<!--Yet modal close buttons are typically placed in the upper right corner, which forces the user to avert their attention back to the top of the window to close the window. With one-handed use, stretching your thumb to the top right corner of the screen is tough. I have big hands, and it’s difficult for me to thumb-reach the top right corner of the screen. Forget being left-handed; unless you read bottom to top, this movement is not intuitive or ideal.-->
-
-<!--Upper right placement of the close button also increases the likelihood of the dreaded accidental refresh (when I fat-finger the refresh button instead of the close button because they’re both so small and on Safari they’re right next to each other).-->
-
-<!--This poor close button placement also applies to tablets. Although the screen and the button are larger, it’s still unnatural to avert my eyes back to the top of the window in order to continue reading.-->
-
-<!--Global marketers also need to understand how modals come across on older devices. Phones with Android 2.3 and below are going to have browser issues that lead to odd screen behavior, and millions of people around the world are still using these phones.-->
-
-<!--It’s ironic: brands give so much thought to their online presence and place tremendous emphasis on design, features, and functionality, yet they don’t carry the same consideration through to modal windows.-->
-<!--“Don’t Know Where to Put it? Throw it In a Modal!”-->
-
-<!--This brings me to the underlying, more ominous issue: somewhere along the way, modals have gone from being a logical confirmation of an action to a popup dumping ground for content that doesn’t readily fit anywhere else. Too often, modals have become a hack to avoid thinking about content placement. In some cases, they reflect poor judgment and thoughtlessness on the part of developers, who see them as a gift of newfound space, an easy out. In other cases, last minute requests for additions, coupled with a lack of technical skill or resources to edit or pare down existing page content can be the underlying motive for creating a modal.-->
-
-<!--Regardless, brands, content managers, and developers need to put more thought into when to use modals, and when to leave them out.-->
-
-<!--    Brands, content managers, and developers need to put more thought into when to use modals-->
-
-<!--tweet this-->
-
-<!--Modal windows are great at showing users new information on the same page they’re currently on, thereby eliminating page reloads and conventional pop-ups.-->
-
-<!--Conversely, there are occasions when you want to disrupt the flow and refocus your site visitor’s attention on a single, critical action. They’re also a useful tool for displaying images and videos. But even intentional and purposeful interruptions need to be intuitive, easy to complete and fluid.-->
-
-[uxmag](https://uxmag.com/articles/modals-on-mobile-how-to-use-them-wisely "Modals")
-
-<!--One of the most frustrating things users can experience on mobile sites is a modal window. On desktop, modals display without issue because of the large screen size. But on mobile, modal windows get cut off because of the small screen size. Users only see part of the modal window and can’t exit nor view it with ease.-->
-
-<!--Viewing is even more difficult if users have to use an onscreen keyboard. The keyboard will pop up and cover a chunk of the screen, forcing users to have to scroll awkwardly to see the what they’re typing. If you want users to view your modal window content with ease, avoid using modal windows on your mobile site. Use an inline accordion instead.-->
-
-<!--An inline accordion displays the content within the page. It doesn’t overlay it on top of the page like a modal. This prevents the window positioning and scrolling issues that users experience with modals. Not only that, but users never lose their context because inline accordions open on the same page. Modals take users out of their context when it covers up the screen.-->
-
-<!--mobile-modal-->
-
-<!--The way an inline accordion works is when the user taps the button, a panel collapses below it. The panel content is fully displayed on the mobile screen. Users no longer have to deal with partial viewing or awkward scrolling.-->
-
-<!--The button should highlight so that users know what they tapped. The panel should have a title label that matches the button label. It should have an ‘X’ icon in the corner to close the panel just like closing a modal window.-->
-
-<!--Stop making users struggle to view your modal windows. Use inline accordions in place of modal windows on your mobile site. When users can view the content on their screen with ease, they can complete their tasks without the frustration.-->
-
-[uxmovement](https://uxmovement.com/mobile/why-you-should-avoid-using-modal-windows-on-mobile/ "Mobile Modals")
+As a developer, I want:
+1. To have ease of access to the code underlying the application.
+2. To have clear guidelines and instructions available through the README.md file.
+3. To see well commented and indented code to allow for quick and easy reading of that code.
+4. To be presented with a well structured file tree that makes finding the files simple too.
+5. Additionally, to have a properly formatted README file that allows for quick navigation within the file itself.
 
 ## Features
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
