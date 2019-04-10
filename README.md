@@ -7,10 +7,14 @@ and [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)) entry to understand 
 of the logic you have used to build your game as well as an explanation of how you tested your logic.
 >
 
-###                                            Simon Game
-![alt text][game-pic]
+<p align="center">
+### Game As Rendered In Opera
+<!--![alt text][game-pic]-->
 
-[game-pic]: Testing/screenshots/Game-Opera.png "Game Rendered in Opera Browser"
+<!--[game-pic]: Testing/screenshots/Game-Opera.png "Game Rendered in Opera Browser"-->
+  <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser">
+</p>
+                                           
 
 ## UX
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
