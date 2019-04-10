@@ -1,6 +1,11 @@
-# Simon Game
+<p align="center">
+    <h1>MileStone Project 2 - Interactive Front-End Development</h1><br />
+    You Can Check Out the Game Here: [Simon_Game](https://github.com/Hermeticpoet/milestone-project-2)
+</p>
 
-## The Brief
+## Simon Game
+
+### The Brief
 > CREATE A MEMORY GAME
 >
 > Build a simple single-player memory game inspired by Simon. Check out this short [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4) 
@@ -10,20 +15,19 @@ of the logic you have used to build your game as well as an explanation of how y
 
 <p align="center">
     Game As Rendered In Opera<br /><br />
-<!--![alt text][game-pic]-->
-
-<!--[game-pic]: Testing/screenshots/Game-Opera.png "Game Rendered in Opera Browser"-->
-  <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser" width="700" height="500">
+    <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser" width="700" height="500">
 </p>
                                            
 
-## UX
+### UX
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 
 As a user type, I want to perform an action, so that I can achieve a goal.
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+
+#### User Stories
 
 <!--More often than not, modal overlays just don’t work well on tablets and mobile devices. They take some work to get right, and it takes time to address the different phone operating systems and resolve any glitches. They also have to be maintained to relate to the parent page. In many applications, they aren’t scaled properly to be optimized for mobile, or the window stutters as it starts up, which can throw off the position of the close button.-->
 <!--Have a Modal Exit Strategy-->
