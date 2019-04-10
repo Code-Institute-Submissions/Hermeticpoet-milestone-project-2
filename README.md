@@ -1,11 +1,11 @@
 <p align="center">
-    <h1>MileStone Project 2 - Interactive Front-End Development</h1><br />
-    You Can Check Out the Game Here: [Simon_Game](https://github.com/Hermeticpoet/milestone-project-2)
+    <h1>MileStone Project 2 - Interactive Front-End Development</h1><br /><br />
+    Check Out the Game Here: <a href="https://github.com/Hermeticpoet/milestone-project-2">Simon_Game</a>
 </p>
 
-## Simon Game
+# Simon Game
 
-### The Brief
+## The Brief
 > CREATE A MEMORY GAME
 >
 > Build a simple single-player memory game inspired by Simon. Check out this short [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4) 
@@ -19,15 +19,53 @@ of the logic you have used to build your game as well as an explanation of how y
 </p>
                                            
 
-### UX
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+## UX
+### Project Goals
+The goal of the project is to provide a simple memory game that anybody can play, young or old with little to no development experience.
+The game should be fun and easy but also allow for a more difficult version, in order to test the more advanced memory game players. Users 
+should be able to understand the layout and controls intuitively so as to best accomodate for ease of game play.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
+At the top of the screen, within the navbar, is a *Rules* button. Clicking on this will either dropdown an accordian on mobile view or pop-up
+a modal on all larger screen sizes. These rules will explain the aim of the game to the user. The game itself will be disabled upon user's arrival 
+to the page, to prevent any errors. The center of the game board will contain the controls for powering the game on and, should the user decide to, 
+pick to play the game in *strict mode*.
 
-As a user type, I want to perform an action, so that I can achieve a goal.
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+Once the game is powered on, a sound will play to notify the player and the display screen on the control panel will greet them *"HI"*. At this
+point the start button at the top of the screen will become active and allow the player to begin the game. The *Top Score* display will then change
+to show the player what the last, best high score achieved was for the game, by default, if the game has not been played by the user on the current
+browser (localStorage is empty), then the display will show *"00"*. Until such time as the player presses the *Start* button, the game boards colour 
+buttons will still be disabled until after the javascript engine has generated the first sequence and the corresponding coloured button lights 
+up and plays a sound to notify the player of the first sequence. This too will prevent players from pressing buttons before the game begins and
+causing possible errors.
 
-#### User Stories
+#### Colours
+The colour choices used for the layout of the page were taken as part of the [Bootswatch Spacelab](https://bootswatch.com/spacelab/) theme. I wanted 
+my game to mirror that of the original in essence so I chose to go with the four standard colours of Red, Green, Blue and Yellow. The background colour
+was chosen to lighten the look and feel of the application, by adding contrast to the darker buttons while also complimenting the navbar and footer
+colours provided as part of the Bootswatch theme.
+
+#### Fonts
+The primary font Rubik was selected for its soft, playful aesthetic. Likewise, the secondary font Sniglet maintains this same playful look but with a 
+slightly harder, straighter lined edge to make the button text clear to the users. The displays use the more traditional Courier font as it provided
+the most clear and plain format within the display box with its seeming led glowing appearance.
+
+The [wireframes](https://github.com/Hermeticpoet/milestone-project-2/tree/master/assets/wireframes) were created using Balsamiq during the Scope Plane 
+part of the design and planning process for this project.
+
+### User Stories
+
+Disney and Pixar characters were chosen for this game because they are recognised and loved by children. Cars characters were specifically chosen because it is extremely popular with boys, the Frozen characters because they are very popular with girls, and the Toy Story Characters because they appeal to both girls and boys.
+Audio files
+
+To continue the feeling of a game made for children, clicking button sounds were added that are similar to the sounds a child might hear when operating a physical toy with buttons.
+The card flipping sounds and "bing" on a correct match were added to give positive feedback on use of the game.
+The sound of applauding children played on completing the game was chosen because it appeals most to children, and again fits within the theme of PicFlip!
+Wireframes
+
+
+User info modal
+Game page
+Win pop-up
 
 <!--More often than not, modal overlays just don’t work well on tablets and mobile devices. They take some work to get right, and it takes time to address the different phone operating systems and resolve any glitches. They also have to be maintained to relate to the parent page. In many applications, they aren’t scaled properly to be optimized for mobile, or the window stutters as it starts up, which can throw off the position of the close button.-->
 <!--Have a Modal Exit Strategy-->
