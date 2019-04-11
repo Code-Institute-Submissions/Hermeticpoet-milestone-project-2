@@ -105,61 +105,61 @@ There is an initial conditional check placed on the power switch to make sure th
 of the above features kick into play. However, if the game was already _on_, then the game now resets itself, the display screens go blank and all the
 buttons are once again disabled:
 
-<p align="center">
-    ```javascript
-    $("#powerOn").click(function() {
-        if (onBtn.checked == true) {
-            playPowerOnSound();
-            $("#count").text("HI");
-            setTimeout(clearTurnCount, 1200);
-            $('.startBtn').removeAttr('disabled');
-            topScoreDisplay = getTopScoreFromLocalStorage();
-            $("#topScoreCount").text(topScoreDisplay);
-        } else {
-            resetGame();
-            $(".startBtn").attr("disabled", "disabled");
-            addDisable();
-          }
-     });
-    ```
-</p>
+
+```javascript
+$("#powerOn").click(function() {
+    if (onBtn.checked == true) {
+        playPowerOnSound();
+        $("#count").text("HI");
+        setTimeout(clearTurnCount, 1200);
+        $('.startBtn').removeAttr('disabled');
+        topScoreDisplay = getTopScoreFromLocalStorage();
+        $("#topScoreCount").text(topScoreDisplay);
+    } else {
+        resetGame();
+        $(".startBtn").attr("disabled", "disabled");
+        addDisable();
+      }
+ });
+```
+
 Once the game is powered on and the player clicks the start button, _Simon_ will automatically generate a random number between 1 and 4. This number
 is then matched to one of the _ID's_ of the 4 coloured buttons, all of which are numbered 1-4: 
-<p align="center">
-    ```javascript
-    function genSimonSeq() {
-     addDisable();
-     $("#count").text(level);
-     if (!error) {
-      getRandomNum();
-     }
-     let i = 0;
-     let myInterval = setInterval(function () {
-      id = simonSeq[i];
-      color = $("#"+id).attr("class").split(" ")[2]; 
-      addClassSound(id, color);
-      i++;
-      if (i == simonSeq.length) {
-       clearInterval(myInterval);
-      }
-     }, 1000);
-     setTimeout(removeDisable, 2000);
-    }
-    ```
-</p>
+
+```javascript
+function genSimonSeq() {
+ addDisable();
+ $("#count").text(level);
+ if (!error) {
+  getRandomNum();
+ }
+ let i = 0;
+ let myInterval = setInterval(function () {
+  id = simonSeq[i];
+  color = $("#"+id).attr("class").split(" ")[2]; 
+  addClassSound(id, color);
+  i++;
+  if (i == simonSeq.length) {
+   clearInterval(myInterval);
+  }
+ }, 1000);
+ setTimeout(removeDisable, 2000);
+}
+```
+
 The pushing of this number to the matching _ID_ of the corresponding coloured button then calls a function to change the background colour of that 
 button (the button then appears to light up) and plays an electronic button press sound that was retrieved from the [Soundjay.com](https://www.soundjay.com/) website:
-<p align="center">
-    ```javascript
-    function addClassSound(id, color) {
-        $("#"+id).addClass(color + "-light");       
-        playBtnSound();         
-        setTimeout(function() {
-            $("#"+id).removeClass(color + "-light");
-        }, 500);        
-    }
-    ```
-</p>
+
+```javascript
+function addClassSound(id, color) {
+    $("#"+id).addClass(color + "-light");       
+    playBtnSound();         
+    setTimeout(function() {
+        $("#"+id).removeClass(color + "-light");
+    }, 500);        
+}
+```
+
 When the game has finished generating its sequence and the buttons have lit up and played the sound, the coloured buttons then become activated, in order
 to allow the player to repeat the sequence. The code used to create the player sequence array is similar to that of the game generated Simon sequence. It
 will also play the button press sound as the user clicks the corresponding button and cause it to light up too. 
@@ -168,71 +168,71 @@ After a player has attempted to repeat the Simon sequence, a function will be ca
 array. If they are a match but the game is not complete, then Simon will move up one level by replaying the previous sequence with another colour added on.
 If the player gets a move wrong, the game will play an error sound and the level display will quickly show **"NO"** before returning to the correct level, repeating
 the sequence that the player got wrong and the game continues: 
-<p align="center">
-    ```javascript
-    if (checkUserSeq()) {
-      if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
-       level++;
-       userSeq = [];
-       error = false;
-       setTopScore();
-       genSimonSeq();
-      }
-      else if (userSeq.length == simonSeq.length && userSeq.length == total_GAME_LEVELS) {
-       playGameWinSound();
-       displayWin();
-       lightUpBoard();
-       removeBtnLights();
-       setTopScore();
-       resetGame();
-      }
-     }
-    
-     else if (!checkUserSeq()) {
-      if (strictBtn.checked == true) {
-       strictMessage();
-       playErrorSound();
-       resetGame();
-      }
-      else {
-       displayError();
-       error = true;
-       setTimeout(genSimonSeq, 1000);
-      }
-     }
-    }
-    
-    
-    // Check User Seq with Simon Seq ***********************************************
-    
-    function checkUserSeq() {
-     for (var i = 0; i < userSeq.length; i++) {
-      if (userSeq[i] != simonSeq[i]) {
-       return false;
-      }
-     }
-     return true;
-    }
-    
-    
-    // Display Error Function ******************************************************
-    
-    function displayError() {
-     playErrorSound();
-     let counter = 0;
-     let myError = setInterval(function () {
-      $("#count").text("NO");
-      counter++;
-      if (counter == 3) {
-       $("#count").text(level);
-       clearInterval(myError);
-       userSeq = [];
-       counter = 0;
-      }
-     }, 300);
-    }
+
+```javascript
+if (checkUserSeq()) {
+  if (userSeq.length == simonSeq.length && userSeq.length < total_GAME_LEVELS) {
+   level++;
+   userSeq = [];
+   error = false;
+   setTopScore();
+   genSimonSeq();
+  }
+  else if (userSeq.length == simonSeq.length && userSeq.length == total_GAME_LEVELS) {
+   playGameWinSound();
+   displayWin();
+   lightUpBoard();
+   removeBtnLights();
+   setTopScore();
+   resetGame();
+  }
+ }
+
+ else if (!checkUserSeq()) {
+  if (strictBtn.checked == true) {
+   strictMessage();
+   playErrorSound();
+   resetGame();
+  }
+  else {
+   displayError();
+   error = true;
+   setTimeout(genSimonSeq, 1000);
+  }
+ }
+}
+
+
+// Check User Seq with Simon Seq ***********************************************
+
+function checkUserSeq() {
+ for (var i = 0; i < userSeq.length; i++) {
+  if (userSeq[i] != simonSeq[i]) {
+   return false;
+  }
+ }
+ return true;
+}
+
+
+// Display Error Function ******************************************************
+
+function displayError() {
+ playErrorSound();
+ let counter = 0;
+ let myError = setInterval(function () {
+  $("#count").text("NO");
+  counter++;
+  if (counter == 3) {
+   $("#count").text(level);
+   clearInterval(myError);
+   userSeq = [];
+   counter = 0;
+  }
+ }, 300);
+}
 ```
-</p>
+
 The game will also check when a player sequence is incorrect if the strict mode has been enabled. If this is the case then the game error sound will play
 and the player will see the Top Score display show a frustrated emoji as the game is now over. No mistakes are allowed in strict mode:
 <p align="center">
@@ -246,34 +246,33 @@ screen will show **"WIN"** and the top score display will present the player wit
 </p>
 As the user plays through the game and the levels increase, the game will check to see if at any point the level has moved higher than any previous high
 scores. If this is the case, then the **Top Score** display will change to highlight the new higher level of achievement and save this to localStorage:
-<p align="center">
-    ```javascript
-        function setTopScore() {
-         checkTopScore();
-         $("#topScoreCount").text(topScoreDisplay);
-         setTopScoreToLocalStorage();
-        }
-    ```
-</p>
+
+```javascript
+    function setTopScore() {
+     checkTopScore();
+     $("#topScoreCount").text(topScoreDisplay);
+     setTopScoreToLocalStorage();
+    }
+```
+    
 If a player has lost the game, playing under strict mode or they have reached the end by winning the game, they can reset the game by clicking the start
 button and this will reset all the sequences back to empty arrays and begin the game again:
-<p align="center">
-        ```javascript
-        function resetGame() {
-         userSeq = [];
-         simonSeq = [];
-         level = 0;
-         strict = false;
-         error = false;
-         $("#count").text(" ");
-         if (onBtn.checked == true) {
-           $("#topScoreCount").text(topScoreDisplay);
-         } else {
-           $("#topScoreCount").text(" ");
-         }
-        }
-    ```
-</p>
+
+```javascript
+function resetGame() {
+ userSeq = [];
+ simonSeq = [];
+ level = 0;
+ strict = false;
+ error = false;
+ $("#count").text(" ");
+ if (onBtn.checked == true) {
+   $("#topScoreCount").text(topScoreDisplay);
+ } else {
+   $("#topScoreCount").text(" ");
+ }
+}
+```
 
 #### Features Left to Implement
 The original Simon Game uses different sounds (piano keys) for each of the coloured buttons. I specifically chose not to to do this so as to remove that added
