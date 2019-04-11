@@ -1,5 +1,5 @@
 <p align="center">
-  <h1>Simon Game -- Test Results</h1>
+    <h1>Simon Game - Test Results</h1>
 </p>
 
 
