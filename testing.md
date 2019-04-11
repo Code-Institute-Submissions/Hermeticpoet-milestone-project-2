@@ -1,47 +1,69 @@
 <p align="center">
 #  Simon Game -- Test Results
-    Primary READMEmd documentation [here](README.md).
+</p>
+<p align="center">
+    Primary README documentation [here](README.md).
 </p>
 
 ## Manual Testing
 <p align="center">
-    <h5>Accordian Displayed on iPhone</h5>
-    <img src="Testing/screenshots/iPhone-Accordian.png" alt="accordian on mobile" width="500" height="250">
+<h5>Accordian Displayed on iPhone</h5>           |      <h5>Error Screen on iPad</h5>
+:-------------------------:|:-------------------------:
+![](Testing/screenshots/iPhone-Accordian.png)  |  ![](Testing/screenshots/iPad-Error.png)
 </p>
+    
 
 <p align="center">
     <h5>Modal Displayed on Safari Browser</h5>
-    <img src="Testing/screenshots/Safari-Modal.png" alt="modal screen on safari" width="500" height="250">
+</p>
+<p align="center">
+    <img src="Testing/screenshots/Safari-Modal.png" alt="modal screen on safari" width="350" height="200">
+</p>
+
+<p align="center">
+   <h5>Accordian Displayed on iPhone</h5>  
+</p>
+<p align="center">
+    <img src="Testing/screenshots/iPhone-Accordian.png" alt="iphone accordian" width="350" height="200">
 </p>
 
 <p align="center">
     <h5>Error Screen on iPad</h5>
+</p>
+<p align="center">
     <img src="Testing/screenshots/iPad-Error.png" alt="error screen on ipad" width="500" height="250">
 </p>
 
 <p align="center">
     <h5>Strict Mode Error Screen</h5>
-    <img src="Testing/screenshots/Strict-Mode-Error.png" alt="strict mode error screen" width="500" height="250">
+</p>
+<p align="center">
+    <img src="Testing/screenshots/Strict-Mode-Error.png" alt="strict mode error screen" width="350" height="200">
 </p>
 
 <p align="center">
     <h5>iPad Pro Positioning Issue</h5>
-    <img src="Testing/screenshots/iPad-Pro.png" alt="app displayed on ipad pro" width="500" height="250">
+</p>
+<p align="center">
+    <img src="Testing/screenshots/iPad-Pro.png" alt="app displayed on ipad pro" width="350" height="200">
 </p>
 
 <p align="center">
     <h5>Pixel 2 Phone Winning Screen</h5>
-    <img src="Testing/screenshots/pixel2-Win.png" alt="winner screen on pixel 2 phone" width="500" height="250">
 </p>
+<p align="center">
+    <img src="Testing/screenshots/Pixel2-Win.png" alt="winner screen on pixel 2 phone" width="350" height="200">
+</p>
+-------
 
 ### Bugs Detected
 1. Initially, after my first few commits, I checked the rendering of the app across all the main browsers. It worked perfectly on Chrome, Mozilla and Opera but
 had an issue with margin spacing between the **Top Score** display and the footer on Safari and Edge. 
-  * After much commenting out of code and using the **developer** settings available in Safari, I realized that the bootstrap utility classes that I was using 
+  1 After much commenting out of code and using the **developer** settings available in Safari, I realized that the bootstrap utility classes that I was using 
     for my margins was causing an issue. I resolved this by removing the utility classes and increasing the margins between the two elements in my CSS styles.
 
 2. There was an early problem of the buttons being active when the game sequence was playing out. This caused error in the game and made it unpleasant to play.
-  * I asked some questions on Slack about this issue but none of the direct replies worked for my app. I therefore went back to Stack Overflow and found a 
+  2 I asked some questions on Slack about this issue but none of the direct replies worked for my app. I therefore went back to Stack Overflow and found a 
     solution in this [post](https://stackoverflow.com/questions/13831601/disabling-and-enabling-a-html-input-button). I then adapted this to create my own loop
     that would resolve the colour buttons being pressable during simon sequence:
 
@@ -56,7 +78,7 @@ function addDisable() {
 3. When the game was near complete, for example, the game could be played perfectly well till the winning end point, I discovered a bug with the **Strict Mode**.
     If a user made an error under while this mode was switched on the game should have ended. However, in my app, the error would show but then simon would
     repeat its sequence and game could continue.
-  * When examing what was happening "under the hood" through the use of **Dev Tools**, I also noticed that the game was going into an infinite loop when a player
+  3 When examing what was happening "under the hood" through the use of **Dev Tools**, I also noticed that the game was going into an infinite loop when a player
     made an error under strict mode conditions. The solution to this came after much heartache and ardous console logging, while also move around entire blocks of
     code to test it. I discussed this with my mentor Chris who advised me to continue shifting the code blocks in my conditional statements around one block at a
     time till I could see where the bug arose. I eventually found that order of my conditional statements was causing the error. I therefore moved these around and
