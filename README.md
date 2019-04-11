@@ -290,26 +290,33 @@ it might be annoying if they cannot reach the top score of an older player who h
 browser storage in order to reset the Top Score. Thus, it may be a good idea to add in a button for the basic user to clear the top score from storage.
 
 ## Technologies Used
-##### HTML - semantic structure & layout of the site
+##### HTML - semantic structure & layout of the site:
 + **[HTML5](https://en.wikipedia.org/wiki/HTML5)**
 
-##### CSS - styling & game aesthetics
+##### CSS - styling & game aesthetics:
 + **[CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets#CSS_3)**
 
-##### Javascript - logic & game functionality
+##### Javascript - logic & game functionality:
 + **[Javascript](https://en.wikipedia.org/wiki/JavaScript)**
 
-##### jQuery - to simplfy DOM manipulation
+##### jQuery - to simplfy DOM manipulation:
 + **[jQuery](https://jquery.com/)**
 
-##### Bootstrap - framework to speed up development & simplify responsiveness
+##### Bootstrap - framework to speed up development & simplify responsiveness:
 + **[Bootswatch](https://bootswatch.com/spacelab/)**
 
-##### Jasmine - to allow for testing of code & for agile development
+##### Jasmine - to allow for testing of code & for agile development:
 + **[Jasmine](https://jasmine.github.io/)**
 
-##### Google Chrome - ease of use & rapid tesing of code on the fly
+##### Google Chrome - ease of use & rapid tesing of code on the fly:
 + **[Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/)**
+
+##### W3C Validator - testing my HTML & CSS code:
++ **[HTML Validator](https://validator.w3.org/nu/)**
++ **[CSS Validator](https://jigsaw.w3.org/css-validator/)**
+
+##### JSHint - testing my JavaScript & jQuery code:
++ **[JSHint](https://jshint.com/)**
 
 ### Testing
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
