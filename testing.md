@@ -1,57 +1,49 @@
 <p align="center">
-#  Simon Game -- Test Results
+  <h1>Simon Game -- Test Results</h1>
 </p>
-<p align="center">
-    Primary README documentation [here](README.md).
-</p>
+Primary README documentation [here](README.md).
 
 ## Manual Testing
 <p align="center">
-<h5>Accordian Displayed on iPhone</h5>           |      <h5>Error Screen on iPad</h5>
-:-------------------------:|:-------------------------:
-![](Testing/screenshots/iPhone-Accordian.png)  |  ![](Testing/screenshots/iPad-Error.png)
-</p>
-    
-
-<p align="center">
-    <h5>Modal Displayed on Safari Browser</h5>
+    Modal Displayed on Safari Browser
 </p>
 <p align="center">
     <img src="Testing/screenshots/Safari-Modal.png" alt="modal screen on safari" width="350" height="200">
 </p>
 
 <p align="center">
-   <h5>Accordian Displayed on iPhone</h5>  
+   Accordian Displayed on iPhone  
 </p>
 <p align="center">
     <img src="Testing/screenshots/iPhone-Accordian.png" alt="iphone accordian" width="350" height="200">
 </p>
 
 <p align="center">
-    <h5>Error Screen on iPad</h5>
+    Error Screen on iPad
 </p>
 <p align="center">
     <img src="Testing/screenshots/iPad-Error.png" alt="error screen on ipad" width="500" height="250">
 </p>
 
 <p align="center">
-    <h5>Strict Mode Error Screen</h5>
+    Strict Mode Error Screen
 </p>
 <p align="center">
     <img src="Testing/screenshots/Strict-Mode-Error.png" alt="strict mode error screen" width="350" height="200">
 </p>
 
 <p align="center">
-    <h5>iPad Pro Positioning Issue</h5>
+    iPad Pro Positioning Issue
 </p>
 <p align="center">
     <img src="Testing/screenshots/iPad-Pro.png" alt="app displayed on ipad pro" width="350" height="200">
 </p>
 
+<!--<p align="center">
+    Pixel 2 Phone Winning Screen
+</p>-->
 <p align="center">
-    <h5>Pixel 2 Phone Winning Screen</h5>
-</p>
-<p align="center">
+    Pixel 2 Phone Winning Screen<br />
     <img src="Testing/screenshots/Pixel2-Win.png" alt="winner screen on pixel 2 phone" width="350" height="200">
 </p>
 -------
