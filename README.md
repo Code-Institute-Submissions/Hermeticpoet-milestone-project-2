@@ -2,7 +2,7 @@
     <h1>MileStone Project 2 - Interactive Front-End Development</h1>
 </p>
 <p align="center">
-    <strong>Check Out the Game Here: <a href="https://github.com/Hermeticpoet/milestone-project-2">Simon Game</a></strong>
+    <strong>Check Out the Game Here: <a href="https://hermeticpoet.github.io/milestone-project-2/">Simon Game</a></strong>
 </p>
 
 # Simon Game
@@ -318,44 +318,66 @@ browser storage in order to reset the Top Score. Thus, it may be a good idea to 
 ##### JSHint - testing my JavaScript & jQuery code:
 + **[JSHint](https://jshint.com/)**
 
+##### GitHub - remote storing & publishing of code:
++ **[GitHub](https://github.com/)**
+
 ### Testing
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-#### Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+The testing protocols and documentation can be inspected through the [testing.md](testing.md)file.
 
 ## Deployment
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+The project was developed using the [Cloud9 IDE](https://c9.io/). It was then committed to git through the git bash terminal and pushed to 
+GitHub using the built in `git push` function within that development environment.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
+The game was then published, by deploying it, from the repository to GitHub pages. The actions taken to deploy the **Simon** **Game** to GitHub Pages 
+consisted of the following:
 
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
+1. Logged into my GitHub account.
+2. Selecting __Milestone-project-2__ from the list of repositories.
+3. Clicking on __Settings__ which is situated at the far right menu item on the uppermost ribbon.
+4. Scroll down to the GitHub Pages section.
+5. Under Source click the drop-down menu labelled None and select Master Branch.
+6. On selecting the Master Branch, the page is then automatically refreshed and **Simon** **Game** is deployed.
+7. Finally, scroll back down to the GitHub Pages section to retrieve the link to the deployed website.
+
+#### How To Run Game Locally
+To clone this project from GitHub:
+
+1. Click [here](https://github.com/Hermeticpoet) to go to my repositories.
+2. Select the **Milestone-Project-2** repo.
+3. Under the coloured bar near the top of page, click the green button - **Clone or Download**.
+4. A dropdown will appear titled: "Clone with HTTPS", copy this URL.
+5. Go back to your local IDE and open the Git Bash terminal.
+6. Change the current working directory to the location that you want the cloned directory to exist.
+7. Type `git clone` and paste in the URL that you have saved.
+8. Press enter and your local clone will be created.
+
+If you need further with cloning a repository from GitHub, you can find further documentatin [here](https://help.github.com/en/articles/cloning-a-repository).
 
 ## Credits
 
 ### Content
-The sound clips were taken from [Soundjay.com](https://www.soundjay.com/button-sounds-1.html "Game Sounds"). A free to use site of various sound files.
-The Trophy emoji was taken from [emojipedia.org](https://emojipedia.org/trophy/ "Emoji Trophy Image"). These are also free to use.
-### Media
-The photos used in this site were obtained from ...
-### Acknowledgements
-I received inspiration for this project from watching a number of videos & tutorials from various You Tube users that inspired my ideas for this project. 
-Two in particular were - [George Louis](https://www.youtube.com/watch?v=iXscqYgZ7HQ "Root Code") & [Beau Carnes](https://www.youtube.com/watch?v=zwKoo7VDj44 "Edureka"). 
-The Bootstrap Switch was garnered from GitHub user [graingert](<link href=”css/bootstrap-switch/bootstrap-switch.css” rel=”stylesheet”>)...
+The small pieces of text content in this game were wholly written by the developer. 
 
-__Simon__ is a registered trademark of **Hasbro**.
+### Code
+* Box shadow codes were generated at [CSS matic | box-shadow](https://cssmatic.com/box-shadow).
+* The creation of the coloured button div elements was done by the developer with some mentor advice.
+* The power and strict toggle switches code was taken directly from the [Bootswatch](https://bootswatch.com/spacelab/) theme page. 
+* The sound clips were taken from [Soundjay.com](https://www.soundjay.com/button-sounds-1.html "Game Sounds"). A free to use site of various sound files.
+* The Trophy and Frustrated emojis were taken from [emojipedia.org](https://emojipedia.org/trophy/ "Emoji Trophy Image"). These are also free to use.
+* The accordian and modal code was scraped from [Bootstrap](https://getbootstrap.com/) documentation and altered to suit my needs.
+* The code for generating a random number between 1 and 4 was sourced from [George Louis](https://www.youtube.com/watch?v=iXscqYgZ7HQ "Root Code").
+* The core code for lighting up the correct button was sourced from [Beau Carnes](https://www.youtube.com/watch?v=zwKoo7VDj44 "Edureka") and adjusted to suit my code.
+* The code to disable the startBtn came from this [Stack Overflow](https://stackoverflow.com/questions/13831601/disabling-and-enabling-a-html-input-button) post.
+* The rest of the code sourced by way of research, asking Slack members and brute force trial and error.
+
+### Media
+The background image used for the **Rules** accordian / modal was obtained from [wikimedia](https://commons.wikimedia.org/wiki/Category:Images). A free to use
+and share site for __commons__ licensed images.
+
+### Acknowledgements
+I received inspiration for this project by watching a number of videos & tutorials from various You Tube users. Two in particular were - [George Louis](https://www.youtube.com/watch?v=iXscqYgZ7HQ "Root Code") & 
+[Beau Carnes](https://www.youtube.com/watch?v=zwKoo7VDj44 "Edureka"). As always, my mentor (**Chris Zeilinsky**) was of invaluable help in keeping me positive
+about this project as I struggled to get my code up and working. And finally, my fellow [Code Institute](https://codeinstitute.net/) student [Anna](https://github.com/AJGreaves) with
+her advice for the strucure of this README.md file.
+
+__Simon__ is a registered trademark of [**Hasbro**](https://shop.hasbro.com/en-gb).
