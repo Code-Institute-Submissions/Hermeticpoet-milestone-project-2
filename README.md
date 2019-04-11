@@ -322,7 +322,7 @@ browser storage in order to reset the Top Score. Thus, it may be a good idea to 
 + **[GitHub](https://github.com/)**
 
 ### Testing
-The testing protocols and documentation can be inspected through the [testing.md](testing.md)file.
+The testing protocols and documentation can be inspected through the [testing.md](testing.md) file.
 
 ## Deployment
 The project was developed using the [Cloud9 IDE](https://c9.io/). It was then committed to git through the git bash terminal and pushed to 
@@ -335,7 +335,7 @@ consisted of the following:
 2. Selecting __Milestone-project-2__ from the list of repositories.
 3. Clicking on __Settings__ which is situated at the far right menu item on the uppermost ribbon.
 4. Scroll down to the GitHub Pages section.
-5. Under Source click the drop-down menu labelled None and select Master Branch.
+5. Under Source, click the dropdown menu labelled None and select Master Branch.
 6. On selecting the Master Branch, the page is then automatically refreshed and **Simon** **Game** is deployed.
 7. Finally, scroll back down to the GitHub Pages section to retrieve the link to the deployed website.
 
@@ -351,7 +351,7 @@ To clone this project from GitHub:
 7. Type `git clone` and paste in the URL that you have saved.
 8. Press enter and your local clone will be created.
 
-If you need further with cloning a repository from GitHub, you can find further documentatin [here](https://help.github.com/en/articles/cloning-a-repository).
+If you need more assistence with cloning a repository from GitHub, you can find further documentation [here](https://help.github.com/en/articles/cloning-a-repository).
 
 ## Credits
 
@@ -362,22 +362,24 @@ The small pieces of text content in this game were wholly written by the develop
 * Box shadow codes were generated at [CSS matic | box-shadow](https://cssmatic.com/box-shadow).
 * The creation of the coloured button div elements was done by the developer with some mentor advice.
 * The power and strict toggle switches code was taken directly from the [Bootswatch](https://bootswatch.com/spacelab/) theme page. 
-* The sound clips were taken from [Soundjay.com](https://www.soundjay.com/button-sounds-1.html "Game Sounds"). A free to use site of various sound files.
-* The Trophy and Frustrated emojis were taken from [emojipedia.org](https://emojipedia.org/trophy/ "Emoji Trophy Image"). These are also free to use.
-* The accordian and modal code was scraped from [Bootstrap](https://getbootstrap.com/) documentation and altered to suit my needs.
-* The code for generating a random number between 1 and 4 was sourced from [George Louis](https://www.youtube.com/watch?v=iXscqYgZ7HQ "Root Code").
+* The Trophy and Frustrated emojis were taken from [emojipedia.org](https://emojipedia.org/trophy/ "Emoji Trophy Image"). These are all free to use and share.
+* The accordian and modal code was scraped from [Bootstrap](https://getbootstrap.com/) and altered to suit my needs.
+* The code for generating a random number between 1 and 4 was sourced from this [Stack Overflow](https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript?rq=1) post and adapted.
 * The core code for lighting up the correct button was sourced from [Beau Carnes](https://www.youtube.com/watch?v=zwKoo7VDj44 "Edureka") and adjusted to suit my code.
 * The code to disable the startBtn came from this [Stack Overflow](https://stackoverflow.com/questions/13831601/disabling-and-enabling-a-html-input-button) post.
-* The rest of the code sourced by way of research, asking Slack members and brute force trial and error.
+* The code to create the sticky footer that would not collapse came from [here](https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/).
+* The rest of the code was sourced by way of research, asking Slack members, as well as brute force trial and error.
 
 ### Media
+The sound clips were taken from [Soundjay.com](https://www.soundjay.com/button-sounds-1.html "Game Sounds"). A free to use and share website of various sound files.
+
 The background image used for the **Rules** accordian / modal was obtained from [wikimedia](https://commons.wikimedia.org/wiki/Category:Images). A free to use
-and share site for __commons__ licensed images.
+and share website for __commons__ licensed images.
 
 ### Acknowledgements
 I received inspiration for this project by watching a number of videos & tutorials from various You Tube users. Two in particular were - [George Louis](https://www.youtube.com/watch?v=iXscqYgZ7HQ "Root Code") & 
 [Beau Carnes](https://www.youtube.com/watch?v=zwKoo7VDj44 "Edureka"). As always, my mentor (**Chris Zeilinsky**) was of invaluable help in keeping me positive
-about this project as I struggled to get my code up and working. And finally, my fellow [Code Institute](https://codeinstitute.net/) student [Anna](https://github.com/AJGreaves) with
-her advice for the strucure of this README.md file.
+about this project as I struggled to get my code up and working. Phillip Walton (no relation) who published the flexbox [code](https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/) to create a sticky footer. 
+And finally, my fellow [Code Institute](https://codeinstitute.net/) student [Anna](https://github.com/AJGreaves) with her advice for the strucure of this README.md file.
 
 __Simon__ is a registered trademark of [**Hasbro**](https://shop.hasbro.com/en-gb).
