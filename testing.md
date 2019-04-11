@@ -1,7 +1,7 @@
 <p align="center">
   <h1>Simon Game -- Test Results</h1>
 </p>
-Primary [README](README.md) documentation.
+
 
 ## Manual Testing
 <p align="center">
@@ -10,42 +10,44 @@ Primary [README](README.md) documentation.
 <p align="center">
     <img src="Testing/screenshots/Safari-Modal.png" alt="modal screen on safari" width="350" height="200">
 </p>
-*****
+
+____
+
 <p align="center">
    Accordian Displayed on iPhone  
 </p>
 <p align="center">
     <img src="Testing/screenshots/iPhone-Accordian.png" alt="iphone accordian" width="350" height="200">
 </p>
-*****
-<p align="center">
-    Error Screen on iPad
-</p>
-<p align="center">
-    <img src="Testing/screenshots/iPad-Error.png" alt="error screen on ipad" width="350" height="200">
-</p>
-*****
+
+____
+
 <p align="center">
     Strict Mode Error Screen
 </p>
 <p align="center">
     <img src="Testing/screenshots/Strict-Mode-Error.png" alt="strict mode error screen" width="350" height="200">
 </p>
-*****
+
+____
+
 <p align="center">
     iPad Pro Positioning Issue
 </p>
 <p align="center">
     <img src="Testing/screenshots/iPad-Pro.png" alt="app displayed on ipad pro" width="350" height="200">
 </p>
-*****
+
+____
+
 <p align="center">
     Pixel 2 Phone Winning Screen
 </p>
 <p align="center">
     <img src="Testing/screenshots/Pixel2-Win.png" alt="winner screen on pixel 2 phone" width="350" height="200">
 </p>
-*****
+
+____
 
 ### Bugs Detected
 1. Initially, after my first few commits, I checked the rendering of the app across all the main browsers. It worked perfectly on Chrome, Mozilla and Opera but
