@@ -86,8 +86,8 @@ Therefore, I considered the user stories carefully when building the features an
 * A large Start button above the game board for beginning the game.
 * The Strict switch control on the game board to allow for increasing difficulty level.
 * Display Screens:
-  * Display 1 -> The current player level is displayed on the game board controls. 
-  * Display 2 -> The top score is displayed at the botom of the page below the game board.
+  * Display 1: The current player level is displayed on the game board controls. 
+  * Display 2: The top score is displayed at the botom of the page below the game board.
 * Different coloured buttons the light up and have a sound effect attached to them.
 * Pop-up or dropdown modal and accordian rules for players to understand their requirements.
 
@@ -234,18 +234,22 @@ function displayError() {
 ```
 
 The game will also check when a player sequence is incorrect if the strict mode has been enabled. If this is the case then the game error sound will play
-and the player will see the Top Score display show a frustrated emoji as the game is now over. No mistakes are allowed in strict mode:
+and the player will see the Top Score display show a frustrated emoji as the game is now over. No mistakes are allowed in strict mode:<br />
+
 <p align="center">
     <img src="Testing/screenshots/Strict-Mode-Error.png" alt="Error Screen in Strict Mode" width="650" height="400">
 </p>
+
 Alternatively, if the player manages to get to the end of the game by repeating the full 20 levels, a game winning sound will play, the board will light up
 in a circular sequential pattern -- Red, Green, Blue and then Yellow, before each one sequentially going back out again. The control panel level display
-screen will show **"WIN"** and the top score display will present the player with a _Trophy_:
+screen will show **WIN**  and the top score display will present the player with a **Trophy**:<br />
+
 <p align="center">
     <img src="Testing/screenshots/Winner-Screen.png" alt="Game winners screen" width="650" height="400">
 </p>
+
 As the user plays through the game and the levels increase, the game will check to see if at any point the level has moved higher than any previous high
-scores. If this is the case, then the **Top Score** display will change to highlight the new higher level of achievement and save this to localStorage:
+scores. If this is the case, then the **Top** **Score** display will change to highlight the new higher level of achievement and save this to localStorage:
 
 ```javascript
     function setTopScore() {
