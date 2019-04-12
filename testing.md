@@ -162,7 +162,7 @@ _____
 Buttons all tested to make sure they were disabled before power switched on. The start button became enabled after power on. 
 The colour buttons remained disabled after power on and only became enabled after simonSeq was generated and it was player turn:
 
-![button tests](Testing/screenshots/Jasmine-Buttons.png" alt="button tests)
+![button tests](Testing/screenshots/Jasmine-Buttons.png)
 
 _____
 
