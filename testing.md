@@ -64,11 +64,11 @@ ____
 ### Bugs Detected
 1. Initially, after my first few commits, I checked the rendering of the app across all the main browsers. It worked perfectly on Chrome, Mozilla and Opera but
 had an issue with margin spacing between the **Top Score** display and the footer on Safari and Edge. 
-  1 After much commenting out of code and using the **developer** settings available in Safari, I realized that the bootstrap utility classes that I was using 
-    for my margins was causing an issue. I resolved this by removing the utility classes and increasing the margins between the two elements in my CSS styles.
+  1.1. After much commenting out of code and using the **developer** settings available in Safari, I realized that the bootstrap utility classes that I was using 
+    for my margins were causing an issue. I resolved this by removing the utility classes and increasing the margins between the two elements in my CSS rules.
 
-2. There was an early problem of the buttons being active when the game sequence was playing out. This caused error in the game and made it unpleasant to play.
-  2 I asked some questions on Slack about this issue but none of the direct replies worked for my app. I therefore went back to Stack Overflow and found a 
+2. There was an early problem of the buttons being active when the game sequence was playing out. This caused some errors in the game and made it unpleasant to play.
+  2.1. I asked some questions on Slack about this issue but none of the direct replies worked for my app. I therefore went back to Stack Overflow and found a 
     solution in this [post](https://stackoverflow.com/questions/13831601/disabling-and-enabling-a-html-input-button). I then adapted this to create my own loop
     that would resolve the colour buttons being pressable during simon sequence:
 
@@ -81,12 +81,12 @@ function addDisable() {
 ```
 
 3. When the game was near complete, for example, the game could be played perfectly well till the winning end point, I discovered a bug with the **Strict Mode**.
-    If a user made an error under while this mode was switched on the game should have ended. However, in my app, the error would show but then simon would
-    repeat its sequence and game could continue.
-  3 When examing what was happening "under the hood" through the use of **Dev Tools**, I also noticed that the game was going into an infinite loop when a player
-    made an error under strict mode conditions. The solution to this came after much heartache and ardous console logging, while also move around entire blocks of
+    If a user made an error while this mode was switched on the game should have ended. However, in my app, the error would show but then simon would simply
+    repeat its sequence and the game would continue.
+  3.1. When examing what was happening "under the hood" through the use of **Dev Tools**, I also noticed that the game was going into an infinite loop when a player
+    made an error under strict mode conditions. The solution to this came after much heartache and ardous console logging, while also moving around entire blocks of
     code to test it. I discussed this with my mentor Chris who advised me to continue shifting the code blocks in my conditional statements around one block at a
-    time till I could see where the bug arose. I eventually found that order of my conditional statements was causing the error. I therefore moved these around and
+    time till I could see where the bug arose. I eventually found that the order of my conditional statements was causing the error. I therefore moved these around and
     the code worked without any errors or bugs:
 
 ```javascript
@@ -106,9 +106,8 @@ rendering of the page consistent across all other browsers and platforms. Theref
 full functionality, this slightest of bugs has not required me to alter my code, in order to accomodate for it.
 
 #### Code Refactoring
-I feel looking at my code that a bit more refactoring is possible, in order to reduce the verbosity of some code blocks. For instance, my choice to have the game
-board light up sequentially in a circular motion, one button at a time; Red, Green, Blue, Yellow, and then have them go back out in that same order has been written
-in what I think is verbose code:
+I feel looking at my code that a bit more refactoring may be possible. For instance, my choice to have the game board light up sequentially in a circular motion, 
+one button at a time; Red, Green, Blue, Yellow, and then have them go back out in that same order has been written in what I think is slightly verbose code:
 
 ```javascript
 function lightUpBoard() {
@@ -142,7 +141,7 @@ function redBtnRemove() {
 I believe there could be some form of iterative loop that could condense this code down in a smaller code block and after multiple
 attempts to do so and asking for assistance on Stack Overflow [here](https://stackoverflow.com/questions/55514399/how-to-append-to-one-specific-class-amongst-multiple-class-in-an-element). I eventually decided against
 pursuing it any further. My own research and attempts lead me to believe it would take some form of recursive loop to achieve what I 
-wanted here and unless these are built very carefully by an experienced developer, I could well run into another issue of infinite loops.
+wanted here and unless these are built very carefully by an experienced developer, I could well run into another issue of infinite looping.
 
 ## Automated Testing
 ### Jasmine
