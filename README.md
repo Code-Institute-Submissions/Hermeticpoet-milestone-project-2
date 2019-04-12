@@ -364,7 +364,7 @@ The small pieces of text content in this game were wholly written by the develop
 * The power and strict toggle switches code was taken directly from the [Bootswatch](https://bootswatch.com/spacelab/) theme page. 
 * The Trophy and Frustrated emojis were taken from [emojipedia.org](https://emojipedia.org/trophy/ "Emoji Trophy Image"). These are all free to use and share.
 * The accordian and modal code was scraped from [Bootstrap](https://getbootstrap.com/) and altered to suit my needs.
-* The code for generating a random number between 1 and 4 was sourced from this [Stack Overflow](https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript?rq=1) post and adapted.
+* The code to generate a random number between 1 and 4 was adapted from this [Stack Overflow](https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript?rq=1) post.
 * The core code for lighting up the correct button was sourced from [Beau Carnes](https://www.youtube.com/watch?v=zwKoo7VDj44 "Edureka") and adjusted to suit my code.
 * The code to disable the startBtn came from this [Stack Overflow](https://stackoverflow.com/questions/13831601/disabling-and-enabling-a-html-input-button) post.
 * The code to create the sticky footer that would not collapse came from [here](https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/).
