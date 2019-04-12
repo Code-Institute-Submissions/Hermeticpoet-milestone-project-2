@@ -156,6 +156,19 @@ could not read this properly and kept throwing up an error till I commented it o
 My approach to using Jasmine was to test each function a small section at a time and slowly build up to more complex expectations. Some of my test results
 can be seen below:
 
+<p align="center">
+    <h5>Button Tests</h5>
+    Buttons all tested to make sure they were disabled before power switched on. The start button became enabled after power on. 
+    The colour buttons remained disabled after power on and only became enabled after simonSeq was generated and it was player turn:
+    <img src="Testing/screenshots/Jasmine-Buttons.png" alt="button tests" width="400" height="200">
+</p>
+
+<p align="center">
+    <h5>Random ID Generation Tests</h5>
+    Tested to make sure the correct functions called when start button pressed. That the random number generator produced a number
+    between 1 & 4. This ID was then passed to correct addClassSound function to light up correct colour buttons:
+    <img src="Testing/screenshots/Jasmine-numGen.png" alt="ID generation tests" width="400" height="400">
+</p>
 
 ### Validation Services
 [W3C Markup Validation](https://validator.w3.org/nu/) was used to validate HTML.
