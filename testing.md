@@ -154,12 +154,10 @@ And as such, I chose instead to test my code manually while getting to grips wit
 
 Jasmine-Jquery CDN has been imported into the jasmine testing to allow for jQuery within the JavaScript functions. When running the Jasmine tests, it is 
 necessary to comment out the...
-   `let topScoreDisplay = document.querySelector("#topScoreCount").value;`...
-global variable at the top of app.js file. Jasmine could not read this properly due to the `.value` suffix and consequently, it kept throwing up an error 
+```let topScoreDisplay = document.querySelector("#topScoreCount").value;```
+... global variable at the top of app.js file. Jasmine could not read this properly due to the `.value` suffix and consequently, it kept throwing up an error 
 untill I commented it out, then all the tests ran correctly.
 
-My approach to using Jasmine was to test each function a small section at a time and slowly build up to more complex expectations. Some of my test results
-can be seen below:
 
 _____
 
@@ -192,7 +190,7 @@ were called when player makes a mistake or wins the game:
 _____
 
 
-###### Local Storage Retrive & Display Tests
+###### Local Storage Retrieve & Display Tests
 These last few tests verified that the game checked localStorage when first powered on, assigned a value of "00" if there was no saved data,
 i.e. 'null' or 'undefined' results, if there is data from a previous high score ("2") in this case, then the game retrieves and displays
 this data in the top score display window:
