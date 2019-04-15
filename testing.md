@@ -175,6 +175,28 @@ between 1 & 4. This ID was then passed to correct addClassSound function to ligh
 
 _____
 
+
+###### Function Call Tests
+Confirmation tests to observe whether all functions were called at the appropriate time and place. Thus, when the game is powered on
+and start button is pressed, the playPowerOnSound and the resetGame functions are called. If a player clicks a button or the simonSeq 
+generates a sequence that matches a particular button, then the playBtnSound is called. I also tested the playErrorSound and playGameWinSound
+were called when player makes a mistake or wins the game:
+
+![function call tests](Testing/screenshots/Jasmine-Sounds.png)
+
+_____
+
+
+###### Local Storage Retrive & Display Tests
+These last few tests verified that the game checked localStorage when first powered on, assigned a value of "00" if there was no saved data,
+i.e. 'null' or 'undefined' results, if there is data from a previous high score ("2") in this case, then the game retrieves and displays
+this data in the top score display window:
+
+![localStorage tests](Testing/screenshots/Jasmine-localStorage.png)
+
+_____
+
+
 ### Validation Services
 [W3C Markup Validation](https://validator.w3.org/nu/) was used to validate HTML.
   - The validator read the opening body tag in 'error' until I commented out the audio files in the head section then all passed.
