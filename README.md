@@ -17,7 +17,7 @@ of the logic you have used to build your game as well as an explanation of how y
 
 <p align="center">
     Game As Rendered In Opera<br /><br />
-    <img src="Testing/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser" width="650" height="400">
+    <img src="tests/screenshots/Game-Opera.png" alt="Game Rendered in Opera Browser" width="650" height="400">
 </p>
 
 ## UX
@@ -237,7 +237,7 @@ The game will also check when a player sequence is incorrect if the strict mode 
 and the player will see the Top Score display show a frustrated emoji as the game is now over. No mistakes are allowed in strict mode:<br />
 
 <p align="center">
-    <img src="Testing/screenshots/Strict-Mode-Error.png" alt="Error Screen in Strict Mode" width="650" height="400">
+    <img src="tests/screenshots/Strict-Mode-Error.png" alt="Error Screen in Strict Mode" width="650" height="400">
 </p>
 
 Alternatively, if the player manages to get to the end of the game by repeating the full 20 levels, a game winning sound will play, the board will light up
@@ -245,7 +245,7 @@ in a circular sequential pattern -- Red, Green, Blue and then Yellow, before eac
 screen will show **WIN**  and the top score display will present the player with a **Trophy**:<br />
 
 <p align="center">
-    <img src="Testing/screenshots/Winner-Screen.png" alt="Game winners screen" width="650" height="400">
+    <img src="tests/screenshots/Winner-Screen.png" alt="Game winners screen" width="650" height="400">
 </p>
 
 As the user plays through the game and the levels increase, the game will check to see if at any point the level has moved higher than any previous high

@@ -20,7 +20,7 @@ The tests carried out during this phase were standard across all browsers and de
     Modal Displayed on Safari Browser
 </p>
 <p align="center">
-    <img src="Testing/screenshots/Safari-Modal.png" alt="modal screen on safari" width="350" height="200">
+    <img src="tests/screenshots/Safari-Modal.png" alt="modal screen on safari" width="350" height="200">
 </p>
 
 ____
@@ -29,7 +29,7 @@ ____
    Accordian Displayed on iPhone  
 </p>
 <p align="center">
-    <img src="Testing/screenshots/iPhone-Accordian.png" alt="iphone accordian" width="200" height="200">
+    <img src="tests/screenshots/iPhone-Accordian.png" alt="iphone accordian" width="200" height="200">
 </p>
 
 ____
@@ -38,7 +38,7 @@ ____
     Strict Mode Error Screen
 </p>
 <p align="center">
-    <img src="Testing/screenshots/Strict-Mode-Error.png" alt="strict mode error screen" width="350" height="200">
+    <img src="tests/screenshots/Strict-Mode-Error.png" alt="strict mode error screen" width="350" height="200">
 </p>
 
 ____
@@ -47,7 +47,7 @@ ____
     iPad Pro Positioning Issue
 </p>
 <p align="center">
-    <img src="Testing/screenshots/iPad-Pro.png" alt="app displayed on ipad pro" width="350" height="200">
+    <img src="tests/screenshots/iPad-Pro.png" alt="app displayed on ipad pro" width="350" height="200">
 </p>
 
 ____
@@ -56,7 +56,7 @@ ____
     Pixel 2 Phone Winning Screen
 </p>
 <p align="center">
-    <img src="Testing/screenshots/Pixel2-Win.png" alt="winner screen on pixel 2 phone" width="200" height="200">
+    <img src="tests/screenshots/Pixel2-Win.png" alt="winner screen on pixel 2 phone" width="200" height="200">
 </p>
 
 ____
@@ -165,7 +165,7 @@ _____
 Buttons all tested to make sure they were disabled before power switched on. The start button became enabled after power on. 
 The colour buttons remained disabled after power on and only became enabled after simonSeq was generated and it was player turn:
 
-![button tests](Testing/screenshots/Jasmine-Buttons.png)
+![button tests](tests/screenshots/Jasmine-Buttons.png)
 
 _____
 
@@ -174,7 +174,7 @@ _____
 Tested to make sure the correct functions called when start button pressed. That the random number generator produced a number
 between 1 & 4. This ID was then passed to correct addClassSound function to light up correct colour buttons:
 
-![ID generation tests](Testing/screenshots/Jasmine-numGen.png)
+![ID generation tests](tests/screenshots/Jasmine-numGen.png)
 
 _____
 
@@ -185,7 +185,7 @@ and start button is pressed, the playPowerOnSound and the resetGame functions ar
 generates a sequence that matches a particular button, then the playBtnSound is called. I also tested the playErrorSound and playGameWinSound
 were called when player makes a mistake or wins the game:
 
-![function call tests](Testing/screenshots/Jasmine-Sounds.png)
+![function call tests](tests/screenshots/Jasmine-Sounds.png)
 
 _____
 
@@ -195,7 +195,7 @@ These last few tests verified that the game checked localStorage when first powe
 i.e. 'null' or 'undefined' results, if there is data from a previous high score ("2") in this case, then the game retrieves and displays
 this data in the top score display window:
 
-![localStorage tests](Testing/screenshots/Jasmine-localStorage.png)
+![localStorage tests](tests/screenshots/Jasmine-localStorage.png)
 
 _____
 

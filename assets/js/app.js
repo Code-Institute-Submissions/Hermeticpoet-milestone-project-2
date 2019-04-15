@@ -57,7 +57,7 @@ $(".colorBtn").click(function() {
 });
 
 
-// Strict Button Listener
+// Strict Button Listener ******************************************************
 
 $("#strictOn").click(function () {
  if (strictBtn.checked == true) {
@@ -365,6 +365,7 @@ function playPowerOnSound() {
 
 
 // Create Game Win Sound Function **********************************************
+
 function playGameWinSound() {
  let gameWinSound = document.querySelector("#gameWinSound");
  gameWinSound.play();
