@@ -153,8 +153,10 @@ the project. Therefore, I did not feel capable or comfortable writing Jasmine te
 And as such, I chose instead to test my code manually while getting to grips with JavaScript and then tackle learning Jasmine afterwards.
 
 Jasmine-Jquery CDN has been imported into the jasmine testing to allow for jQuery within the JavaScript functions. When running the Jasmine tests, it is 
-necessary to comment out the `let topScoreDisplay = document.querySelector("#topScoreCount").value;` global variable at the top of app.js file. Jasmine
-could not read this properly and kept throwing up an error till I commented it out, then tests ran fine.
+necessary to comment out the...
+   `let topScoreDisplay = document.querySelector("#topScoreCount").value;`...
+global variable at the top of app.js file. Jasmine could not read this properly due to the `.value` suffix and consequently, it kept throwing up an error 
+untill I commented it out, then all the tests ran correctly.
 
 My approach to using Jasmine was to test each function a small section at a time and slowly build up to more complex expectations. Some of my test results
 can be seen below:
