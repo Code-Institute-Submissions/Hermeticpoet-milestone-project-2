@@ -57,12 +57,12 @@ colours provided as part of the Bootswatch theme.
 #### Fonts
 The primary font Rubik was selected for its soft, playful aesthetic. Likewise, the secondary font Sniglet maintains this same playful look but with a 
 slightly harder, straighter lined edge to make the button text clear to the users. The displays use the more traditional Courier font as it provided
-the most clear and plain format within the display box with its seeming led glowing appearance.
+the most clear and plain format within the display box with its seeming LED glowing appearance.
 
 ### User Stories
 As a player, I want: 
 1. To find and understand the rules of the game easily. 
-2. To intuitively grasps where everything on the page and around the game board.
+2. To intuitively grasp where everything on the page and around the game board.
 3. Audio and visual feedback when I play the game so that I know when I have clicked or not clicked something.
 4. The capability to increase the difficulty of the game when I choose.
 5. Visual feedback as to what level of the game I am on and what the current best score for the game has been.
@@ -88,7 +88,7 @@ Therefore, I considered the user stories carefully when building the features an
 * Display Screens:
   * Display 1: The current player level is displayed on the game board controls. 
   * Display 2: The top score is displayed at the botom of the page below the game board.
-* Different coloured buttons the light up and have a sound effect attached to them.
+* Different coloured buttons that light up and have a sound effect attached to them.
 * Pop-up or dropdown modal and accordian rules for players to understand their requirements.
 
 ### Existing Features
@@ -233,7 +233,7 @@ function displayError() {
 }
 ```
 
-The game will also check when a player sequence is incorrect if the strict mode has been enabled. If this is the case then the game error sound will play
+The game will also check when a player sequence is incorrect if the strict mode has been enabled. If this is the case, then the game error sound will play
 and the player will see the Top Score display show a frustrated emoji as the game is now over. No mistakes are allowed in strict mode:<br />
 
 <p align="center">
